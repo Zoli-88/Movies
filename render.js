@@ -1,13 +1,33 @@
 // DOM elements
 const $body = document.body;
 const $container = document.querySelector("#container");
+const $moviePage = document.querySelector("#movie-page");
 
 // On load
-function init() {
+function initMovieListPage() {
   renderMovies();
 }
 
-init();
+function initMoviePage() {
+  renderMovie();
+}
+
+async function renderMovie() {
+  const paramsString = window.location.search;
+  const searchParams = new URLSearchParams(paramsString);
+  const queryImdbID = searchParams.get("imdbID");
+  renderLoading();
+  
+  try {
+    const movie = await listMovie(queryImdbID);
+    $moviePage.innerHTML = movieComponent(movie);
+    
+  } catch (error) {
+    renderError(error);
+  }
+
+  clearLoading();
+}
 
 async function renderMovies() {
   renderLoading();
@@ -44,4 +64,3 @@ function clearError() {
   const $error = document.querySelector("#error");
   $error.remove();
 }
-

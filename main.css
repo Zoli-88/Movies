@@ -87,6 +87,8 @@ a {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   max-width: 400px;
   background: rgba(255,255,255, 0.08);
@@ -100,11 +102,18 @@ a {
   object-fit: cover;
 }
 
-.content {
-  margin: 10px 0;
+.information {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.external-link::after {
+.content {
+  margin: 10px 0 16px;
+}
+
+a[target="_blank"]::after {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -129,7 +138,7 @@ a {
 }
 
 .title:hover,
-.poster-container:hover + .content .title {
+.poster-container:hover + .information .title {
   color: rgb(230, 230, 230);
 }
 
