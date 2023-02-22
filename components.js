@@ -1,13 +1,16 @@
+const IMDB_PLACEHOLDER = "<IMDB_ID>";
+const IMDB_URL = `https://www.imdb.com/title/${IMDB_PLACEHOLDER}/?ref_=fn_al_tt_1`;
+
 function cardComponent(movie) {
   return `
     <div class="card">
     <div class="poster-container">
-      <a href="#!" class="poster-link">
+      <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, movie.imdbID)} target="_blank" class="poster-link">      
         <img src="${movie.Poster}" alt="">
       </a>
     </div>
       <div class="content">
-        <a href="#!" class="title">
+        <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, movie.imdbID)} target="_blank" class="title">
           <span>${movie.Title}</span>
         </a>
         <br>
@@ -15,13 +18,33 @@ function cardComponent(movie) {
         <span class="year">${movie.Year}</span>
       </div>
       <div class="details">
-        <a href="#!">
+        <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, movie.imdbID)} target="_blank" class="external-link">
           <i class="fa-brands fa-imdb logo-icon"></i>
         </a>
-        <a href="#!" class="info-button">
+        <button class="info-button">
           <i class="fa-solid fa-circle-info "></i>
-        </a>
+        </button>
       </div>
+    </div>
+  `
+}
+
+function loadingComponent() {
+  return `
+    <div id="loading" class="status">
+      <i class="fa-solid fa-spinner fa-spin status-icon"></i>
+      <br>
+      <span class="status-text">Loading, please wait...</span>
+    </div>
+  `
+}
+
+function errorComponent(error) {
+  return `
+    <div id="error" class="status">
+      <i class="fa-solid fa-circle-exclamation status-icon"></i>
+      <br>
+      <span class="status-text">Error, ${error}</span>
     </div>
   `
 }

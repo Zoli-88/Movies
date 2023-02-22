@@ -16,6 +16,7 @@ body {
 a {
   text-decoration: none;
   color: whitesmoke;
+  position: relative;
 }
 
 .container {
@@ -27,9 +28,27 @@ a {
   padding: 20px;
 }
 
+.status {
+  text-align: center;
+  position: fixed;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.status-icon {
+  font-size: 30px;
+}
+
+.status-text {
+  display: inline-block;
+  margin-top: 10px;
+}
+
 .poster-container {
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 6px;
   position: relative;
 }
 
@@ -42,12 +61,12 @@ a {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(
-    to top,+
+    to top,
     black,
-    rgba(255, 255, 255, .05) 30%
+    rgba(255, 255, 255, 0.05) 30%
   );
   pointer-events: none;
-  transition: .1s;
+  transition: .1s ease-in-out;
 }
 
 .poster-link {
@@ -58,11 +77,17 @@ a {
   transform: scale(1.05);
 }
 
+/* firefox doesnt support :has, so we can not put it in the same selector list */
+.card:has(.title:hover) img {
+  transform: scale(1.05);
+}
+
 .poster-link img {
-  transition: .1s;
+  transition: .1s ease-in-out;
 }
 
 .card {
+  border-radius: 8px;
   max-width: 400px;
   background: rgba(255,255,255, 0.08);
   padding: 10px;
@@ -73,17 +98,39 @@ a {
   min-height: 450px;
   display: block;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 .content {
   margin: 10px 0;
 }
 
+.external-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(70%, 30%);
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f14c";
+  color: #efcd51;
+}
+
 .title {
   font-size: 20px;
   display: inline-block;
   margin-bottom: 6px;
+  color: rgb(198, 198, 198);
+  transition: .1s ease-in-out;
+}
+
+.title:hover,
+.poster-container:hover + .content .title {
+  color: rgb(230, 230, 230);
 }
 
 .calendar-icon, 
@@ -93,7 +140,7 @@ a {
 
 .logo-icon {
   font-size: 36px;
-  color: yellow;
+  color: #efcd51;
 }
 
 .info-button {
@@ -101,6 +148,8 @@ a {
   font-size: 18px;
   padding: 8px 10px;
   border-radius: 4px;
+  border: none;
+  cursor: pointer;
   background: rgb(71, 71, 71);
   transition: .1s;
 }
