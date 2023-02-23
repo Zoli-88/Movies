@@ -1,25 +1,40 @@
 const IMDB_PLACEHOLDER = "<IMDB_ID>";
 const IMDB_URL = `https://www.imdb.com/title/${IMDB_PLACEHOLDER}/?ref_=fn_al_tt_1`;
 
+const ICONS_MAP = new Map();
+ICONS_MAP.set("IMDB", "fa-solid fa-star")
+ICONS_MAP.set("Internet Movie Database", "fa-solid fa-database")
+ICONS_MAP.set("Rotten Tomatoes", "fa-solid fa-apple")
+ICONS_MAP.set("Metacritic", "fa-solid fa-pen")
+
+console.log(ICONS_MAP)
+
 function cardComponent(movie) {
+  const {
+    imdbID,
+    Poster,
+    Title,
+    Year,
+  } = movie;
+
   return `
     <div class="card">
     <div class="poster-container">
-      <a href=/movie.html?imdbID=${movie.imdbID} class="poster-link">      
-        <img src="${movie.Poster}" alt="">
+      <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
+        <img src="${Poster}" alt="">
       </a>
     </div>
       <div class="information">
         <div class="content">
-          <a href=/movie.html?imdbID=${movie.imdbID} class="title">
-            <span>${movie.Title}</span>
+          <a href=/html?imdbID=${imdbID} class="title">
+            <span>${Title}</span>
           </a>
           <br>
           <i class="fa-regular fa-calendar calendar-icon"></i>
-          <span class="year">${movie.Year}</span>
+          <span class="year">${Year}</span>
         </div>
         <div class="details">
-          <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, movie.imdbID)} target="_blank" class="external-link">
+          <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank" class="external-link">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
           <button class="info-button">
@@ -31,38 +46,64 @@ function cardComponent(movie) {
   `
 }
 
-function movieComponent(movie) {
+function ratingComponent(rating) {
   return `
     <div>
+      <span>${rating.Source}</span>
+      <br>
       <div>
-        <h1>${movie.Title}</h1>
-        <span>${movie.Year}</span>
-        <span>${movie.Rated}</span>
-        <span>${movie.Runtime}</span>
-      </div>
-      <div>
-        <div>
-          <span>${movie.Ratings[0].Source}</span>
-          <br>
-          <i class="fa-solid fa-star"></i>
-          <span>${movie.Ratings[0].Value}</span>
-        </div>
-        <div>
-          <span>${movie.Ratings[1].Source}</span>
-          <br>
-          <i class="fa-solid fa-star"></i>
-          <span>${movie.Ratings[1].Value}</span>
-        </div>
-        <div>
-          <span>${movie.Ratings[2].Source}</span>
-          <br>
-          <i class="fa-solid fa-star"></i>
-          <span>${movie.Ratings[2].Value}</span>
-        </div>
+      <i class="${ICONS_MAP.get(rating.Source)}"></i>
+      <span>${rating.Value}</span>
       </div>
     </div>
-    <img src="${movie.Poster}" alt="${movie.Title} movie poster">
-    <p>${movie.Plot}</p>
+  `
+}
+
+function movieComponent(movie) {
+  const {
+    Title,
+    Year,
+    Rated,
+    Runtime,
+    Genre,
+    Director,
+    Writer,
+    Actors,
+    Poster,
+    Plot,
+  } = movie;
+
+  console.log("movie.Ratings", movie.Ratings)
+
+  return `
+    <div class="ratings">
+      ${ratingComponent({
+        Source: "IMDB",
+        Value: movie.imdbRating
+      })}
+      ${movie.Ratings.map(rating => {
+        console.log(rating)
+        return ratingComponent(rating);
+      })}
+    </div>
+    <div class="description">
+      <img src="${Poster}" alt="${Title} movie poster">
+      <div>
+        <h1>${Title}</h1>
+        <div class="subtitle">
+          <span>${Year} &#x2022;</span>
+          <span>${Rated} &#x2022;</span>
+          <span>${Runtime}</span>
+        </div>
+        <ul>
+          <li><i class="fa-solid fa-video"></i> ${Genre}</li>
+          <li><i class="fa-solid fa-clapperboard"></i> ${Director}</li>
+          <li><i class="fa-solid fa-pen-to-square"></i> ${Writer}</li>
+          <li><i class="fa-solid fa-masks-theater"></i> ${Actors}</li>
+          <p class="plot">${Plot}</p>
+        </ul>
+      </div>
+    </div>
   `
 }
 

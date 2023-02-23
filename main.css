@@ -167,9 +167,64 @@ a[target="_blank"]::after {
   background: rgb(89, 89, 89);
 }
 
+.movie-page {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .details {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.ratings {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+}
+
+.ratings > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+
+.ratings > div > div {
+  margin-top: 6px;
+
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #bdbdbd;
+}
+
+.description {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.description ul {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+.description li {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.plot {
+  margin: 10px 0;
+}
+
+i {
+  padding-right: 4px;
 }
