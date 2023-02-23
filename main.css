@@ -225,6 +225,21 @@ a[target="_blank"]::after {
   margin: 10px 0;
 }
 
-i {
+.movie-page i {
   padding-right: 4px;
+}
+
+.fa-star {
+  color: #ffff00;
+}
+.fa-apple-whole {
+  color: #ff0000;
+}
+
+.fa-database {
+color: #8b4513;
+}
+
+.fa-pen-nib {
+color: #60c5e7;
 }
