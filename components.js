@@ -7,8 +7,6 @@ ICONS_MAP.set("Internet Movie Database", "fa-solid fa-database")
 ICONS_MAP.set("Rotten Tomatoes", "fa-solid fa-apple-whole")
 ICONS_MAP.set("Metacritic", "fa-solid fa-pen-nib")
 
-console.log(ICONS_MAP)
-
 function cardComponent(movie) {
   const {
     imdbID,
@@ -21,7 +19,7 @@ function cardComponent(movie) {
     <div class="card">
     <div class="poster-container">
       <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
-        <img src="${Poster}" alt="">
+        <img src="${Poster}" alt="${Title} poster">
       </a>
     </div>
       <div class="information">
@@ -37,7 +35,7 @@ function cardComponent(movie) {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank" class="external-link">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="info-button">
+          <button class="primary-btn">
             <i class="fa-solid fa-circle-info "></i>
           </button>
         </div>
@@ -50,13 +48,12 @@ function ratingComponent(rating) {
   return `
     <div>
       <span>${rating.Source}</span>
-      <br>
       <div>
-      <i class="${ICONS_MAP.get(rating.Source)}"></i>
-      <span>${rating.Value}</span>
+        <span>${rating.Value}</span>
+        <i class="${ICONS_MAP.get(rating.Source)}"></i>
       </div>
     </div>
-  `
+    `
 }
 
 function movieComponent(movie) {
@@ -67,13 +64,16 @@ function movieComponent(movie) {
     Runtime,
     Genre,
     Director,
+    Language,
+    Country,
+    Awards,
+    DVD,
+    BoxOffice,
     Writer,
     Actors,
     Poster,
     Plot,
   } = movie;
-
-  console.log("movie.Ratings", movie.Ratings)
 
   return `
     <div class="ratings">
@@ -82,12 +82,11 @@ function movieComponent(movie) {
         Value: movie.imdbRating
       })}
       ${movie.Ratings.map(rating => {
-        console.log(rating)
         return ratingComponent(rating);
-      })}
+      }).join("")}
     </div>
     <div class="description">
-      <img src="${Poster}" alt="${Title} movie poster">
+      <img src="${Poster}" alt="${Title} movie poster" class="only-desktop">
       <div>
         <h1>${Title}</h1>
         <div class="subtitle">
@@ -95,13 +94,21 @@ function movieComponent(movie) {
           <span>${Rated} &#x2022;</span>
           <span>${Runtime}</span>
         </div>
+        <br>
+        <img src="${Poster}" alt="${Title} movie poster" class="only-mobile">
         <ul>
           <li><i class="fa-solid fa-video"></i> ${Genre}</li>
           <li><i class="fa-solid fa-clapperboard"></i> ${Director}</li>
           <li><i class="fa-solid fa-pen-to-square"></i> ${Writer}</li>
           <li><i class="fa-solid fa-masks-theater"></i> ${Actors}</li>
-          <p class="plot">${Plot}</p>
+          <li><i class="fa-solid fa-globe"></i> ${Language}</li>
+          <li><i class="fa-solid fa-flag"></i> ${Country}</li>
+          <li><i class="fa-solid fa-trophy"></i> Awards: ${Awards}</li>
+          <li><i class="fa-solid fa-compact-disc"></i> Released on DVD: ${DVD}</li>
+          <li><i class="fa-solid fa-sack-dollar"></i> Box-office total: ${BoxOffice}</li>
         </ul>
+        <br>
+        <p class="plot">${Plot}</p>
       </div>
     </div>
   `

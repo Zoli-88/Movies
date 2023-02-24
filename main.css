@@ -152,7 +152,7 @@ a[target="_blank"]::after {
   color: #efcd51;
 }
 
-.info-button {
+.primary-btn {
   color: whitesmoke;
   font-size: 18px;
   padding: 8px 10px;
@@ -163,7 +163,7 @@ a[target="_blank"]::after {
   transition: .1s;
 }
 
-.info-button:hover {
+.primary-btn:hover {
   background: rgb(89, 89, 89);
 }
 
@@ -171,6 +171,7 @@ a[target="_blank"]::after {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 24px;
 }
 
 .details {
@@ -197,7 +198,6 @@ a[target="_blank"]::after {
 
 .ratings > div > div {
   margin-top: 6px;
-
 }
 
 .subtitle {
@@ -205,10 +205,43 @@ a[target="_blank"]::after {
   color: #bdbdbd;
 }
 
+.only-desktop {
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  .only-desktop {
+    display: none;
+  }
+}
+.only-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .only-mobile {
+    display: block;
+  }
+}
+
 .description {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255, 0.08);
+}
+
+@media only screen and (max-width: 767px) {
+  .description {
+    flex-direction: column;
+  }
+}
+
+.description img {
+  border-radius: 6px;
+  object-fit: contain;
+  align-self: flex-start;
 }
 
 .description ul {
@@ -223,12 +256,14 @@ a[target="_blank"]::after {
 
 .plot {
   margin: 10px 0;
+  line-height: 1.6;
 }
 
 .movie-page i {
   padding-right: 4px;
 }
 
+/* Icons */
 .fa-star {
   color: #ffff00;
 }
@@ -243,3 +278,40 @@ color: #8b4513;
 .fa-pen-nib {
 color: #60c5e7;
 }
+
+.fa-video {
+  color: lightgray;
+}
+
+.fa-clapperboard {
+  color: rgb(200, 181, 181);
+}
+
+.fa-pen-to-square {
+  color: lightseagreen;
+}
+
+.fa-masks-theater {
+  color: rgb(209, 156, 110);
+}
+
+.fa-globe {
+  color: rgb(92, 129, 239);
+}
+
+.fa-flag {
+  color: palegoldenrod;
+}
+
+.fa-trophy  {
+  color: gold;
+}
+
+.fa-compact-disc {
+  color: rgb(57, 115, 174);
+}
+
+.fa-sack-dollar {
+  color: green;
+}
+
