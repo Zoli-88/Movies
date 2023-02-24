@@ -315,3 +315,13 @@ color: #60c5e7;
   color: green;
 }
 
+.swiper {
+  width: 400px;
+  height: 300px;
+}
+.swiper-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+

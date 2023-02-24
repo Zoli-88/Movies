@@ -134,3 +134,17 @@ function errorComponent(error) {
   `
 }
 
+function swiperComponent() {
+  
+  return `
+  <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">1</div>
+        <div class="swiper-slide">2</div>
+        <div class="swiper-slide">3</div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  `
+}
