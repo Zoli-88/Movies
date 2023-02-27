@@ -24,12 +24,12 @@ function cardComponent(movie) {
     </div>
       <div class="information">
         <div class="content">
+        <i class="fa-regular fa-calendar calendar-icon"></i>
+        <span class="year">${Year}</span>
+        <br>
           <a href=/html?imdbID=${imdbID} class="title">
             <span>${Title}</span>
           </a>
-          <br>
-          <i class="fa-regular fa-calendar calendar-icon"></i>
-          <span class="year">${Year}</span>
         </div>
         <div class="details">
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank" class="external-link">
@@ -134,17 +134,39 @@ function errorComponent(error) {
   `
 }
 
-function swiperComponent() {
+function swiperComponent(movies) {
+  // In the related movies component we want to render all the movies present in the default search
+  // except the one that is highlighted in the movie component
   
+  // to do this, first we need to find a unique id for the movie we want to remove, this can be retrieved from the url
+  // "http://127.0.0.1:5500/movie.html?imdbID=tt2654124"
+  const paramsString = window.location.search;
+  const searchParams = new URLSearchParams(paramsString);
+  const queryImdbID = searchParams.get("imdbID");
+  
+  // then we need to create a new array that will contain all the movies in the default search 
+  // except the one that is highlighted in the movie component
+  // a non destructive method would be the filter method which returns a new array based on the condition we provide
+  // in our case, the method below would translate to 
+  // "return a new copy of the original "movies" array that contains all the objects (movies) in the default search
+  // except the one that has the movie.imdbID value equal to the queryImdbID in the search URL"
+  const moviesWithoutCurrent = movies.filter((movie) => {
+    return movie.imdbID !== queryImdbID
+  });
+
   return `
-  <div class="swiper">
+    <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">1</div>
-        <div class="swiper-slide">2</div>
-        <div class="swiper-slide">3</div>
+        ${moviesWithoutCurrent.map((movie) => {
+          return `
+            <div class="swiper-slide">
+              ${cardComponent(movie)}
+            </div>
+          `
+        }).join("")}
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <button class="swiper-button swiper-button-next primary-btn"></button>
+      <button class="swiper-button swiper-button-prev primary-btn"></button>
     </div>
   `
 }

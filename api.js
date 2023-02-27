@@ -1,4 +1,4 @@
-const BASE_URL = "http://www.omdbapi.com/?apikey=4c8a6d5d";
+const BASE_URL = "https://www.omdbapi.com/?apikey=4c8a6d5d";
 const DEFAULT_SEARCH = "s=iron man";
 
 async function listMovies() {

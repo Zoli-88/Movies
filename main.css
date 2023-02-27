@@ -19,7 +19,7 @@ a {
   position: relative;
 }
 
-.container {
+.movie-list {
   --w: 250px;
   --n: 7;
   display:grid;
@@ -167,11 +167,15 @@ a[target="_blank"]::after {
   background: rgb(89, 89, 89);
 }
 
-.movie-page {
+.container {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   margin-top: 24px;
+}
+
+.container:last-child {
+  margin-bottom: 100px;
 }
 
 .details {
@@ -259,7 +263,7 @@ a[target="_blank"]::after {
   line-height: 1.6;
 }
 
-.movie-page i {
+.container i {
   padding-right: 4px;
 }
 
@@ -315,13 +319,38 @@ color: #60c5e7;
   color: green;
 }
 
-.swiper {
+/* .swiper {
   width: 400px;
   height: 300px;
 }
 .swiper-wrapper {
   display: flex;
   gap: 30px;
+} */
+
+.swiper-slide {
+  height: auto;
 }
 
+.swiper .card .title {
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
 
+.swiper-button.primary-btn {
+  padding: 30px;
+  border-radius: 18px;
+  opacity: .8;
+}
+
+.swiper-button.primary-btn:hover,
+.swiper-button.primary-btn:focus-visible {
+  opacity: 1;
+}
+
+.swiper-button.primary-btn::after {
+  font-size: 30px;
+}

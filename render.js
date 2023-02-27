@@ -2,6 +2,7 @@
 const $body = document.body;
 const $container = document.querySelector("#container");
 const $moviePage = document.querySelector("#movie-page");
+const $relatedMovies = document.querySelector("#related-movies");
 
 // On load
 function initMovieListPage() {
@@ -10,6 +11,7 @@ function initMovieListPage() {
 
 function initMoviePage() {
   renderMovie();
+  renderRelatedMovies();
 }
 
 async function renderMovie() {
@@ -20,32 +22,23 @@ async function renderMovie() {
   
   try {
     const movie = await listMovie(queryImdbID);
-    
     $moviePage.innerHTML = movieComponent(movie);
-    
-    $moviePage.insertAdjacentHTML("afterend", swiperComponent())
-    const swiper = new Swiper('.swiper', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-    
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    
-    });
   } catch (error) {
     renderError(error);
   }
 
   clearLoading();
+}
+
+async function renderRelatedMovies() {
+  try {
+    const data = await listMovies();
+    const movies = data.Search;
+    $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(movies))
+    activateSwiper();
+  } catch (error) {
+    renderError(error);
+  }
 }
 
 async function renderMovies() {
