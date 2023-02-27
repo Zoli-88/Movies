@@ -5,20 +5,23 @@ const $moviePage = document.querySelector("#movie-page");
 const $relatedMovies = document.querySelector("#related-movies");
 
 // On load
-function initMovieListPage() {
-  renderMovies();
+async function initMovieListPage() {
+  renderLoading();
+  await renderMovies();
+  clearLoading();
 }
 
-function initMoviePage() {
-  renderMovie();
-  renderRelatedMovies();
+async function initMoviePage() {
+  renderLoading();
+  await renderMovie();
+  await renderRelatedMovies();
+  clearLoading();
 }
 
 async function renderMovie() {
   const paramsString = window.location.search;
   const searchParams = new URLSearchParams(paramsString);
   const queryImdbID = searchParams.get("imdbID");
-  renderLoading();
   
   try {
     const movie = await listMovie(queryImdbID);
@@ -26,8 +29,6 @@ async function renderMovie() {
   } catch (error) {
     renderError(error);
   }
-
-  clearLoading();
 }
 
 async function renderRelatedMovies() {
@@ -42,8 +43,6 @@ async function renderRelatedMovies() {
 }
 
 async function renderMovies() {
-  renderLoading();
-
   try {
     const data = await listMovies();
     const movies = data.Search;
@@ -55,8 +54,6 @@ async function renderMovies() {
   } catch (error) {
     renderError(error);
   }
-
-  clearLoading();
 }
 
 function renderLoading() {
