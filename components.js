@@ -16,7 +16,7 @@ function cardComponent(movie) {
   } = movie;
 
   return `
-    <div class="card">
+    <div class="card-component">
     <div class="poster-container">
       <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
         <img src="${Poster}" alt="${Title} poster">

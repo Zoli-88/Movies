@@ -1,0 +1,15 @@
+.card-component {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  max-width: 400px;
+  background: var(--primary-bg-clr);
+  padding: 10px;
+
+  img {
+    width: 100%;
+    min-height: 450px;
+    display: block;
+    object-fit: cover;
+  }
+}
