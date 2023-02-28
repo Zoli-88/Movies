@@ -1,0 +1,23 @@
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 24px;
+
+  i {
+    padding-right: 4px;
+  }
+  
+  &:last-child {
+    margin-bottom: 100px;
+  }
+}
+
+.grid-list {
+  --w: 250px;
+  --n: 7;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(max(var(--w), 100%/(var(--n) + 1) + 0.1%),1fr));
+  gap:10px;
+  padding: 20px;
+}

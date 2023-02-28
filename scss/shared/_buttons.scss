@@ -1,0 +1,14 @@
+.primary-btn {
+  color: var(--primary-text-clr);
+  font-size: 18px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background: var(--secondary-bg-clr);
+  transition: .1s;
+  
+  &:hover {
+    background: var(--secondary-bg-clr-hover);
+  }
+}
