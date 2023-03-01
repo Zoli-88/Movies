@@ -12,4 +12,91 @@
     display: block;
     object-fit: cover;
   }
-}
+
+  .poster-wrapper {
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        to top,
+        var(--zero-black),
+        var(--secondary-overlay-bg-clr) 30%
+      );
+      pointer-events: none;
+      transition: .1s ease-in-out;
+    }
+  
+    &:hover {
+      & + .information {
+        .title {
+          color: var(--secondary-text-clr-hover);
+        }
+      }
+
+      &::after {
+        bottom: -100px;
+      }
+    }
+
+    .poster-link {
+      width: 100%;
+
+      img {
+        transition: .1s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  .information {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-grow: 1;
+  
+    .content {
+      margin: 10px 0 16px;
+  
+      .title {
+        font-size: 20px;
+        display: inline-block;
+        margin-bottom: 6px;
+        color: var(--secondary-text-clr);
+        transition: .1s ease-in-out;
+      
+        &:hover {
+          color: var(--secondary-text-clr-hover);
+        }
+      }
+
+      .calendar-icon,
+      .year {
+        font-size: 14px;
+      }
+    }
+    
+    .details {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo-icon {
+        font-size: 36px;
+        color: var(--accent-clr);
+      }
+    }
+  }
+} 
+
+

@@ -17,11 +17,11 @@ function cardComponent(movie) {
 
   return `
     <div class="card-component">
-    <div class="poster-container">
-      <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
-        <img src="${Poster}" alt="${Title} poster">
-      </a>
-    </div>
+      <div class="poster-wrapper">
+        <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
+          <img src="${Poster}" alt="${Title} poster">
+        </a>
+      </div>
       <div class="information">
         <div class="content">
         <i class="fa-regular fa-calendar calendar-icon"></i>
@@ -32,11 +32,11 @@ function cardComponent(movie) {
           </a>
         </div>
         <div class="details">
-          <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank" class="external-link">
+          <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
           <button class="primary-btn">
-            <i class="fa-solid fa-circle-info "></i>
+            <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
       </div>
@@ -76,7 +76,7 @@ function movieComponent(movie) {
   } = movie;
 
   return `
-    <div class="ratings">
+    <div class="ratings-component">
       ${ratingComponent({
         Source: "IMDB",
         Value: movie.imdbRating
@@ -85,7 +85,7 @@ function movieComponent(movie) {
         return ratingComponent(rating);
       }).join("")}
     </div>
-    <div class="description">
+    <div class="description-component">
       <img src="${Poster}" alt="${Title} movie poster" class="only-desktop">
       <div>
         <h1>${Title}</h1>
@@ -116,7 +116,7 @@ function movieComponent(movie) {
 
 function loadingComponent() {
   return `
-    <div id="loading" class="status">
+    <div id="loading" class="status-component">
       <div>
         <i class="fa-solid fa-spinner fa-spin status-icon"></i>
         <br>
@@ -128,7 +128,7 @@ function loadingComponent() {
 
 function errorComponent(error) {
   return `
-    <div id="error" class="status">
+    <div id="error" class="status-component">
       <i class="fa-solid fa-circle-exclamation status-icon"></i>
       <br>
       <span class="status-text">Error, ${error}</span>
@@ -157,7 +157,7 @@ function swiperComponent(movies) {
   });
 
   return `
-    <div class="swiper">
+    <div class="swiper swiper-component">
       <div class="swiper-wrapper">
         ${moviesWithoutCurrent.map((movie) => {
           return `

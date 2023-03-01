@@ -1,0 +1,94 @@
+.description-component {
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--primary-bg-clr);
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  img {
+    border-radius: 6px;
+    object-fit: contain;
+    align-self: flex-start;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 10px 0;
+  }
+
+  li {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--faint-text-clr);
+  }
+
+  .plot {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .only-desktop {
+    display: block;
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .only-mobile {
+    display: none;
+
+    @media only screen and (max-width: 767px) {
+      display: block;
+    }
+  }
+
+  // Icons 
+  .fa-pen-nib {
+  color: var(--icon-teal);
+  }
+  
+  .fa-video {
+    color: var(--icon-white);
+  }
+  
+  .fa-clapperboard {
+    color: var(--icon-gray);
+  }
+  
+  .fa-pen-to-square {
+    color: var(--icon-turqoise);
+  }
+  
+  .fa-masks-theater {
+    color: var(--icon-peach);
+  }
+  
+  .fa-globe {
+    color: var(--icon-violet);
+  }
+  
+  .fa-flag {
+    color: var(--icon-pale);
+  }
+  
+  .fa-trophy {
+    color: var(--icon-orange);
+  }
+  
+  .fa-compact-disc {
+    color: var(--icon-blue);
+  }
+  
+  .fa-sack-dollar {
+    color: var(--icon-green);
+  }
+}

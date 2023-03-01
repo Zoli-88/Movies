@@ -1,0 +1,30 @@
+.ratings-component {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 10px;
+  
+    & > div {
+      margin-top: 6px;
+    }
+  }
+
+  .fa-star {
+    color: var(--icon-yellow);
+  }
+  
+  .fa-apple-whole {
+    color: var(--icon-red);
+  }
+  
+  .fa-database {
+  color: var(--icon-brown);
+  }
+}
