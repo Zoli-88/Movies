@@ -3,9 +3,8 @@ function activateSwiper() {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
-    // slidesPerView: 4,
     centeredSlides: true,
-    spaceBetween: 30,
+    spaceBetween: 10,
     // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
@@ -14,18 +13,15 @@ function activateSwiper() {
     breakpoints: {
       // when window width is >= 320px
       320: {
-        slidesPerView: 2,
-        spaceBetween: 20
+        slidesPerView: 1.5,
       },
       // when window width is >= 480px
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 30
+      576: {
+        slidesPerView: 2.5,
       },
       // when window width is >= 640px
-      640: {
+      768: {
         slidesPerView: 4,
-        spaceBetween: 30
       }
     }
   });
