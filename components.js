@@ -14,11 +14,10 @@ function cardComponent(movie) {
     Title,
     Year,
   } = movie;
-
   return `
     <div class="card-component">
       <div class="poster-wrapper">
-        <a href=/movie.html?imdbID=${imdbID} class="poster-link">      
+        <a href=/movie.html?imdbID=${imdbID}&movieTitle="${encodeURI(Title)}" class="poster-link">      
           <img src="${Poster}" alt="${Title} poster">
         </a>
       </div>
@@ -144,6 +143,7 @@ function swiperComponent(movies) {
   // "http://127.0.0.1:5500/movie.html?imdbID=tt2654124"
   const paramsString = window.location.search;
   const searchParams = new URLSearchParams(paramsString);
+  console.log(searchParams)
   const queryImdbID = searchParams.get("imdbID");
   
   // then we need to create a new array that will contain all the movies in the default search 

@@ -33,7 +33,11 @@ async function renderMovie() {
 
 async function renderRelatedMovies() {
   try {
-    const data = await listMovies();
+    const paramsString = window.location.search;
+    const searchParams = new URLSearchParams(paramsString);
+    const movieTitle = searchParams.get("movieTitle");
+    
+    const data = await listMovies(movieTitle);
     const movies = data.Search;
     $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(movies))
     activateSwiper();
@@ -44,7 +48,7 @@ async function renderRelatedMovies() {
 
 async function renderMovies() {
   try {
-    const data = await listMovies();
+    const data = await listMovies(getRandomFromList(LIST_MOVIES));
     const movies = data.Search;
 
     movies.forEach(movie => {
