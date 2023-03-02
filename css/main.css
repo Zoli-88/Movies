@@ -314,7 +314,7 @@ body {
 .swiper-component.swiper .swiper-slide {
   height: auto;
 }
-.swiper-component.swiper .swiper .card-component .title {
+.swiper-component.swiper .card-component .title {
   height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
