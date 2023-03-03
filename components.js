@@ -7,7 +7,7 @@ ICONS_MAP.set("Internet Movie Database", "fa-solid fa-database")
 ICONS_MAP.set("Rotten Tomatoes", "fa-solid fa-apple-whole")
 ICONS_MAP.set("Metacritic", "fa-solid fa-pen-nib")
 
-function cardComponent(movie) {
+function cardComponent(movie, randomSearchPhrase) {
   const {
     imdbID,
     Poster,
@@ -17,7 +17,7 @@ function cardComponent(movie) {
   return `
     <div class="card-component">
       <div class="poster-wrapper">
-        <a href=/movie.html?imdbID=${imdbID}&movieTitle="${encodeURI(Title)}" class="poster-link">      
+        <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${randomSearchPhrase} class="poster-link">      
           <img src="${Poster}" alt="${Title} poster">
         </a>
       </div>
@@ -143,9 +143,8 @@ function swiperComponent(movies) {
   // "http://127.0.0.1:5500/movie.html?imdbID=tt2654124"
   const paramsString = window.location.search;
   const searchParams = new URLSearchParams(paramsString);
-  console.log(searchParams)
   const queryImdbID = searchParams.get("imdbID");
-  
+  const querySearchPhrase = searchParams.get("searchPhrase");
   // then we need to create a new array that will contain all the movies in the default search 
   // except the one that is highlighted in the movie component
   // a non destructive method would be the filter method which returns a new array based on the condition we provide
@@ -162,7 +161,7 @@ function swiperComponent(movies) {
         ${moviesWithoutCurrent.map((movie) => {
           return `
             <div class="swiper-slide">
-              ${cardComponent(movie)}
+              ${cardComponent(movie, querySearchPhrase)}
             </div>
           `
         }).join("")}

@@ -13,13 +13,16 @@ const LIST_MOVIES = [
   "wind"
 ]
 
+let randomSearchPhrase;
 function getRandomFromList(list) {
   let randomIndexInList = Math.floor(Math.random() * list.length);
-  return list[randomIndexInList];
+  randomSearchPhrase = list[randomIndexInList];
 }
 
-async function listMovies(movieTitle) {
-  const response = await fetch(`${BASE_URL}&s=${movieTitle}`);
+getRandomFromList(LIST_MOVIES);
+
+async function listMovies(queryMovieTitle) {
+  const response = await fetch(`${BASE_URL}&s=${queryMovieTitle}`);
   const data = await response.json();
 
   if(data.Response === "False") {
@@ -31,9 +34,9 @@ async function listMovies(movieTitle) {
 async function listMovie(imdbID) {
   const response = await fetch(`${BASE_URL}&i=${imdbID}&plot=full`);
   const data = await response.json();
+  
   if(data.Response === "False") {
     throw data.Error;
   }
-
   return data
 }

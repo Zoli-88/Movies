@@ -35,9 +35,9 @@ async function renderRelatedMovies() {
   try {
     const paramsString = window.location.search;
     const searchParams = new URLSearchParams(paramsString);
-    const movieTitle = searchParams.get("movieTitle");
+    const querySearchPhrase = searchParams.get("searchPhrase");
     
-    const data = await listMovies(movieTitle);
+    const data = await listMovies(querySearchPhrase);
     const movies = data.Search;
     $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(movies))
     activateSwiper();
@@ -48,11 +48,11 @@ async function renderRelatedMovies() {
 
 async function renderMovies() {
   try {
-    const data = await listMovies(getRandomFromList(LIST_MOVIES));
+    const data = await listMovies(randomSearchPhrase);
     const movies = data.Search;
 
     movies.forEach(movie => {
-      $container.innerHTML += cardComponent(movie);
+      $container.innerHTML += cardComponent(movie, randomSearchPhrase);
     });
     
   } catch (error) {
