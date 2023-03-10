@@ -1,5 +1,12 @@
 .related-titles-component {
   padding-left: 10px;
+  margin-bottom: 24px;
+
+  &.no-related-titles {
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
   .search-phrase {
     text-transform: capitalize;

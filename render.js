@@ -3,6 +3,7 @@ const $body = document.body;
 const $container = document.querySelector("#container");
 const $moviePage = document.querySelector("#movie-page");
 const $relatedMovies = document.querySelector("#related-movies");
+const $relatedMoviesTitle = document.querySelector("#related-movies-title");
 
 // On load
 async function initMovieListPage() {
@@ -36,12 +37,24 @@ async function renderRelatedMovies() {
   try {
     const paramsString = window.location.search;
     const searchParams = new URLSearchParams(paramsString);
+    const queryImdbID = searchParams.get("imdbID");
     const querySearchPhrase = searchParams.get("searchPhrase");
     
     const data = await listMovies(querySearchPhrase);
     const movies = data.Search;
-    $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(movies))
-    activateSwiper();
+
+    const moviesWithoutCurrent = movies.filter((movie) => {
+      return movie.imdbID !== queryImdbID
+      // return null;
+    });
+
+    if (moviesWithoutCurrent.length === 0) {
+      $relatedMoviesTitle.innerHTML = noRelatedTitlesComponent(querySearchPhrase);
+    } else {
+      $relatedMoviesTitle.innerHTML = relatedTitlesComponent(querySearchPhrase)
+      $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(moviesWithoutCurrent))
+      activateSwiper();
+    }
   } catch (error) {
     renderError(error);
   }

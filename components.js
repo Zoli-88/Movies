@@ -26,7 +26,7 @@ function cardComponent(movie, randomSearchPhrase) {
         <i class="fa-regular fa-calendar calendar-icon"></i>
         <span class="year">${Year}</span>
         <br>
-          <a href=/html?imdbID=${imdbID} class="title">
+          <a href=/html?imdbID=${imdbID} class="card-title">
             <span>${Title}</span>
           </a>
         </div>
@@ -90,27 +90,26 @@ function movieComponent(movie, querySearchPhrase) {
         <h1>${Title}</h1>
         <div class="subtitle">
           <span>${Year} &#x2022;</span>
-          <span>${Rated === "N/A" ? "Not rated" : Rated} &#x2022;</span>
+          <span>${Rated === "N/A" ? "Unknown" : Rated} &#x2022;</span>
           <span>${Runtime}</span>
         </div>
         <br>
         <img src="${Poster}" alt="${Title} movie poster" class="only-mobile">
         <ul>
-          <li><i class="fa-solid fa-video"></i> Genre: ${Genre}</li>
-          <li><i class="fa-solid fa-clapperboard"></i> Director: ${Director}</li>
-          <li><i class="fa-solid fa-pen-to-square"></i> Writers: ${Writer}</li>
-          <li><i class="fa-solid fa-masks-theater"></i> Actors: ${Actors}</li>
-          <li><i class="fa-solid fa-globe"></i> Languages: ${Language}</li>
-          <li><i class="fa-solid fa-flag"></i> Countries: ${Country}</li>
-          <li><i class="fa-solid fa-trophy"></i> Awards: ${Awards}</li>
-          <li><i class="fa-solid fa-compact-disc"></i> Released on DVD: ${DVD ?? "N/A"}</li>
-          <li><i class="fa-solid fa-sack-dollar"></i> Box-office total: ${BoxOffice ?? "N/A"}</li>
+          <li><i class="fa-solid fa-video"></i> <b>Genre</b>: ${Genre ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-clapperboard"></i> <b>Director</b>: ${Director ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-pen-to-square"></i> <b>Writers</b>: ${Writer ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-masks-theater"></i> <b>Actors</b>: ${Actors ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-globe"></i> <b>Languages</b>: ${Language ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-flag"></i> <b>Countries</b>: ${Country ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-trophy"></i> <b>Awards</b>: ${Awards ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-compact-disc"></i> <b>Released on DVD</b>: ${DVD ?? "Unknown"}</li>
+          <li><i class="fa-solid fa-sack-dollar"></i> <b>Box-office total</b>: ${BoxOffice ?? "Unknown"}</li>
         </ul>
         <br>
         <p class="plot">${Plot}</p>
       </div>
     </div>
-    <h3 class="related-titles-component">Titles related to <span class="search-phrase">${querySearchPhrase}</span></h3>
   `
 }
 
@@ -136,6 +135,18 @@ function errorComponent(error) {
   `
 }
 
+function relatedTitlesComponent(querySearchPhrase) {
+  return `
+    <h3 class="title">Titles related to <span class="highlight">${querySearchPhrase}</span></h3>
+  `
+}
+
+function noRelatedTitlesComponent(querySearchPhrase) {
+  return `
+    <h3 class="title center">We couldn't find any related titles to <span class="highlight">${querySearchPhrase}</span></h3>
+    `
+}
+
 function swiperComponent(movies) {
   // In the related movies component (swiper) we want to render all the movies present in the default search
   // except the one that is highlighted in the movie component
@@ -144,7 +155,6 @@ function swiperComponent(movies) {
   // "http://127.0.0.1:5500/movie.html?imdbID=tt2654124"
   const paramsString = window.location.search;
   const searchParams = new URLSearchParams(paramsString);
-  const queryImdbID = searchParams.get("imdbID");
   const querySearchPhrase = searchParams.get("searchPhrase");
   // then we need to create a new array that will contain all the movies in the default search 
   // except the one that is highlighted in the movie component
@@ -152,14 +162,10 @@ function swiperComponent(movies) {
   // in our case, the method below would translate to 
   // "return a new copy of the original "movies" array that contains all the objects (movies) in the default search
   // except the one that has the movie.imdbID value equal to the queryImdbID in the search URL"
-  const moviesWithoutCurrent = movies.filter((movie) => {
-    return movie.imdbID !== queryImdbID
-  });
- 
   return `
     <div class="swiper swiper-component">
       <div class="swiper-wrapper">
-        ${moviesWithoutCurrent.map((movie) => {
+        ${movies.map((movie) => {
           return `
             <div class="swiper-slide">
               ${cardComponent(movie, querySearchPhrase)}

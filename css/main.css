@@ -37,6 +37,24 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+.title {
+  padding-left: 10px;
+  margin-bottom: 24px;
+}
+.title.center {
+  padding-left: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.highlight {
+  text-transform: capitalize;
+  background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
 a {
   text-decoration: none;
   color: var(--primary-text-clr);
@@ -184,7 +202,7 @@ body {
   pointer-events: none;
   transition: 0.1s ease-in-out;
 }
-.card-component .poster-wrapper:hover + .information .title {
+.card-component .poster-wrapper:hover + .information .card-title {
   color: var(--secondary-text-clr-hover);
 }
 .card-component .poster-wrapper:hover::after {
@@ -208,14 +226,14 @@ body {
 .card-component .information .content {
   margin: 10px 0 16px;
 }
-.card-component .information .content .title {
+.card-component .information .content .card-title {
   font-size: 20px;
   display: inline-block;
   margin-bottom: 6px;
   color: var(--secondary-text-clr);
   transition: 0.1s ease-in-out;
 }
-.card-component .information .content .title:hover {
+.card-component .information .content .card-title:hover {
   color: var(--secondary-text-clr-hover);
 }
 .card-component .information .content .calendar-icon,
@@ -314,9 +332,18 @@ body {
 .description-component .fa-sack-dollar {
   color: var(--icon-green);
 }
+.description-component i[class*=fa] {
+  width: 18px;
+}
 
 .related-titles-component {
   padding-left: 10px;
+  margin-bottom: 24px;
+}
+.related-titles-component.no-related-titles {
+  padding-left: 0;
+  margin-bottom: 0;
+  text-align: center;
 }
 .related-titles-component .search-phrase {
   text-transform: capitalize;

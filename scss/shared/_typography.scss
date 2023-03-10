@@ -2,6 +2,24 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+.title {
+  padding-left: 10px;
+  margin-bottom: 24px;
+
+  &.center {
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+
+.highlight {
+  text-transform: capitalize;
+  background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
+  background-clip: text;
+  color: transparent;
+}
+
 a {
   text-decoration: none;
   color: var(--primary-text-clr);

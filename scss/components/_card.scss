@@ -33,7 +33,7 @@
   
     &:hover {
       & + .information {
-        .title {
+        .card-title {
           color: var(--secondary-text-clr-hover);
         }
       }
@@ -67,7 +67,7 @@
     .content {
       margin: 10px 0 16px;
   
-      .title {
+      .card-title {
         font-size: 20px;
         display: inline-block;
         margin-bottom: 6px;

@@ -92,4 +92,10 @@
   .fa-sack-dollar {
     color: var(--icon-green);
   }
+
+  i[class*="fa"] {
+    // resizing the box model, not the icon itself
+    // the icon itself it is set with `font-size`
+    width: 18px;
+  }
 }
