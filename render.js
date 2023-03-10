@@ -22,10 +22,11 @@ async function renderMovie() {
   const paramsString = window.location.search;
   const searchParams = new URLSearchParams(paramsString);
   const queryImdbID = searchParams.get("imdbID");
+  const querySearchPhrase = searchParams.get("searchPhrase");
   
   try {
     const movie = await listMovie(queryImdbID);
-    $moviePage.innerHTML = movieComponent(movie);
+    $moviePage.innerHTML = movieComponent(movie, querySearchPhrase);
   } catch (error) {
     renderError(error);
   }

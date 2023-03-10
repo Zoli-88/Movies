@@ -55,7 +55,7 @@ function ratingComponent(rating) {
     `
 }
 
-function movieComponent(movie) {
+function movieComponent(movie, querySearchPhrase) {
   const {
     Title,
     Year,
@@ -90,26 +90,27 @@ function movieComponent(movie) {
         <h1>${Title}</h1>
         <div class="subtitle">
           <span>${Year} &#x2022;</span>
-          <span>${Rated} &#x2022;</span>
+          <span>${Rated === "N/A" ? "Not rated" : Rated} &#x2022;</span>
           <span>${Runtime}</span>
         </div>
         <br>
         <img src="${Poster}" alt="${Title} movie poster" class="only-mobile">
         <ul>
-          <li><i class="fa-solid fa-video"></i> ${Genre}</li>
-          <li><i class="fa-solid fa-clapperboard"></i> ${Director}</li>
-          <li><i class="fa-solid fa-pen-to-square"></i> ${Writer}</li>
-          <li><i class="fa-solid fa-masks-theater"></i> ${Actors}</li>
-          <li><i class="fa-solid fa-globe"></i> ${Language}</li>
-          <li><i class="fa-solid fa-flag"></i> ${Country}</li>
+          <li><i class="fa-solid fa-video"></i> Genre: ${Genre}</li>
+          <li><i class="fa-solid fa-clapperboard"></i> Director: ${Director}</li>
+          <li><i class="fa-solid fa-pen-to-square"></i> Writers: ${Writer}</li>
+          <li><i class="fa-solid fa-masks-theater"></i> Actors: ${Actors}</li>
+          <li><i class="fa-solid fa-globe"></i> Languages: ${Language}</li>
+          <li><i class="fa-solid fa-flag"></i> Countries: ${Country}</li>
           <li><i class="fa-solid fa-trophy"></i> Awards: ${Awards}</li>
-          <li><i class="fa-solid fa-compact-disc"></i> Released on DVD: ${DVD}</li>
-          <li><i class="fa-solid fa-sack-dollar"></i> Box-office total: ${BoxOffice}</li>
+          <li><i class="fa-solid fa-compact-disc"></i> Released on DVD: ${DVD ?? "N/A"}</li>
+          <li><i class="fa-solid fa-sack-dollar"></i> Box-office total: ${BoxOffice ?? "N/A"}</li>
         </ul>
         <br>
         <p class="plot">${Plot}</p>
       </div>
     </div>
+    <h3 class="related-titles-component">Titles related to <span class="search-phrase">${querySearchPhrase}</span></h3>
   `
 }
 
@@ -136,7 +137,7 @@ function errorComponent(error) {
 }
 
 function swiperComponent(movies) {
-  // In the related movies component we want to render all the movies present in the default search
+  // In the related movies component (swiper) we want to render all the movies present in the default search
   // except the one that is highlighted in the movie component
   
   // to do this, first we need to find a unique id for the movie we want to remove, this can be retrieved from the url
@@ -154,7 +155,7 @@ function swiperComponent(movies) {
   const moviesWithoutCurrent = movies.filter((movie) => {
     return movie.imdbID !== queryImdbID
   });
-
+ 
   return `
     <div class="swiper swiper-component">
       <div class="swiper-wrapper">

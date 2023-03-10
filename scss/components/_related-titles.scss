@@ -1,0 +1,10 @@
+.related-titles-component {
+  padding-left: 10px;
+
+  .search-phrase {
+    text-transform: capitalize;
+    background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
+    background-clip: text;
+    color: transparent;
+  }
+}
