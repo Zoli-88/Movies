@@ -78,6 +78,10 @@ function renderLoading() {
   $body.insertAdjacentHTML("beforeend", loadingComponent());
 }
 
+function renderModal() {
+  $body.insertAdjacentHTML("beforeend", modalComponent());
+}
+
 function clearLoading() {
   const $loading = document.querySelector("#loading");
   $loading.remove();

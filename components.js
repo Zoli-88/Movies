@@ -34,7 +34,7 @@ function cardComponent(movie, randomSearchPhrase) {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="primary-btn">
+          <button class="primary-btn" onmouseenter="renderModal()">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
@@ -110,6 +110,12 @@ function movieComponent(movie, querySearchPhrase) {
         <p class="plot">${Plot}</p>
       </div>
     </div>
+  `
+}
+
+function modalComponent() {
+  return `
+    <p>Hello</p>
   `
 }
 
