@@ -74,12 +74,24 @@ async function renderMovies() {
   }
 }
 
-function renderLoading() {
-  $body.insertAdjacentHTML("beforeend", loadingComponent());
+async function renderModal(imdbID) {
+  try {
+    renderLoading();
+    const movie = await listMovie(imdbID);
+    $body.insertAdjacentHTML("beforeend", modalComponent(movie))
+  } catch (error) {
+    renderError(error);
+  }
+  clearLoading();
 }
 
-function renderModal() {
-  $body.insertAdjacentHTML("beforeend", modalComponent());
+ function clearModal() {
+  const $modal = document.querySelector("#modal");
+  $modal.remove();
+}
+
+function renderLoading() {
+  $body.insertAdjacentHTML("beforeend", loadingComponent());
 }
 
 function clearLoading() {
