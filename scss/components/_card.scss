@@ -74,6 +74,10 @@
         margin-bottom: 6px;
         color: var(--secondary-text-clr);
         transition: .1s ease-in-out;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
       
         &:hover {
           color: var(--secondary-text-clr-hover);

@@ -74,22 +74,6 @@ async function renderMovies() {
   }
 }
 
-async function renderModal(imdbID) {
-  try {
-    renderLoading();
-    const movie = await listMovie(imdbID);
-    $body.insertAdjacentHTML("beforeend", modalComponent(movie))
-  } catch (error) {
-    renderError(error);
-  }
-  clearLoading();
-}
-
- function clearModal() {
-  const $modal = document.querySelector("#modal");
-  $modal.remove();
-}
-
 function renderLoading() {
   $body.insertAdjacentHTML("beforeend", loadingComponent());
 }

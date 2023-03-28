@@ -230,6 +230,10 @@ body {
   margin-bottom: 6px;
   color: var(--secondary-text-clr);
   transition: 0.1s ease-in-out;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 }
 .card-component .information .content .card-title:hover {
   color: var(--secondary-text-clr-hover);
@@ -247,34 +251,6 @@ body {
 .card-component .information .details .logo-icon {
   font-size: 36px;
   color: var(--accent-clr);
-}
-
-.modal-component {
-  display: flex;
-  text-align: center;
-  position: fixed;
-  z-index: 9;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 200px;
-  background: var(--primary-overlay-bg-clr);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-  transition: 0.1s;
-}
-.modal-component img {
-  max-width: 100px;
-}
-.modal-component button {
-  position: absolute;
-  cursor: pointer;
-  top: 4px;
-  right: 2px;
 }
 
 .description-component {
