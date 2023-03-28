@@ -74,6 +74,10 @@ async function renderMovies() {
   }
 }
 
+function renderModal(imdbID) {
+  console.log(imdbID);
+}
+
 function renderLoading() {
   $body.insertAdjacentHTML("beforeend", loadingComponent());
 }

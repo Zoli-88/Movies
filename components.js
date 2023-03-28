@@ -16,7 +16,7 @@ function cardComponent(movie, randomSearchPhrase) {
   } = movie;
   
   return `
-    <div class="card-component">
+    <div class="card-component" id=${imdbID}>
       <div class="poster-wrapper">
         <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${randomSearchPhrase} class="poster-link">      
           <img src="${Poster}" alt="${Title} poster">
@@ -27,7 +27,7 @@ function cardComponent(movie, randomSearchPhrase) {
         <i class="fa-regular fa-calendar calendar-icon"></i>
         <span class="year">${Year}</span>
         <br>
-          <a href=/html?imdbID=${imdbID} class="card-title">
+          <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${randomSearchPhrase} class="card-title">
             <span>${Title}</span>
           </a>
         </div>
@@ -35,7 +35,7 @@ function cardComponent(movie, randomSearchPhrase) {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="primary-btn">
+          <button class="primary-btn" onclick="renderModal(${imdbID})">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
