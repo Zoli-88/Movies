@@ -35,7 +35,7 @@ function cardComponent(movie, randomSearchPhrase) {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="primary-btn" onclick="renderModal(${imdbID})">
+          <button class="primary-btn" onmouseover="renderModal(${imdbID})">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
@@ -110,6 +110,21 @@ function movieComponent(movie) {
         <br>
         <p class="plot">${Plot}</p>
       </div>
+    </div>
+  `
+}
+
+function modalComponent(movie) {
+  return `
+    <div class="modal-component show-modal" id="modal-component" onmouseleave="closeModal(${movie.imdbID})">
+      <div class="subtitle">
+        <span>${movie.Year} &#x2022;</span>
+        <span>${movie.Rated === "N/A" ? "Unknown" : movie.Rated} &#x2022;</span>
+        <span>${movie.Runtime}</span>
+      </div>
+      <button class="primary-btn" onclick="closeModal(${movie.imdbID})">
+        <i class="fa-solid fa-square-xmark"></i>
+      </button>
     </div>
   `
 }

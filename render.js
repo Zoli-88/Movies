@@ -74,8 +74,19 @@ async function renderMovies() {
   }
 }
 
-function renderModal(imdbID) {
-  console.log(imdbID);
+async function renderModal(imdbID) {
+  try {
+    const $cardComponent = document.querySelector(`#${imdbID.id}`);
+    const movie = await listMovie(imdbID.id);
+    $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
+  } catch (error) {
+    renderError(error);
+  }
+}
+
+function closeModal(imdbID) {
+  const $modal = document.querySelector(`#${imdbID.id} > #modal-component`);
+  $modal.remove();
 }
 
 function renderLoading() {

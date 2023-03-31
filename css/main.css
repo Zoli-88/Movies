@@ -253,6 +253,41 @@ body {
   color: var(--accent-clr);
 }
 
+.modal-component {
+  display: flex;
+  position: absolute;
+  min-height: 120px;
+  bottom: 0;
+  left: 0;
+  background: var(--primary-overlay-bg-clr);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  transition: 0.1s;
+  width: 100%;
+  padding: 0 6px;
+}
+.modal-component.show-modal {
+  animation: show-modal 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes show-modal {
+  0% {
+    bottom: -100px;
+    z-index: -1;
+  }
+  100% {
+    bottom: 0;
+    z-index: 0;
+  }
+}
+.modal-component h1 {
+  font-size: 1rem;
+}
+.modal-component button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
 .description-component {
   display: flex;
   gap: 16px;
