@@ -1,38 +1,69 @@
 .modal-component {
-  display: flex;
   position: absolute;
   min-height: 120px;
   bottom: 0;
   left: 0;
   background: var(--primary-overlay-bg-clr);
   backdrop-filter: blur(2px);
-  transition: .1s;
   width: 100%;
-  padding: 0 6px;
+  padding: 6px 24px;
+  border-radius: 8px;
+  opacity: 0;
 
-&.show-modal {
-	animation: show-modal .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-} 
-
-@keyframes show-modal {
-  0% {
-    bottom: -100px;
-    z-index: -1;
+  &.show-modal {
+    animation: show-modal var(--fade-ms) ease-in forwards;
   }
 
-  100% {
-    bottom: 0;
-    z-index: 0;
-  }
-}
+  &.hide-modal {
+    animation: hide-modal var(--fade-ms) ease-out forwards;
+  } 
 
-  h1 {
-    font-size: 1rem;
+  @keyframes show-modal {
+    0% {
+      bottom: -10px;
+      opacity: 0;
+    }
+
+    100% {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  @keyframes hide-modal {
+    0% {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    100% {
+      bottom: -10px;
+      opacity: 0;
+    }
+  }
+
+  .fa-star {
+    color: var(--icon-yellow);
+  }
+
+  .modal-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    padding-right: 20px;
+    line-height: 1.4;
   }
 
   button {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    bottom: 10px;
+    right: 11px;
+    background: transparent;
+
+    &:hover {
+      background: var(--primary-bg-clr-hover);
+    }
   }
 }

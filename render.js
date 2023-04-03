@@ -78,6 +78,7 @@ async function renderModal(imdbID) {
   try {
     const $cardComponent = document.querySelector(`#${imdbID.id}`);
     const movie = await listMovie(imdbID.id);
+    console.log(movie);
     $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
   } catch (error) {
     renderError(error);
@@ -86,7 +87,12 @@ async function renderModal(imdbID) {
 
 function closeModal(imdbID) {
   const $modal = document.querySelector(`#${imdbID.id} > #modal-component`);
-  $modal.remove();
+  const fadeOutMs = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fade-ms'));
+  $modal.classList.add("hide-modal")
+
+  setTimeout(() => {
+    $modal.remove();
+  }, fadeOutMs)
 }
 
 function renderLoading() {
