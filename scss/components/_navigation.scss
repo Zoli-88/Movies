@@ -1,0 +1,55 @@
+.navigation-component {
+  background: var(--primary-bg-clr);
+
+  .navigation-container {
+    margin: 0 auto;
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &.home-page {
+      max-width: 1440px;
+    }
+
+    &.detail-page {
+      max-width: 1100px;
+    }
+  }
+
+  .logo {
+    display: block;
+    width: 50px;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-grow: 3;
+    max-height: 35px;
+    border-radius: 6px;
+    
+    input {
+      display: inline-block;
+      outline: none;
+      border: 2px solid var(--accent-clr);
+      border-radius: 6px;
+      width: 100%;
+      height: 30px;
+      padding: 0 30px 0 6px;
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 12px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 6px;
+  }
+}
