@@ -187,6 +187,12 @@ body {
   align-items: center;
   margin-left: 6px;
 }
+.navigation-component .nav-links a {
+  color: var(--secondary-text-clr);
+}
+.navigation-component .nav-links a:hover {
+  color: var(--secondary-text-clr-hover);
+}
 
 .status-component {
   text-align: center;

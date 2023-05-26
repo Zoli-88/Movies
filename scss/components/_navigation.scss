@@ -57,5 +57,13 @@
     gap: 10px;
     align-items: center;
     margin-left: 6px;
+    
+    a {
+      color: var(--secondary-text-clr);
+      
+      &:hover {
+        color: var(--secondary-text-clr-hover);
+      }
+    }
   }
 }
