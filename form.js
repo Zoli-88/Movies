@@ -1,6 +1,8 @@
 function searchForm() {
   event.preventDefault();
+  const form = document.querySelector("#searchForm");
   const formData = new FormData(event.target);
   const searchResult = formData.get("search");
-  console.log(searchResult);
+  form.reset();
+  renderSearchedMovies(searchResult);
 }

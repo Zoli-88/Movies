@@ -74,6 +74,24 @@ async function renderMovies() {
   }
 }
 
+async function renderSearchedMovies(searchResults) {
+  renderLoading();
+  try {
+    const data = await listMovies(searchResults);
+    const movies = data.Search;
+
+    $container.innerHTML = '';
+    
+    movies.forEach(movie => {
+      $container.innerHTML += cardComponent(movie, searchResults);
+    });
+    
+  } catch (error) {
+    renderError(error);
+  }
+  clearLoading();
+}
+
 async function renderModal(imdbID) {
   try {
     const $cardComponent = document.querySelector(`#${imdbID.id}`);
