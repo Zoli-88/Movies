@@ -14,12 +14,14 @@ function cardComponent(movie, searchResult = "thor") {
     Title,
     Year,
   } = movie;
+
+  const posterUrl = (Poster !== "N/A" && isValidUrl(Poster)) ? Poster : "https://fakeimg.pl/300x429/ff0000,128/000,255/?text=Cool Poster";
   
   return `
     <div class="card-component" id=${imdbID}>
       <div class="poster-wrapper">
         <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${searchResult} class="poster-link">      
-          <img src="${Poster}" alt="${Title} poster">
+          <img src="${posterUrl}" alt="${Title} poster">
         </a>
       </div>
       <div class="information">
@@ -113,8 +115,6 @@ function movieComponent(movie) {
     </div>
   `
 }
-
-// onmouseleave="closeModal(${movie.imdbID})
 
 function modalComponent(movie) {
   return `
