@@ -7,7 +7,7 @@ ICONS_MAP.set("Internet Movie Database", "fa-solid fa-database")
 ICONS_MAP.set("Rotten Tomatoes", "fa-solid fa-apple-whole")
 ICONS_MAP.set("Metacritic", "fa-solid fa-pen-nib")
 
-function cardComponent(movie, randomSearchPhrase) {
+function cardComponent(movie, searchResult = "thor") {
   const {
     imdbID,
     Poster,
@@ -18,7 +18,7 @@ function cardComponent(movie, randomSearchPhrase) {
   return `
     <div class="card-component" id=${imdbID}>
       <div class="poster-wrapper">
-        <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${randomSearchPhrase} class="poster-link">      
+        <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${searchResult} class="poster-link">      
           <img src="${Poster}" alt="${Title} poster">
         </a>
       </div>
@@ -27,7 +27,7 @@ function cardComponent(movie, randomSearchPhrase) {
         <i class="fa-regular fa-calendar calendar-icon"></i>
         <span class="year">${Year}</span>
         <br>
-          <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${randomSearchPhrase} class="card-title">
+          <a href=/movie.html?imdbID=${imdbID}&searchPhrase=${searchResult} class="card-title">
             <span>${Title}</span>
           </a>
         </div>

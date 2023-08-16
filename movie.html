@@ -23,11 +23,12 @@
   <main>
     <nav class="navigation-component">
       <div class="navigation-container detail-page">
-        <a href="#">
+        <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
-        <form action="" class="search-form">
-          <input type="text" placeholder="Search">
+        <form action="" class="search-form" onsubmit="searchForm(event)">
+          <label for="search"></label>
+          <input type="text" placeholder="Search" id="search" name="search">
           <button class="search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -38,6 +39,8 @@
         </ul>
       </div>
     </nav>
+    <section id="container" class="grid-list">
+    </section>
     <section class="container">
       <button onclick="handleBackPage()" class="primary-btn">Back</button>
     </section>
@@ -52,7 +55,8 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="/utils.js"></script>
   <script src="/constants.js"></script>
-  <script src="api.js"></script>
+  <script src="/api.js"></script>
+  <script src="/form.js"></script>
   <script src="/components.js"></script>
   <script src="swiper.js"></script>
   <script src="/render.js"></script>

@@ -4,7 +4,3 @@ function handleBackPage() {
   window.history.back();
 }
 
-function getRandomFromList(list) {
-  let randomIndexInList = Math.floor(Math.random() * list.length);
-  return list[randomIndexInList];
-}

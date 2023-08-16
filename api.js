@@ -1,4 +1,4 @@
-async function listMovies(queryMovieTitle) {
+async function listMovies(queryMovieTitle = "thor") {
   const response = await fetch(`${BASE_URL}&s=${queryMovieTitle}`);
   const data = await response.json();
 

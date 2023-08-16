@@ -1,8 +1,7 @@
-function searchForm() {
+function searchForm(event) {
   event.preventDefault();
-  const form = document.querySelector("#searchForm");
   const formData = new FormData(event.target);
   const searchResult = formData.get("search");
-  form.reset();
-  renderSearchedMovies(searchResult);
+  const redirectUrl = `/index.html?find=${encodeURIComponent(searchResult)}`;
+  window.location.href = redirectUrl;
 }

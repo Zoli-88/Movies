@@ -8,7 +8,15 @@ const $relatedMoviesTitle = document.querySelector("#related-movies-title");
 // On load
 async function initMovieListPage() {
   renderLoading();
-  await renderMovies();
+
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const searchResult = urlSearchParams.get("find");
+
+  if (searchResult) {
+    await renderMovies(searchResult, $container);
+  } else {
+    await renderMovies();
+  }
   clearLoading();
 }
 
@@ -45,7 +53,6 @@ async function renderRelatedMovies() {
 
     const moviesWithoutCurrent = movies.filter((movie) => {
       return movie.imdbID !== queryImdbID
-      // return null;
     });
 
     if (moviesWithoutCurrent.length === 0) {
@@ -60,36 +67,20 @@ async function renderRelatedMovies() {
   }
 }
 
-async function renderMovies() {
+async function renderMovies(searchResult) {
   try {
-    const data = await listMovies(randomSearchPhrase);
+    const data = await listMovies(searchResult);
     const movies = data.Search;
 
+    $container.innerHTML = "";
+
     movies.forEach(movie => {
-      $container.innerHTML += cardComponent(movie, randomSearchPhrase);
+      $container.innerHTML += cardComponent(movie, searchResult);
     });
     
   } catch (error) {
     renderError(error);
   }
-}
-
-async function renderSearchedMovies(searchResults) {
-  renderLoading();
-  try {
-    const data = await listMovies(searchResults);
-    const movies = data.Search;
-
-    $container.innerHTML = '';
-    
-    movies.forEach(movie => {
-      $container.innerHTML += cardComponent(movie, searchResults);
-    });
-    
-  } catch (error) {
-    renderError(error);
-  }
-  clearLoading();
 }
 
 async function renderModal(imdbID) {
