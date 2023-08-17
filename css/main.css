@@ -193,6 +193,9 @@ body {
 .navigation-component .nav-links a:hover {
   color: var(--secondary-text-clr-hover);
 }
+.navigation-component .nav-links.hide {
+  display: none;
+}
 
 .status-component {
   text-align: center;
@@ -343,22 +346,10 @@ body {
   opacity: 0;
 }
 .modal-component.show-modal {
-  -webkit-animation: show-modal var(--fade-ms) ease-in forwards;
-          animation: show-modal var(--fade-ms) ease-in forwards;
+  animation: show-modal var(--fade-ms) ease-in forwards;
 }
 .modal-component.hide-modal {
-  -webkit-animation: hide-modal var(--fade-ms) ease-out forwards;
-          animation: hide-modal var(--fade-ms) ease-out forwards;
-}
-@-webkit-keyframes show-modal {
-  0% {
-    bottom: -10px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 0;
-    opacity: 1;
-  }
+  animation: hide-modal var(--fade-ms) ease-out forwards;
 }
 @keyframes show-modal {
   0% {
@@ -368,16 +359,6 @@ body {
   100% {
     bottom: 0;
     opacity: 1;
-  }
-}
-@-webkit-keyframes hide-modal {
-  0% {
-    bottom: 0;
-    opacity: 1;
-  }
-  100% {
-    bottom: -10px;
-    opacity: 0;
   }
 }
 @keyframes hide-modal {

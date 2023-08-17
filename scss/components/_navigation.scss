@@ -65,5 +65,9 @@
         color: var(--secondary-text-clr-hover);
       }
     }
+
+    &.hide {
+      display: none;
+    }
   }
 }
