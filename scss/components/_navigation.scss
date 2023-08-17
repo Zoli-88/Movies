@@ -22,36 +22,6 @@
     width: 50px;
   }
 
-  .search-form {
-    display: flex;
-    align-items: center;
-    position: relative;
-    flex-grow: 3;
-    max-height: 35px;
-    border-radius: 6px;
-    
-    input {
-      display: inline-block;
-      outline: none;
-      border: 2px solid var(--accent-clr);
-      border-radius: 6px;
-      width: 100%;
-      height: 30px;
-      padding-left: 6px;
-      padding-right: 36px;
-    }
-
-    .search-btn {
-      position: absolute;
-      right: 0;
-      padding-right: 12px;
-
-      .fa-magnifying-glass {
-        font-size: 16px;
-      }
-    }
-  }
-
   .nav-links {
     display: flex;
     gap: 10px;
@@ -65,5 +35,23 @@
         color: var(--secondary-text-clr-hover);
       }
     }
+  }
+
+  .menu-nav-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .bar1, .bar2, .bar3 {
+    height: 0.5rem;
+    width: 2rem;
+    background: red;
+    border-radius: 0.2rem;
+    transition: 0.4s;
   }
 }

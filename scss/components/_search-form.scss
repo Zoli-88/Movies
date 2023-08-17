@@ -1,0 +1,34 @@
+.search-form-component {
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+    position: relative;
+    max-height: 35px;
+    border-radius: 6px;
+
+    @media only screen and (max-width: 768px) {
+        margin-right: 20px;
+    }
+
+    input {
+      display: inline-block;
+      outline: none;
+      border: 2px solid var(--accent-clr);
+      border-radius: 6px;
+      width: 100%;
+      height: 30px;
+      padding-left: 6px;
+      padding-right: 36px;
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 0;
+      padding-right: 12px;
+
+      .fa-magnifying-glass {
+        font-size: 16px;
+      }
+    }
+
+  }
