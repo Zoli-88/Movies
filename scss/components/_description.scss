@@ -1,38 +1,38 @@
 .description-component {
   display: flex;
-  gap: 16px;
-  padding: 10px;
-  border-radius: 8px;
+  gap: 1.6rem;
+  padding: 1rem;
+  border-radius: .8rem;
   background: var(--primary-bg-clr);
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 
   @media only screen and (max-width: 767px) {
     flex-direction: column;
   }
 
   img {
-    border-radius: 6px;
+    border-radius: .6rem;
     object-fit: contain;
     align-self: flex-start;
   }
 
   ul {
     list-style-type: none;
-    margin: 10px 0;
+    margin: 1rem 0;
   }
 
   li {
-    margin-bottom: 4px;
-    font-size: 14px;
+    margin-bottom: .4rem;
+    font-size: 1.4rem;
   }
 
   .subtitle {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: var(--faint-text-clr);
   }
 
   .plot {
-    margin: 10px 0;
+    margin: 1rem 0;
     line-height: 1.6;
   }
 
@@ -96,6 +96,6 @@
   i[class*="fa"] {
     // resizing the box model, not the icon itself
     // the icon itself it is set with `font-size`
-    width: 18px;
+    width: 1.8rem;
   }
 }

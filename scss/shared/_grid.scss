@@ -2,21 +2,21 @@
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 24px;
+  margin-top: 2.4rem;
   
   &:last-child {
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
   }
 }
 
 .grid-list {
   max-width: 1440px;
   margin: 0 auto;
-  --w: 250px;
+  --w: 25rem;
   --n: 7;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
-  gap: 10px;
-  padding: 20px;
+  gap: 1rem;
+  padding: 2rem;
   place-items: center;
 }

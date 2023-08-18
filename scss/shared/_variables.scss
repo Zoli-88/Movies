@@ -40,7 +40,14 @@
   --icon-blue: #3973ae;
   --icon-green: #008000;
 
-  // animations
+  /* Animations */
   --fade-ms: 100ms;
 }
+
+/* Breakpoints */
+$desktop: 1400px;
+$md-desktop: 1200px;
+$sm-desktop: 992px;
+$tablet: 768px;
+$mobile: 576px;
 

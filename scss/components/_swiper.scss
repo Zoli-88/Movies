@@ -6,7 +6,7 @@
     
     .card-component {
       .title {
-        height: 20px;
+        height: 2rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: block;
@@ -16,12 +16,12 @@
   
     .swiper-button {
       &.primary-btn {
-        padding: 30px;
-        border-radius: 18px;
+        padding: 3rem;
+        border-radius: 1.8rem;
         opacity: .8;
       
         &::after {
-          font-size: 30px;
+          font-size: 3rem;
         }
 
         &:hover {
