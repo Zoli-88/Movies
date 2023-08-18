@@ -6,7 +6,7 @@
   background: var(--primary-bg-clr);
   margin-bottom: 2.4rem;
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: $tablet) {
     flex-direction: column;
   }
 
@@ -39,7 +39,7 @@
   .only-desktop {
     display: block;
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: $tablet) {
       display: none;
     }
   }
@@ -47,7 +47,7 @@
   .only-mobile {
     display: none;
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: $tablet) {
       display: block;
     }
   }
