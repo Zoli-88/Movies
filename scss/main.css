@@ -181,16 +181,16 @@ body {
 .navigation-component .search-form-component .search-btn .fa-magnifying-glass {
   font-size: 16px;
 }
-.navigation-component .nav-links {
+.navigation-component .nav-links-desktop {
   display: flex;
   gap: 10px;
   align-items: center;
   margin-left: 6px;
 }
-.navigation-component .nav-links a {
+.navigation-component .nav-links-desktop a {
   color: var(--secondary-text-clr);
 }
-.navigation-component .nav-links a:hover {
+.navigation-component .nav-links-desktop a:hover {
   color: var(--secondary-text-clr-hover);
 }
 

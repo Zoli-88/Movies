@@ -2,6 +2,7 @@
   background: var(--primary-bg-clr);
 
   .navigation-container {
+    position: relative;
     margin: 0 auto;
     padding: .6rem 2rem;
     display: flex;
@@ -22,7 +23,7 @@
     width: 5rem;
   }
 
-  .nav-links {
+  .nav-links-desktop {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -37,20 +38,41 @@
     }
   }
 
-  .menu-nav-toggle {
+  .nav-links-mobile {
+    background: red;
+  }
+
+  .nav-menu-toggle-btn {
     position: absolute;
-    top: 2rem;
-    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .25rem;
+    gap: .4rem;
+    
+    &.toggle {
+      .bar1 {
+        transform-origin: left;
+        transform: rotate(38.5deg);
+      }
+
+      .bar2 {
+        opacity: 0;
+      }
+
+      .bar3 {
+        transform-origin: left;
+        transform: rotate(-38.5deg);
+      }
+    }
   }
 
   .bar1, .bar2, .bar3 {
-    height: .5rem;
-    width: 2rem;
-    background: red;
+    width: 2.6rem;
+    height: .4rem;
+    background: var(--icon-white);
     border-radius: .2rem;
     transition: 0.4s;
   }

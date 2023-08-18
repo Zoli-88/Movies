@@ -8,6 +8,10 @@
   padding: 1rem;
   overflow: hidden;
 
+  @media only screen and (max-width: $mobile) {
+    max-width: 34rem;
+  }
+
   img {
     width: 100%;
     min-height: 48rem;

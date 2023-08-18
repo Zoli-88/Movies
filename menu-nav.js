@@ -1,23 +1,29 @@
 function menuNavComponent() {
-  const $navMenuComponentLinks = document.querySelector(".navigation-component .nav-links");
-  const $navMenuToggleButton = document.querySelector(".navigation-component .menu-nav-toggle");
+  const $navMenuComponentDesktop = document.querySelector(".navigation-container.desktop");
+  const $navMenuComponentMobile = document.querySelector(".navigation-container.mobile");
+  const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
   const breakpointValue = 768;
   const breakpoint = window.matchMedia(`(max-width: ${breakpointValue}px)`);
   
   function handleMenuNavLayout(event) {
     if (event.matches) {
-      $navMenuComponentLinks.classList.add("hide");
-      $navMenuToggleButton.classList.remove("hide");
+      $navMenuComponentDesktop.classList.add("hide");
+      $navMenuComponentMobile.classList.remove("hide");
     } else {
-      $navMenuToggleButton.classList.add("hide");
-      $navMenuComponentLinks.classList.remove("hide");
+      $navMenuComponentDesktop.classList.remove("hide");
+      $navMenuComponentMobile.classList.add("hide");
     }
   }
   // Initial call to set the layout based on the initial media query state
   handleMenuNavLayout(breakpoint);
 
-  //Add the event listener to the media query
+  function toggleMenuNav() {
+    $navMenuToggleButton.classList.toggle("toggle");
+  }
+
+  // Event Listeners
   breakpoint.addEventListener("change", handleMenuNavLayout);
+  $navMenuToggleButton.addEventListener("click", toggleMenuNav);
 }
 menuNavComponent();
 

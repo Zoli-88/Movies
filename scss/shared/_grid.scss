@@ -18,5 +18,8 @@
   grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
   gap: 1rem;
   padding: 2rem;
-  place-items: center;
+
+  @media only screen and (max-width: $mobile) {
+    place-items: center;
+  }
 }
