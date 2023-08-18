@@ -1,4 +1,5 @@
 function menuNavComponent() {
+  const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-container.desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-container.mobile");
   const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
@@ -17,13 +18,14 @@ function menuNavComponent() {
   // Initial call to set the layout based on the initial media query state
   handleMenuNavLayout(breakpoint);
 
-  function toggleMenuNav() {
+  function toggleDropdownMenu() {
     $navMenuToggleButton.classList.toggle("toggle");
+    $dropDownMenuComponent.classList.toggle("slide");
   }
 
   // Event Listeners
   breakpoint.addEventListener("change", handleMenuNavLayout);
-  $navMenuToggleButton.addEventListener("click", toggleMenuNav);
+  $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 }
 menuNavComponent();
 
