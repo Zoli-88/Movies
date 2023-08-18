@@ -9,19 +9,12 @@
 
   .navigation-container {
     position: relative;
+    max-width: $max-width;
     margin: 0 auto;
     padding: .6rem 2rem;
     display: flex;
     align-items: center;
     gap: .6rem;
-
-    &.home-page {
-      max-width: 1440px;
-    }
-
-    &.detail-page {
-      max-width: 1100px;
-    }
   }
 
   .logo {
@@ -80,6 +73,6 @@
     height: .4rem;
     background: var(--icon-white);
     border-radius: .2rem;
-    transition: .4s;
+    transition: var(--dropdown-ms);
   }
 }

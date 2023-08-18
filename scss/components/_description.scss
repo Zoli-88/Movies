@@ -4,7 +4,7 @@
   padding: 1rem;
   border-radius: .8rem;
   background: var(--primary-bg-clr);
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.4rem;
 
   @media only screen and (max-width: $tablet) {
     flex-direction: column;
@@ -34,22 +34,6 @@
   .plot {
     margin: 1rem 0;
     line-height: 1.6;
-  }
-
-  .only-desktop {
-    display: block;
-
-    @media only screen and (max-width: $tablet) {
-      display: none;
-    }
-  }
-
-  .only-mobile {
-    display: none;
-
-    @media only screen and (max-width: $tablet) {
-      display: block;
-    }
   }
 
   // Icons 

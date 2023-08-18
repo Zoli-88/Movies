@@ -88,7 +88,7 @@ function movieComponent(movie) {
       }).join("")}
     </div>
     <div class="description-component">
-      <img src="${Poster}" alt="${Title} movie poster" class="only-desktop">
+      <img src="${Poster}" alt="${Title} movie poster">
       <div>
         <h1>${Title}</h1>
         <div class="subtitle">
@@ -96,8 +96,6 @@ function movieComponent(movie) {
           <span>${Rated === "N/A" ? "Unknown" : Rated} &#x2022;</span>
           <span>${Runtime}</span>
         </div>
-        <br>
-        <img src="${Poster}" alt="${Title} movie poster" class="only-mobile">
         <ul>
           <li><i class="fa-solid fa-video"></i> <b>Genre</b>: ${Genre ?? "Unknown"}</li>
           <li><i class="fa-solid fa-clapperboard"></i> <b>Director</b>: ${Director ?? "Unknown"}</li>

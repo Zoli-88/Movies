@@ -41,13 +41,25 @@
   --icon-green: #008000;
 
   /* Animations */
+  /* Cards, modals */
   --fade-ms: 100ms;
+
+  /* Nav */
+  --nav-component-height: 6.2rem;
+  --dropdown-menu-height: calc(100vh - var(--nav-component-height));
+
+  /* Dropdown menu, Dropdown Toggle Button */
+  --dropdown-ms: 400ms;
 }
 
-/* Breakpoints */
-$desktop: 1400px;
-$md-desktop: 1200px;
-$sm-desktop: 992px;
-$tablet: 768px;
-$mobile: 576px;
+  /* Sizes */
+  $max-width: 1440px;
+
+  /* Breakpoints */
+  $desktop: 1400px;
+  $md-desktop: 1200px;
+  $sm-desktop: 992px;
+  $tablet: 768px;
+  $mobile: 576px;
+
 

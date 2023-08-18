@@ -33,22 +33,22 @@
   --icon-blue: #3973ae;
   --icon-green: #008000;
   /* Animations */
+  /* Cards, modals */
   --fade-ms: 100ms;
+  /* Nav */
+  --nav-component-height: 6.2rem;
+  --dropdown-menu-height: calc(100vh - var(--nav-component-height));
+  /* Dropdown menu, Dropdown Toggle Button */
+  --dropdown-ms: 400ms;
 }
 
+/* Sizes */
 /* Breakpoints */
 html {
   font-family: "Montserrat", sans-serif;
 }
 
-.title {
-  padding-left: 1rem;
-  margin-bottom: 2.4rem;
-}
-
 .title.center {
-  padding-left: 0;
-  margin-bottom: 0;
   text-align: center;
 }
 
@@ -57,6 +57,7 @@ html {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--text-gradient-accent-clr)), to(var(--text-gradient-base-clr)));
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
@@ -105,14 +106,20 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 2.4rem;
+  padding: 1.4rem;
 }
 
 .container:last-child {
   margin-bottom: 10rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container.back-to-main-page {
+    padding-top: calc(var(--nav-component-height) + 1.4rem);
+  }
 }
 
 .grid-list {
@@ -125,7 +132,12 @@ body {
   -ms-grid-columns: (minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
   gap: 1rem;
-  padding: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-list {
+    padding-top: calc(var(--nav-component-height) + 1.4rem);
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -142,8 +154,8 @@ body {
   border: none;
   cursor: pointer;
   background: var(--secondary-bg-clr);
-  -webkit-transition: .1s;
-  transition: .1s;
+  -webkit-transition: var(--fade-ms);
+  transition: var(--fade-ms);
 }
 
 .primary-btn:hover {
@@ -175,6 +187,7 @@ body {
 
 .navigation-component .navigation-container {
   position: relative;
+  max-width: 1440px;
   margin: 0 auto;
   padding: .6rem 2rem;
   display: -webkit-box;
@@ -184,14 +197,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: .6rem;
-}
-
-.navigation-component .navigation-container.home-page {
-  max-width: 1440px;
-}
-
-.navigation-component .navigation-container.detail-page {
-  max-width: 1100px;
 }
 
 .navigation-component .logo {
@@ -264,20 +269,19 @@ body {
   height: .4rem;
   background: var(--icon-white);
   border-radius: .2rem;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: var(--dropdown-ms);
+  transition: var(--dropdown-ms);
 }
 
 .dropdown-menu-component {
-  --nav-component-height: 6.2rem;
-  --dropdown-menu-height: calc(100vh - var(--nav-component-height));
   width: 100%;
   height: 0;
+  left: 0;
   bottom: var(--dropdown-menu-height);
   position: fixed;
   background: var(--body-bg-clr);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: var(--dropdown-ms);
+  transition: var(--dropdown-ms);
 }
 
 .dropdown-menu-component.slide {
@@ -307,8 +311,8 @@ body {
           align-items: center;
   -webkit-backdrop-filter: blur(0.2rem);
           backdrop-filter: blur(0.2rem);
-  -webkit-transition: .1s;
-  transition: .1s;
+  -webkit-transition: var(--fade-ms);
+  transition: var(--fade-ms);
 }
 
 .status-component-icon {
@@ -408,8 +412,8 @@ body {
   background-image: -webkit-gradient(linear, left bottom, left top, from(var(--zero-black)), color-stop(30%, var(--secondary-overlay-bg-clr)));
   background-image: linear-gradient(to top, var(--zero-black), var(--secondary-overlay-bg-clr) 30%);
   pointer-events: none;
-  -webkit-transition: .1s ease-in-out;
-  transition: .1s ease-in-out;
+  -webkit-transition: var(--fade-ms) ease-in-out;
+  transition: var(--fade-ms) ease-in-out;
 }
 
 .card-component .poster-wrapper:hover + .information .card-title {
@@ -425,8 +429,8 @@ body {
 }
 
 .card-component .poster-wrapper .poster-link img {
-  -webkit-transition: .1s ease-in-out;
-  transition: .1s ease-in-out;
+  -webkit-transition: var(--fade-ms) ease-in-out;
+  transition: var(--fade-ms) ease-in-out;
 }
 
 .card-component .poster-wrapper .poster-link:hover img {
@@ -459,8 +463,8 @@ body {
   display: inline-block;
   margin-bottom: .6rem;
   color: var(--secondary-text-clr);
-  -webkit-transition: .1s ease-in-out;
-  transition: .1s ease-in-out;
+  -webkit-transition: var(--fade-ms) ease-in-out;
+  transition: var(--fade-ms) ease-in-out;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -596,7 +600,7 @@ body {
   padding: 1rem;
   border-radius: .8rem;
   background: var(--primary-bg-clr);
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.4rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -634,26 +638,6 @@ body {
 .description-component .plot {
   margin: 1rem 0;
   line-height: 1.6;
-}
-
-.description-component .only-desktop {
-  display: block;
-}
-
-@media only screen and (max-width: 768px) {
-  .description-component .only-desktop {
-    display: none;
-  }
-}
-
-.description-component .only-mobile {
-  display: none;
-}
-
-@media only screen and (max-width: 768px) {
-  .description-component .only-mobile {
-    display: block;
-  }
 }
 
 .description-component .fa-pen-nib {
@@ -716,6 +700,7 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--text-gradient-accent-clr)), to(var(--text-gradient-base-clr)));
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 

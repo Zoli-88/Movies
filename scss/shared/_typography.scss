@@ -3,12 +3,7 @@ html {
 }
 
 .title {
-  padding-left: 1rem;
-  margin-bottom: 2.4rem;
-
   &.center {
-    padding-left: 0;
-    margin-bottom: 0;
     text-align: center;
   }
 }
@@ -17,6 +12,7 @@ html {
   text-transform: capitalize;
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 

@@ -6,7 +6,7 @@
   border: none;
   cursor: pointer;
   background: var(--secondary-bg-clr);
-  transition: .1s;
+  transition: var(--fade-ms);
   
   &:hover {
     background: var(--secondary-bg-clr-hover);

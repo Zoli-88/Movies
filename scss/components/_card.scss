@@ -33,7 +33,7 @@
           var(--zero-black),
           var(--secondary-overlay-bg-clr) 30%);
       pointer-events: none;
-      transition: .1s ease-in-out;
+      transition: var(--fade-ms) ease-in-out;
     }
 
     &:hover {
@@ -52,7 +52,7 @@
       width: 100%;
 
       img {
-        transition: .1s ease-in-out;
+        transition: var(--fade-ms) ease-in-out;
       }
 
       &:hover {
@@ -77,7 +77,7 @@
         display: inline-block;
         margin-bottom: .6rem;
         color: var(--secondary-text-clr);
-        transition: .1s ease-in-out;
+        transition: var(--fade-ms) ease-in-out;
         white-space: nowrap;
         overflow-x: hidden;
         text-overflow: ellipsis;
