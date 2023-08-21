@@ -2,11 +2,7 @@
   max-width: $max-width;
   width: 100%;
   margin: 0 auto;
-  padding: 1.4rem;
-  
-  &:last-child {
-    margin-bottom: 10rem;
-  }
+  padding-inline: 1.4rem;
 
   &.back-to-main-page {
     @media only screen and (max-width: $tablet) {

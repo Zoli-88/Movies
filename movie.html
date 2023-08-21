@@ -22,7 +22,7 @@
 <body>
   <main>
     <nav class="navigation-component">
-      <div class="navigation-container desktop">
+      <div class="container desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
@@ -42,7 +42,7 @@
           </li>
         </ul>
       </div>
-      <div class="navigation-container mobile">
+      <div class="container mobile">
         <div class="dropdown-menu-component"></div>
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
@@ -62,22 +62,31 @@
             <a href="#">Sign In</a>
           </li>
         </ul>
-        <a href="javascript:void(0)" class="nav-menu-toggle-btn" role="button">
+        <button class="nav-menu-toggle-btn">
           <span class="bar1"></span>
           <span class="bar2"></span>
           <span class="bar3"></span>
-        </a>
+        </button>
       </div>
     </nav>
-    <section class="container back-to-main-page">
-      <button onclick="handleBackPage()" class="primary-btn">Back</button>
+    <section class="section-padding-top">
+      <div class="container back-to-main-page">
+        <button onclick="handleBackPage()" class="primary-btn">Back</button>
+      </div>
     </section>
-    <section id="movie-page" class="container">
+    <section class="section-padding-top-bottom">
+      <div id="movie-page" class="container"></div>
     </section>
-    <div class="container">
-      <h3 id="related-movies-title"></h3>
-    </div>
-    <section id="related-movies" class="container">
+    <section class="section-padding-top-bottom">
+      <div id="description" class="container"></div>
+    </section>
+    <section class="section-padding-top-bottom">
+      <div id="related-movies-title" class="container">
+      </div>
+    </section>
+    <section class="section-padding-bottom">
+      <div id="related-movies" class="container">
+      </div>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

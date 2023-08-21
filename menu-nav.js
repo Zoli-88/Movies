@@ -1,7 +1,7 @@
 function menuNavComponent() {
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
-  const $navMenuComponentDesktop = document.querySelector(".navigation-container.desktop");
-  const $navMenuComponentMobile = document.querySelector(".navigation-container.mobile");
+  const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
+  const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
   const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
   const breakpointValue = 768;
   const breakpoint = window.matchMedia(`(max-width: ${breakpointValue}px)`);

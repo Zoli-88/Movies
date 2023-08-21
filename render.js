@@ -2,6 +2,7 @@
 const $body = document.body;
 const $container = document.querySelector("#container");
 const $moviePage = document.querySelector("#movie-page");
+const $description = document.querySelector("#description");
 const $relatedMovies = document.querySelector("#related-movies");
 const $relatedMoviesTitle = document.querySelector("#related-movies-title");
 
@@ -36,6 +37,7 @@ async function renderMovie() {
   try {
     const movie = await listMovie(queryImdbID);
     $moviePage.innerHTML = movieComponent(movie, querySearchPhrase);
+    $description.innerHTML = descriptionComponent(movie, querySearchPhrase);
   } catch (error) {
     renderError(error);
   }

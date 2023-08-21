@@ -28,6 +28,6 @@
     }
 
     .mobile & {
-      max-width: calc(100% - 10rem);
+      margin-right: calc(var(--dropdown-toggle-button-width) + .8rem);
     }
   }

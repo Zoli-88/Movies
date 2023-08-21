@@ -16,7 +16,7 @@
 <body>
   <main>
     <nav class="navigation-component">
-      <div class="navigation-container desktop">
+      <div class="container desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
@@ -36,7 +36,7 @@
           </li>
         </ul>
       </div>
-      <div class="navigation-container mobile">
+      <div class="container mobile">
         <div class="dropdown-menu-component"></div>
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
@@ -56,14 +56,15 @@
             <a href="#">Sign In</a>
           </li>
         </ul>
-        <a href="javascript:void(0)" class="nav-menu-toggle-btn" role="button">
+        <button class="nav-menu-toggle-btn">
           <span class="bar1"></span>
           <span class="bar2"></span>
           <span class="bar3"></span>
-        </a>
+        </button>
       </div>
     </nav>
-    <section id="container" class="container grid-list">
+    <section class="section-padding-top-bottom">
+      <div id="container" class="container grid-list"></div>
     </section>
   </main>
   <script src="/utils.js"></script>
