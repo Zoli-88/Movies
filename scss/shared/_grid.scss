@@ -3,12 +3,6 @@
   width: 100%;
   margin: 0 auto;
   padding-inline: 1.4rem;
-
-  &.back-to-main-page {
-    @media only screen and (max-width: $tablet) {
-      padding-top: calc(var(--nav-component-height) + 1.4rem);
-    }
-  }
 }
 
 .grid-list {
