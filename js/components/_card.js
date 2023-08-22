@@ -1,4 +1,5 @@
-import { isValidUrl } from "../utils/utils.js";
+import {isValidUrl} from "../utils/utils.js";
+import {IMDB_URL, IMDB_PLACEHOLDER} from "../constants/constants.js";
 
 function cardComponent(movie, searchResult = "thor") {
   const {
@@ -30,7 +31,7 @@ function cardComponent(movie, searchResult = "thor") {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="primary-btn" onclick="renderModal(${imdbID})">
+          <button id="modalButton" class="primary-btn" onclick="renderModal(${imdbID})">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>

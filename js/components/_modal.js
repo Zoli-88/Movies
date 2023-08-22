@@ -17,3 +17,5 @@ function modalComponent(movie) {
     </div>
   `
 }
+
+export {modalComponent};

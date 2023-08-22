@@ -1,3 +1,5 @@
+import {ICONS_MAP} from "../constants/constants.js";
+
 function ratingsComponent(movie) {
   return `
     <div class="ratings-component">
@@ -23,3 +25,5 @@ function ratingComponent(rating) {
     </div>
     `
 }
+
+export {ratingComponent, ratingsComponent};

@@ -26,7 +26,7 @@
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
-        <form action="" class="search-form-component" onsubmit="searchForm(event)">
+        <form action="" class="search-form-component">
           <label for="search"></label>
           <input type="text" placeholder="Search" id="search" name="search">
           <button class="search-btn">
@@ -47,7 +47,7 @@
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
-        <form action="" class="search-form-component" onsubmit="searchForm(event)">
+        <form action="" id="search-form" class="search-form-component">
           <label for="search"></label>
           <input type="text" placeholder="Search" id="search" name="search">
           <button class="search-btn">
@@ -90,22 +90,28 @@
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="/js/constants/constants.js"></script>
+  <script type="module" src="/js/constants/constants.js"></script>
   <script type="module" src="/js/utils/utils.js"></script>
-  <script src="/js/api/api.js"></script>
+  <script type="module" src="/js/api/api.js"></script>
   <script type="module" src="/js/components/_form.js"></script>
-  <script src="/js/components/_loading.js"></script>
-  <script src="/js/components/_error.js"></script>
+  <script type="module" src="/js/components/_loading.js"></script>
+  <script type="module" src="/js/components/_error.js"></script>
   <script type="module" src="/js/components/_card.js"></script>
-  <script src="/js/components/_ratings.js"></script>
-  <script src="/js/components/_description.js"></script>
-  <script src="/js/components/_related-titles.js"></script>
-  <script src="/js/components/_no-related-titles.js"></script>
-  <script src="/js/components/_related-movies.js"></script>
-  <script src="/js/components/_modal.js"></script>
+  <script type="module" src="/js/components/_modal.js"></script>
   <script type="module" src="/js/components/_menu-nav.js"></script>
-  <script src="/js/swiper/swiper.js"></script>
-  <script type="module" src="/js/render/render.js"></script>
+  <script type="module" src="/js/components/_description.js"></script>
+  <script type="module" src="/js/components/_ratings.js"></script>
+  <script type="module" src="/js/components/_related-titles.js"></script>
+  <script type="module" src="/js/components/_no-related-titles.js"></script>
+  <script type="module" src="/js/components/_related-movies.js"></script>
+  <script type="module" src="/js/render/shared/loading.js"></script>
+  <script type="module" src="/js/render/shared/clear-loading.js"></script>
+  <script type="module" src="/js/render/shared/error.js"></script>
+  <script type="module" src="/js/render/shared/clear-error.js"></script>
+  <script type="module" src="/js/render/shared/swiper.js"></script>
+  <script type="module" src="/js/render/movie-details-page/movie-page.js"></script>
+  <script type="module" src="/js/render/movie-details-page/movie.js"></script>
+  <script type="module" src="/js/render/movie-details-page/related-movies.js"></script>
   <script type="module" src="/js/init/movie.js"></script>
 </body>
 

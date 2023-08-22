@@ -1,3 +1,5 @@
+import {cardComponent} from "../components/_card.js";
+
 function relatedMoviesComponent(movies) {
   // In the related movies component (swiper) we want to render all the movies present in the default search
   // except the one that is highlighted in the movie component
@@ -29,3 +31,5 @@ function relatedMoviesComponent(movies) {
     </div>
   `
 }
+
+export {relatedMoviesComponent};

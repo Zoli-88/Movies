@@ -1,4 +1,4 @@
-export function menuNavComponent() {
+function menuNavComponent() {
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
@@ -28,3 +28,4 @@ export function menuNavComponent() {
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 }
 
+export {menuNavComponent};

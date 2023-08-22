@@ -9,3 +9,5 @@ function loadingComponent() {
     </div>
   `
 }
+
+export {loadingComponent};

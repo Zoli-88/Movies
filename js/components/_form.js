@@ -1,8 +1,12 @@
-import { searchFormValidation } from "../utils/utils.js";
+import {searchFormValidation} from "../utils/utils.js";
+const $formComponent = document.querySelector("#search-form");
 
-export function searchForm(event) {
+function searchForm(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
   const searchResult = formData.get("search");
   searchFormValidation(searchResult);
 }
+
+$formComponent.addEventListener("submit", searchForm);
+export {searchForm};

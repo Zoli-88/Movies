@@ -7,3 +7,5 @@ function errorComponent(error) {
     </div>
   `
 }
+
+export {errorComponent};

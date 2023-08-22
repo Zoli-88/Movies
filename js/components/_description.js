@@ -44,3 +44,5 @@ function descriptionComponent(movie) {
   </div>
   `
 }
+
+export {descriptionComponent};
