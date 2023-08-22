@@ -1,3 +1,5 @@
+import { cardComponent } from "../components/_card.js";
+
 // DOM elements
 const $body = document.body;
 const $container = document.querySelector("#container");
@@ -123,3 +125,5 @@ function clearError() {
   const $error = document.querySelector("#error");
   $error.remove();
 }
+
+export {initMovieListPage};

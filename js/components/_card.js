@@ -1,3 +1,5 @@
+import { isValidUrl } from "../utils/utils.js";
+
 function cardComponent(movie, searchResult = "thor") {
   const {
     imdbID,
@@ -36,3 +38,5 @@ function cardComponent(movie, searchResult = "thor") {
     </div>
   `
 }
+
+export {cardComponent};

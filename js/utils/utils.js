@@ -19,3 +19,5 @@ function searchFormValidation(searchResult) {
   window.location.href = redirectUrl;
   // to do basic validation and display some message
 }
+
+export {handleBackPage, isValidUrl, searchFormValidation};
