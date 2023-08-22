@@ -36,7 +36,7 @@ async function renderMovie() {
   
   try {
     const movie = await listMovie(queryImdbID);
-    $moviePage.innerHTML = movieComponent(movie, querySearchPhrase);
+    $moviePage.innerHTML = ratingsComponent(movie, querySearchPhrase);
     $description.innerHTML = descriptionComponent(movie, querySearchPhrase);
   } catch (error) {
     renderError(error);
@@ -61,7 +61,7 @@ async function renderRelatedMovies() {
       $relatedMoviesTitle.innerHTML = noRelatedTitlesComponent(querySearchPhrase);
     } else {
       $relatedMoviesTitle.innerHTML = relatedTitlesComponent(querySearchPhrase)
-      $relatedMovies.insertAdjacentHTML("beforeend", swiperComponent(moviesWithoutCurrent))
+      $relatedMovies.insertAdjacentHTML("beforeend", relatedMoviesComponent(moviesWithoutCurrent))
       activateSwiper();
     }
   } catch (error) {

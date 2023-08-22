@@ -1,1 +1,0 @@
-const BASE_URL = "https://www.omdbapi.com/?apikey=4c8a6d5d";
