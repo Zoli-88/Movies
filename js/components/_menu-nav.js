@@ -1,4 +1,4 @@
-function menuNavComponent() {
+export function menuNavComponent() {
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
@@ -27,5 +27,4 @@ function menuNavComponent() {
   breakpoint.addEventListener("change", handleMenuNavLayout);
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 }
-menuNavComponent();
 
