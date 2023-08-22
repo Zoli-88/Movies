@@ -26,6 +26,6 @@ function menuNavComponent() {
   // Event Listeners
   breakpoint.addEventListener("change", handleMenuNavLayout);
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
-}
+};
 
 export {menuNavComponent};
