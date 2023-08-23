@@ -11,8 +11,8 @@ html {
 .highlight {
   text-transform: capitalize;
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
