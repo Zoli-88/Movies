@@ -9,4 +9,3 @@ function searchForm(event) {
 }
 
 $formComponent.addEventListener("submit", searchForm);
-export {searchForm};

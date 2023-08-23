@@ -31,7 +31,7 @@ function cardComponent(movie, searchResult = "thor") {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button id="modalButton" class="primary-btn" onclick="renderModal(${imdbID})">
+          <button class="primary-btn">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>

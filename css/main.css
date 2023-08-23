@@ -57,8 +57,8 @@ html {
   text-transform: capitalize;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--text-gradient-accent-clr)), to(var(--text-gradient-base-clr)));
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -694,8 +694,8 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   text-transform: capitalize;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--text-gradient-accent-clr)), to(var(--text-gradient-base-clr)));
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 

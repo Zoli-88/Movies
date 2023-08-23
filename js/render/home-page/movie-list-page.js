@@ -10,7 +10,7 @@ async function initMovieListPage() {
     
     const $container = document.querySelector("#container");
     const urlSearchParams = new URLSearchParams(window.location.search);
-    const searchResult = urlSearchParams.get("find");
+    const searchResult = urlSearchParams.get("search");
   
     if (searchResult) {
       await renderMovies(searchResult, $container);

@@ -11,7 +11,7 @@ function modalComponent(movie) {
         <br/>
         <i class="fa-solid fa-star"></i> <span>${movie.imdbRating}/10</span>
       </div>
-      <button class="primary-btn" onclick="closeModal(${movie.imdbID})">
+      <button class="primary-btn">
         <i class="fa-solid fa-square-xmark"></i>
       </button>
     </div>

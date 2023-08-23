@@ -14,8 +14,7 @@ function isValidUrl(url) {
 }
 
 function searchFormValidation(searchResult) {
-  console.log(searchResult);
-  const redirectUrl = `/index.html?find=${encodeURIComponent(searchResult)}`;
+  const redirectUrl = `/index.html?search=${encodeURIComponent(searchResult)}`;
   window.location.href = redirectUrl;
   // to do basic validation and display some message
 }
