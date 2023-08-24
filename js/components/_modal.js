@@ -1,17 +1,28 @@
 function modalComponent(movie) {
+
+  const {
+    Title,
+    Year,
+    Rated,
+    Runtime,
+    Genre,
+    imdbID,
+    imdbRating
+  } = movie;
+
   return `
-    <div data-modal-open-id=${movie.imdbID} class="modal-component show-modal">
-      <h1 class="modal-title">${movie.Title}</h1>
+    <div data-modal-open-id=${imdbID} class="modal-component show-modal">
+      <h1 class="modal-title">${Title}</h1>
       <div class="subtitle">
-        <span>${movie.Year} &#x2022;</span>
-        <span>${movie.Rated === "N/A" ? "Unknown" : movie.Rated} &#x2022;</span>
-        <span>${movie.Runtime}</span>
+        <span>${Year} &#x2022;</span>
+        <span>${Rated === "N/A" ? "Unknown" : Rated} &#x2022;</span>
+        <span>${Runtime}</span>
         <br/>
-        <span>${movie.Genre ?? "Unknown"}</span>
+        <span>${Genre ?? "Unknown"}</span>
         <br/>
-        <i class="fa-solid fa-star"></i> <span>${movie.imdbRating}/10</span>
+        <i class="fa-solid fa-star"></i> <span>${imdbRating}/10</span>
       </div>
-      <button data-modal-btn-close-id="${movie.imdbID}" class="primary-btn">
+      <button data-modal-btn-close-id="${imdbID}" class="primary-btn">
         <i class="fa-solid fa-square-xmark"></i>
       </button>
     </div>

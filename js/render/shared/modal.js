@@ -7,32 +7,33 @@ const $relatedMoviesContainer = document.querySelector("#related-movies");
 
 async function renderModalContent(imdbID) {
   try {
-    const $cardComponent = document.querySelector(`#${imdbID.id}`);
-    const movie = await listMovie(imdbID.id);
+    const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
+    const movie = await listMovie(imdbID);
     $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
   } catch (error) {
       renderError(error);
   }
 }
 
-if ($container) {
-  $container.addEventListener("click", event => {
-    const modalButton = event.target.closest("[data-modal-btn-open-id]");
-    if (modalButton) {
-      const imdbID = modalButton.dataset.modalBtnOpenId;
-      renderModalContent({ id: imdbID });
-    }
-  });
+if ($container) $container.addEventListener("click", openModalonMainPage);
+if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openModalonDetailsPage);
+
+function openModalonMainPage(event) {
+  const openModalButton = event.target.closest("[data-modal-btn-open-id]");
+  
+  if (openModalButton) {
+    const imdbID = openModalButton.dataset.modalBtnOpenId;
+    renderModalContent(imdbID);
+  }
 }
 
-if ($relatedMoviesContainer) {
-  $relatedMoviesContainer.addEventListener("click", event => {
-    const modalButton = event.target.closest("[data-modal-btn-open-id]");
-    if (modalButton) {
-      const imdbID = modalButton.dataset.modalBtnOpenId;
-      renderModalContent({ id: imdbID });
-    }
-  });
+function openModalonDetailsPage(event) {
+  const openModalButton = event.target.closest("[data-modal-btn-open-id]");
+  
+  if (openModalButton) {
+    const imdbID = openModalButton.dataset.modalBtnOpenId;
+    renderModalContent(imdbID);
+  }
 }
 
 export { renderModalContent };
