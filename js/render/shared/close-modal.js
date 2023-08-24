@@ -1,5 +1,5 @@
 function closeModal(imdbID) {
-  const $modal = document.querySelector(`#${imdbID.id} > #modal-component`);
+  const $modal = document.querySelector(`[data-modal-open-id=${imdbID}]`);
   const fadeOutMs = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fade-ms'));
   $modal.classList.add("hide-modal")
 

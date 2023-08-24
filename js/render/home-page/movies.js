@@ -14,7 +14,6 @@ async function renderMovies(searchResult) {
       movies.forEach(movie => {
         $container.innerHTML += cardComponent(movie, searchResult);
       });
-      
     } catch (error) {
       renderError(error);
     }

@@ -19,8 +19,8 @@ if ($container) {
   $container.addEventListener("click", event => {
     const modalButton = event.target.closest("[data-modal-btn-open-id]");
     if (modalButton) {
-        const imdbID = modalButton.dataset.modalBtnOpenId;
-        renderModalContent({ id: imdbID });
+      const imdbID = modalButton.dataset.modalBtnOpenId;
+      renderModalContent({ id: imdbID });
     }
   });
 }
@@ -29,8 +29,8 @@ if ($relatedMoviesContainer) {
   $relatedMoviesContainer.addEventListener("click", event => {
     const modalButton = event.target.closest("[data-modal-btn-open-id]");
     if (modalButton) {
-        const imdbID = modalButton.dataset.modalBtnOpenId;
-        renderModalContent({ id: imdbID });
+      const imdbID = modalButton.dataset.modalBtnOpenId;
+      renderModalContent({ id: imdbID });
     }
   });
 }
