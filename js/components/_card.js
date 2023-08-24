@@ -8,7 +8,6 @@ function cardComponent(movie, searchResult = "thor") {
     Title,
     Year,
   } = movie;
-
   const posterUrl = (Poster !== "N/A" && isValidUrl(Poster)) ? Poster : "https://fakeimg.pl/300x429/ff0000,128/000,255/?text=Cool Poster";
   
   return `
@@ -31,7 +30,7 @@ function cardComponent(movie, searchResult = "thor") {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
-          <button class="primary-btn">
+          <button data-modal-btn-open-id="${imdbID}" class="primary-btn">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>

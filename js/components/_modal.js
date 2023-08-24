@@ -1,6 +1,6 @@
 function modalComponent(movie) {
   return `
-    <div class="modal-component show-modal" id="modal-component">
+    <div class="modal-component show-modal">
       <h1 class="modal-title">${movie.Title}</h1>
       <div class="subtitle">
         <span>${movie.Year} &#x2022;</span>

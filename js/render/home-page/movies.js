@@ -20,4 +20,6 @@ async function renderMovies(searchResult) {
     }
   }
 
-  export {renderMovies};
+export { renderMovies };
+
+
