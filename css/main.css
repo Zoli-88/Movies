@@ -123,12 +123,7 @@ body {
   -ms-grid-columns: (minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
   gap: 1rem;
-}
-
-@media only screen and (max-width: 768px) {
-  .grid-list {
-    padding-top: calc(var(--nav-component-height) + 1.4rem);
-  }
+  padding-top: calc(var(--nav-component-height) + 1.4rem);
 }
 
 @media only screen and (max-width: 576px) {
@@ -220,14 +215,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 
 .navigation-component {
   background: var(--primary-bg-clr);
-}
-
-@media only screen and (max-width: 768px) {
-  .navigation-component {
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-  }
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  border: none;
 }
 
 .navigation-component .desktop,
@@ -243,8 +234,8 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   gap: .8rem;
 }
 
-.navigation-component .mobile.scrolled {
-  display: none;
+.navigation-component.scroll {
+  background: red;
 }
 
 .navigation-component .logo {
@@ -272,6 +263,13 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 
 .navigation-component .nav-links-mobile {
   background: red;
+}
+
+.navigation-component + [data-nav-menu-scroll-trigger] {
+  position: relative;
+  top: var(--nav-component-height);
+  height: 1px;
+  visibility: hidden;
 }
 
 .dropdown-menu-component {

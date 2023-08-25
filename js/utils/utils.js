@@ -19,4 +19,4 @@ function searchFormValidation(searchResult) {
   // to do basic validation and display some message
 }
 
-export {handleBackPage, isValidUrl, searchFormValidation};
+export { handleBackPage, isValidUrl, searchFormValidation };

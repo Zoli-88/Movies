@@ -1,8 +1,10 @@
 function menuNavComponent() {
-  const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
+  const $navMenuComponent = document.querySelector(".navigation-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
   const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
+  const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
+  const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
   const breakpointValue = 768;
   const breakpoint = window.matchMedia(`(max-width: ${breakpointValue}px)`);
   
@@ -23,9 +25,31 @@ function menuNavComponent() {
     $dropDownMenuComponent.classList.toggle("slide");
   }
 
+  function changeNavMenuComponentAppearanceOnScroll(scrollTrigger, navMenuComponent, classname) {
+    const options = {
+      rootMargin: "0px",
+      threshold: 0,
+    };
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navMenuComponent.classList.remove(classname);
+        } else {
+          navMenuComponent.classList.add(classname);
+        }
+      });
+    }, options);
+  
+    observer.observe(scrollTrigger);  
+  }
+
   // Event Listeners
   breakpoint.addEventListener("change", handleMenuNavLayout);
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
+
+  // Intersection Observer - Scroll styling
+  changeNavMenuComponentAppearanceOnScroll($scrollEffectTrigger, $navMenuComponent, "scroll");
 };
 
 export {menuNavComponent};
