@@ -234,8 +234,23 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   gap: .8rem;
 }
 
-.navigation-component.scroll {
-  background: red;
+.navigation-component::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, var(--primary-bg-clr)), to(transparent));
+  background: linear-gradient(to bottom, var(--primary-bg-clr) 30%, transparent);
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.navigation-component.scroll::after {
+  height: 1.2rem;
+  bottom: -1.2rem;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, var(--primary-bg-clr)), to(var(--icon-orange)));
+  background: linear-gradient(to bottom, var(--primary-bg-clr) 30%, var(--icon-orange));
 }
 
 .navigation-component .logo {
@@ -267,7 +282,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 
 .navigation-component + [data-nav-menu-scroll-trigger] {
   position: relative;
-  top: var(--nav-component-height);
+  top: 0;
   height: 1px;
   visibility: hidden;
 }
@@ -771,9 +786,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   margin-right: calc(var(--dropdown-toggle-button-width) + .8rem);
 }
 
-@media only screen and (max-width: 768px) {
-  .back-to-previous-page-component {
-    padding-top: calc(var(--nav-component-height) + 1.4rem);
-  }
+.back-to-previous-page-component {
+  padding-top: calc(var(--nav-component-height) + 1.4rem);
 }
 /*# sourceMappingURL=main.css.map */

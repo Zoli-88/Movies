@@ -5,6 +5,7 @@ function menuNavComponent() {
   const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
+  const $scrollEffectTriggerMarginTop = 2;
   const breakpointValue = 768;
   const breakpoint = window.matchMedia(`(max-width: ${breakpointValue}px)`);
   
@@ -25,9 +26,9 @@ function menuNavComponent() {
     $dropDownMenuComponent.classList.toggle("slide");
   }
 
-  function changeNavMenuComponentAppearanceOnScroll(scrollTrigger, navMenuComponent, classname) {
+  function changeNavMenuComponentAppearanceOnScroll(scrollTrigger, navMenuComponent, classname, scrollTriggerMarginTop) {
     const options = {
-      rootMargin: "0px",
+      rootMargin: `${scrollTriggerMarginTop}px 0px 0px 0px`,
       threshold: 0,
     };
   
@@ -49,7 +50,7 @@ function menuNavComponent() {
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 
   // Intersection Observer - Scroll styling
-  changeNavMenuComponentAppearanceOnScroll($scrollEffectTrigger, $navMenuComponent, "scroll");
+  changeNavMenuComponentAppearanceOnScroll($scrollEffectTrigger, $navMenuComponent, "scroll", $scrollEffectTriggerMarginTop);
 };
 
 export {menuNavComponent};
