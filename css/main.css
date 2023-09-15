@@ -104,6 +104,7 @@ body {
   font-size: 1.6rem;
   background: var(--body-bg-clr);
   color: var(--primary-text-clr);
+  overflow-x: hidden;
 }
 
 .container {
@@ -247,10 +248,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 }
 
 .navigation-component.scroll::after {
-  height: 1.2rem;
-  bottom: -1.2rem;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, var(--primary-bg-clr)), to(var(--icon-orange)));
-  background: linear-gradient(to bottom, var(--primary-bg-clr) 30%, var(--icon-orange));
+  height: .6rem;
+  bottom: -.6rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--primary-bg-clr)), to(var(--icon-orange)));
+  background: linear-gradient(to bottom, var(--primary-bg-clr), var(--icon-orange));
 }
 
 .navigation-component .logo {
@@ -630,6 +631,12 @@ button.nav-menu-toggle-btn.toggle .bar3 {
      object-fit: contain;
   -ms-flex-item-align: start;
       align-self: flex-start;
+}
+
+@media only screen and (max-width: 576px) {
+  .description-component img {
+    width: 100%;
+  }
 }
 
 .description-component ul {
