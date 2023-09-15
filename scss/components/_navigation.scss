@@ -26,9 +26,9 @@
   
   &.scroll {
     &::after {
-      height: 1.2rem;
-      bottom: -1.2rem;
-      background: linear-gradient(to bottom, var(--primary-bg-clr) 30%, var(--icon-orange));
+      height: .6rem;
+      bottom: -.6rem;
+      background: linear-gradient(to bottom, var(--primary-bg-clr), var(--icon-orange));
     }
   }
   
