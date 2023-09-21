@@ -1,3 +1,5 @@
+import {checkIfMobileOrDesktop} from "../utils/utils.js";
+
 function menuNavComponent() {
   const $navMenuComponent = document.querySelector(".navigation-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
@@ -7,20 +9,17 @@ function menuNavComponent() {
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
   const $scrollEffectTriggerMarginTop = 2;
-  const breakpointValue = 768;
-  const breakpoint = window.matchMedia(`(max-width: ${breakpointValue}px)`);
   
-  function handleMenuNavLayout(event) {
-    if (event.matches) {
-      $navMenuComponentDesktop.classList.add("hide");
-      $navMenuComponentMobile.classList.remove("hide");
-    } else {
+  function handleMenuNavLayout(isDesktop) {
+    if (isDesktop) {
       $navMenuComponentDesktop.classList.remove("hide");
       $navMenuComponentMobile.classList.add("hide");
+    } else {
+      $navMenuComponentDesktop.classList.add("hide");   
+      $navMenuComponentMobile.classList.remove("hide");
     }
   }
-  // Initial call to set the layout based on the initial media query state
-  handleMenuNavLayout(breakpoint);
+  checkIfMobileOrDesktop(handleMenuNavLayout);
 
   function toggleDropdownMenu() {
     $navMenuToggleButton.classList.toggle("toggle");
@@ -43,12 +42,10 @@ function menuNavComponent() {
         }
       });
     }, options);
-  
     observer.observe(scrollTrigger);  
   }
 
   // Event Listeners
-  breakpoint.addEventListener("change", handleMenuNavLayout);
   $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 
   // Intersection Observer - Scroll styling

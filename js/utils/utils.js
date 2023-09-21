@@ -19,4 +19,16 @@ function searchFormValidation(searchResult) {
   // to do basic validation and display some message
 }
 
-export { handleBackPage, isValidUrl, searchFormValidation };
+function checkIfMobileOrDesktop(callback) {
+  const breakpointValue = 768;
+  const breakpoint = window.matchMedia(`(min-width: ${breakpointValue}px)`);
+
+  function updateIsDesktop(event) {
+    const isDesktop = event.matches;
+    callback(isDesktop);
+  }
+  breakpoint.addEventListener("change", updateIsDesktop);
+  updateIsDesktop(breakpoint);
+}
+
+export { handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop };
