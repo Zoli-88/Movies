@@ -9,6 +9,7 @@ function menuNavComponent() {
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
   const $scrollEffectTriggerMarginTop = 2;
+  const breakpointValue = 768;
   
   function handleMenuNavLayout(isDesktop) {
     if (isDesktop) {
@@ -19,7 +20,7 @@ function menuNavComponent() {
       $navMenuComponentMobile.classList.remove("hide");
     }
   }
-  checkIfMobileOrDesktop(handleMenuNavLayout);
+  checkIfMobileOrDesktop(handleMenuNavLayout, breakpointValue);
 
   function toggleDropdownMenu() {
     $navMenuToggleButton.classList.toggle("toggle");

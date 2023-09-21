@@ -19,8 +19,7 @@ function searchFormValidation(searchResult) {
   // to do basic validation and display some message
 }
 
-function checkIfMobileOrDesktop(callback) {
-  const breakpointValue = 768;
+function checkIfMobileOrDesktop(callback, breakpointValue) {
   const breakpoint = window.matchMedia(`(min-width: ${breakpointValue}px)`);
 
   function updateIsDesktop(event) {

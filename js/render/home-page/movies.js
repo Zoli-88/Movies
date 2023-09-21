@@ -4,25 +4,31 @@ import { renderError } from "../shared/error.js";
 import {checkIfMobileOrDesktop} from "../../utils/utils.js";
 
 async function renderMovies(searchResult) {
-    const $container = document.querySelector("#container");
+    const $containerDesktop = document.querySelector("#container-desktop");
+    const $containerMobile = document.querySelector("#container-mobile");
+    const breakpointValue = 576;
 
     try {
       const data = await listMovies(searchResult);
       const movies = data.Search;
   
-      $container.innerHTML = "";
+      $containerDesktop.innerHTML = "";
+      $containerMobile.innerHTML = "";
       
+      movies.forEach(movie => {
+        $containerDesktop.innerHTML += cardComponent(movie, searchResult);
+      });
+
       function handleRenderedMoviesLayout(isDesktop) {
         if (isDesktop) {
-          movies.forEach(movie => {
-            $container.innerHTML += cardComponent(movie, searchResult);
-          });
-          console.log("desktop");
+          $containerDesktop.classList.remove("hide");
+          $containerMobile.classList.add("hide");
         } else {
-          console.log("mobile");
+          $containerDesktop.classList.add("hide");
+          $containerMobile.classList.remove("hide");
         }
       }
-      checkIfMobileOrDesktop(handleRenderedMoviesLayout);
+      checkIfMobileOrDesktop(handleRenderedMoviesLayout, breakpointValue);
     } catch (error) {
       renderError(error);
     }
