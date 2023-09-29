@@ -1,0 +1,109 @@
+.card-component {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: .8rem;
+  max-width: 40rem;
+  background: var(--primary-bg-clr);
+  padding: 1rem;
+  overflow: hidden;
+
+  @media only screen and (max-width: $mobile) {
+    max-width: 34rem;
+  }
+
+  img {
+    width: 100%;
+    min-height: 48rem;
+    max-height: 49rem;
+    display: block;
+    object-fit: cover;
+  }
+
+  .poster-wrapper {
+    overflow: hidden;
+    border-radius: .6rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(to top,
+          var(--zero-black),
+          var(--secondary-overlay-bg-clr) 30%);
+      pointer-events: none;
+      transition: var(--fade-ms) ease-in-out;
+    }
+
+    &:hover {
+      &+.information {
+        .card-title {
+          color: var(--secondary-text-clr-hover);
+        }
+      }
+
+      &::after {
+        bottom: -10rem;
+      }
+    }
+
+    .poster-link {
+      width: 100%;
+
+      img {
+        transition: var(--fade-ms) ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  .information {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .content {
+      margin: 1rem 0 1.6rem;
+
+      .card-title {
+        font-size: 2rem;
+        display: inline-block;
+        margin-bottom: .6rem;
+        color: var(--secondary-text-clr);
+        transition: var(--fade-ms) ease-in-out;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
+
+        &:hover {
+          color: var(--secondary-text-clr-hover);
+        }
+      }
+
+      .calendar-icon,
+      .year {
+        font-size: 1.4rem;
+      }
+    }
+
+    .details {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo-icon {
+        font-size: 3.6rem;
+        color: var(--accent-clr);
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,30 +10,122 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Font awesome -->
   <script src="https://kit.fontawesome.com/ce9ffc1494.js" crossorigin="anonymous"></script>
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
-  <link rel="stylesheet" href="main.css">
-  <title>Moives</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/main.css">
+  <title>Movies</title>
 </head>
-
 <body>
+  <header>
+    <nav class="navigation-component">
+      <div class="container padding-inline desktop">
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" id="search-form" class="search-form-component">
+          <label for="search"></label>
+          <input type="text" placeholder="Search" id="search" name="search">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="nav-links-desktop">
+          <li>
+            <a href="#">Watchlist</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container padding-inline mobile hide">
+        <div class="dropdown-menu-component"></div>
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" id="search-form" class="search-form-component">
+          <label for="search"></label>
+          <input type="text" placeholder="Search" id="search" name="search">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="nav-links-mobile hide">
+          <li>
+            <a href="#">Watchlist</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+        </ul>
+        <button class="nav-menu-toggle-btn">
+          <span class="bar1"></span>
+          <span class="bar2"></span>
+          <span class="bar3"></span>
+        </button>
+      </div>
+    </nav>
+    <div data-nav-menu-scroll-trigger></div>
+  </header>
   <main>
-    <section class="container">
-      <button onclick="handleBackPage()" class="primary-btn">Back</button>
+    <section class="padding-top padding-inline main-padding-top">
+      <div class="container">
+        <button id="prev-page-btn" class="primary-btn">Back</button>
+      </div>
     </section>
-    <section id="movie-page" class="container">
+    <section class="padding-block padding-inline">
+      <div id="movie-page" class="container"></div>
     </section>
-    <section id="related-movies" class="container"></section>
+    <section class="padding-block padding-inline">
+      <div id="description" class="container"></div>
+    </section>
+    <section class="padding-block padding-inline">
+      <div id="related-movies-title" class="container">
+      </div>
+    </section>
+    <section class="padding-bottom">
+      <div id="related-movies" class="container">
+      </div>
+    </section>
   </main>
+  <footer>
+    <div class="container padding-block padding-inline">
+      <p id="copyright"></p>
+    </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="/utils.js"></script>
-  <script src="api.js"></script>
-  <script src="/components.js"></script>
-  <script src="swiper.js"></script>
-  <script src="/render.js"></script>
-  <script src="/movie.js"></script>
+  <script type="module" src="/js/constants/constants.js"></script>
+  <script type="module" src="/js/utils/utils.js"></script>
+  <script type="module" src="/js/api/api.js"></script>
+  <script type="module" src="/js/components/_menu-nav.js"></script>
+  <script type="module" src="/js/components/_form.js"></script>
+  <script type="module" src="/js/components/_loading.js"></script>
+  <script type="module" src="/js/components/_error.js"></script>
+  <script type="module" src="/js/components/_card.js"></script>
+  <script type="module" src="/js/components/_copyright.js"></script>
+  <script type="module" src="/js/components/_modal.js"></script>
+  <script type="module" src="/js/components/_description.js"></script>
+  <script type="module" src="/js/components/_ratings.js"></script>
+  <script type="module" src="/js/components/_related-titles.js"></script>
+  <script type="module" src="/js/components/_no-related-titles.js"></script>
+  <script type="module" src="/js/components/_related-movies.js"></script>
+  <script type="module" src="/js/render/shared/loading.js"></script>
+  <script type="module" src="/js/render/shared/clear-loading.js"></script>
+  <script type="module" src="/js/render/shared/error.js"></script>
+  <script type="module" src="/js/render/shared/clear-error.js"></script>
+  <script type="module" src="/js/render/shared/copyright.js"></script>
+  <script type="module" src="/js/render/shared/swiper.js"></script>
+  <script type="module" src="/js/render/movie-details-page/movie.js"></script>
+  <script type="module" src="/js/render/movie-details-page/related-movies.js"></script>
+  <script type="module" src="/js/render/movie-details-page/movie-page.js"></script>
+  <script type="module" src="/js/render/shared/modal.js"></script>
+  <script type="module" src="/js/render/shared/close-modal.js"></script>
+  <script type="module" src="/js/init/movie.js"></script>
 </body>
 
 </html>

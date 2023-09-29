@@ -1,0 +1,18 @@
+.related-titles-component {
+  padding-left: 1rem;
+  margin-bottom: 2.4rem;
+
+  &.no-related-titles {
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .search-phrase {
+    text-transform: capitalize;
+    background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

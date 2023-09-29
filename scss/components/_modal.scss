@@ -1,0 +1,69 @@
+.modal-component {
+  position: absolute;
+  min-height: 12rem;
+  bottom: 0;
+  left: 0;
+  background: var(--primary-overlay-bg-clr);
+  backdrop-filter: blur(.2rem);
+  width: 100%;
+  padding: .6rem 2.4rem;
+  border-radius: .8rem;
+  opacity: 0;
+
+  &.show-modal {
+    animation: show-modal var(--fade-ms) ease-in forwards;
+  }
+
+  &.hide-modal {
+    animation: hide-modal var(--fade-ms) ease-out forwards;
+  } 
+
+  @keyframes show-modal {
+    0% {
+      bottom: -1rem;
+      opacity: 0;
+    }
+
+    100% {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  @keyframes hide-modal {
+    0% {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    100% {
+      bottom: -1rem;
+      opacity: 0;
+    }
+  }
+
+  .fa-star {
+    color: var(--icon-yellow);
+  }
+
+  .modal-title {
+    font-size: 1.6rem;
+    margin-bottom: .6rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+    padding-right: 2rem;
+    line-height: 1.4;
+  }
+
+  button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.1rem;
+    background: transparent;
+
+    &:hover {
+      background: var(--primary-bg-clr-hover);
+    }
+  }
+}

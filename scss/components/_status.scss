@@ -1,0 +1,26 @@
+
+.status-component {
+  text-align: center;
+  position: fixed;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-overlay-bg-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(.2rem);
+  transition: var(--fade-ms);
+
+  &-icon {
+    font-size: 3rem;
+  }
+
+  &-text {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+}

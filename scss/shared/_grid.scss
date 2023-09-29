@@ -1,0 +1,19 @@
+.container {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.grid-list {
+  max-width: $max-width;
+  margin: 0 auto;
+  --w: 25rem;
+  --n: 7;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
+  gap: 1rem;
+
+  @media only screen and (max-width: $mobile) {
+    place-items: center;
+  }
+}

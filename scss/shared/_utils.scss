@@ -1,0 +1,23 @@
+.hide {
+    display: none !important;
+}
+
+.padding-top {
+    padding-top: 1.4rem;
+}
+
+.padding-bottom {
+    padding-bottom: 1.4rem;
+}
+
+.padding-block {
+    padding-block: 1.4rem;
+}
+
+.padding-inline {
+  padding-inline: 1.4rem;
+}
+
+.main-padding-top {
+  padding-top: calc(var(--nav-component-height) + 1.4rem);
+}

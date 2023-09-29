@@ -1,0 +1,43 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.highlight {
+  text-transform: capitalize;
+  background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-text-clr);
+  position: relative;
+
+  &[target="_blank"] {
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(70%, 30%);
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f14c";
+      color: var(--accent-clr);
+    }
+  }
+}

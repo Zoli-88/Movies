@@ -1,0 +1,14 @@
+.dropdown-menu-component {
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: var(--dropdown-menu-height);
+    position: fixed;
+    background: var(--body-bg-clr);
+    transition: var(--dropdown-ms);
+
+    &.slide {
+        height: var(--dropdown-menu-height);
+        bottom: 0;
+    }
+}

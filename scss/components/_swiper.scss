@@ -1,0 +1,37 @@
+.swiper-component {
+  &.swiper {
+    .swiper-slide {
+      height: auto;
+    }
+    
+    .card-component {
+      .title {
+        height: 2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        white-space: nowrap;
+      }
+    }
+  
+    .swiper-button {
+      &.primary-btn {
+        padding: 3rem;
+        border-radius: 1.8rem;
+        opacity: .8;
+      
+        &::after {
+          font-size: 3rem;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &:focus-visible {
+          opacity: 1;
+        }
+      }
+    }
+  }  
+}

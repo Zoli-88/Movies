@@ -1,0 +1,61 @@
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &.primary-btn {
+    color: var(--primary-text-clr);
+    font-size: 1.8rem;
+    padding: .8rem 1rem;
+    border-radius: .4rem;
+    border: none;
+    cursor: pointer;
+    background: var(--secondary-bg-clr);
+    transition: var(--fade-ms);
+    
+    &:hover {
+      background: var(--secondary-bg-clr-hover);
+    }
+  }
+
+  &.nav-menu-toggle-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+    
+    .bar1, .bar2, .bar3 {
+      width: var(--dropdown-toggle-button-width);
+      height: .4rem;
+      background-color: var(--icon-white);
+      border-radius: .2rem;
+      transition: var(--dropdown-ms);
+    }
+
+    &.toggle {
+      .bar1 {
+        transform: rotate(45deg) translate(.45rem, .45rem);
+      }
+  
+      .bar2 {
+        opacity: 0;
+      }
+  
+      .bar3 {
+        transform: rotate(-45deg) translate(.7rem, -.6rem);
+      }
+    }
+  }
+}
+
+
+
+
+// .search-btn {
+  // to add animation
+// }
