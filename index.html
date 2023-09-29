@@ -15,27 +15,27 @@
   <title>Movies</title>
 </head>
 <body>
-  <main>
+  <header>
     <nav class="navigation-component">
       <div class="container padding-inline desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
-        </a>
-        <form action="" id="search-form" class="search-form-component">
-          <label for="search"></label>
-          <input type="text" placeholder="Search" id="search" name="search">
-          <button class="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <ul class="nav-links-desktop">
-          <li>
-            <a href="#">Watchlist</a>
-          </li>
-          <li>
-            <a href="#">Sign In</a>
-          </li>
-        </ul>
+          </a>
+          <form action="" id="search-form" class="search-form-component">
+            <label for="search"></label>
+            <input type="text" placeholder="Search" id="search" name="search">
+            <button class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <ul class="nav-links-desktop">
+            <li>
+              <a href="#">Watchlist</a>
+            </li>
+            <li>
+              <a href="#">Sign In</a>
+            </li>
+          </ul>
       </div>
       <div class="container padding-inline mobile hide">
         <div class="dropdown-menu-component"></div>
@@ -70,11 +70,18 @@
         </button>
       </div>
     </nav>
-    <div data-nav-menu-scroll-trigger></div>
+      <div data-nav-menu-scroll-trigger></div>
+  </header>
+  <main>    
     <section class="padding-block padding-inline main-padding-top">
-      <div id="container" class="container grid-list"></div>
+      <ul id="container" class="container grid-list"></ul>
     </section>
   </main>
+  <footer>
+    <div class="container padding-block padding-inline">
+      <p id="copyright"></p>
+    </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script type="module" src="/js/constants/constants.js"></script>
   <script type="module" src="/js/utils/utils.js"></script>
@@ -84,12 +91,14 @@
   <script type="module" src="/js/components/_loading.js"></script>
   <script type="module" src="/js/components/_error.js"></script>
   <script type="module" src="/js/components/_card.js"></script>
+  <script type="module" src="/js/components/_copyright.js"></script>
   <script type="module" src="/js/components/_swiper-card.js"></script>
   <script type="module" src="/js/components/_modal.js"></script>
   <script type="module" src="/js/render/shared/loading.js"></script>
   <script type="module" src="/js/render/shared/clear-loading.js"></script>
   <script type="module" src="/js/render/shared/error.js"></script>
   <script type="module" src="/js/render/shared/clear-error.js"></script>
+  <script type="module" src="/js/render/shared/copyright.js"></script>
   <script type="module" src="/js/render/home-page/movies.js"></script>
   <script type="module" src="/js/render/home-page/movie-list-page.js"></script>
   <script type="module" src="/js/render/shared/modal.js"></script>

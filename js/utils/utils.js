@@ -30,4 +30,10 @@ function checkIfMobileOrDesktop(callback, breakpointValue) {
   updateIsDesktop(breakpoint);
 }
 
-export { handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop };
+function currentYear() {
+  const year = new Date().getFullYear();
+  return year;
+}
+currentYear();
+
+export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear};
