@@ -2,7 +2,7 @@ import { listMovie } from "../../api/api.js";
 import { modalComponent } from "../../components/_modal.js";
 import { renderError } from "../../render/shared/error.js";
 
-const $container = document.querySelector(`#container`);
+const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
 
 async function renderModalContent(imdbID) {
@@ -15,19 +15,10 @@ async function renderModalContent(imdbID) {
   }
 }
 
-if ($container) $container.addEventListener("click", openModalonMainPage);
-if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openModalonDetailsPage);
+if ($container) $container.addEventListener("click", openModal);
+if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openModal);
 
-function openModalonMainPage(event) {
-  const openModalButton = event.target.closest("[data-modal-btn-open-id]");
-  
-  if (openModalButton) {
-    const imdbID = openModalButton.dataset.modalBtnOpenId;
-    renderModalContent(imdbID);
-  }
-}
-
-function openModalonDetailsPage(event) {
+function openModal(event) {
   const openModalButton = event.target.closest("[data-modal-btn-open-id]");
   
   if (openModalButton) {

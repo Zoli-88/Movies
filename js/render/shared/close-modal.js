@@ -1,4 +1,4 @@
-const $container = document.querySelector(`#container`);
+const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
 
 function closeModal(imdbID) {
@@ -8,22 +8,13 @@ function closeModal(imdbID) {
 
   setTimeout(() => {
     $modal.remove();
-  }, fadeOutMs)
+  }, fadeOutMs);
 }
 
-if ($container) $container.addEventListener("click", closeModalOnMainPage);
-if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModalOnDetailsPage);
+if ($container) $container.addEventListener("click", closeModalTest);
+if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModalTest);
 
-function closeModalOnMainPage(event) {
-  const closeModalButton = event.target.closest("[data-modal-btn-close-id]");
-  
-  if (closeModalButton) {
-    const imdbID = closeModalButton.dataset.modalBtnCloseId;
-    closeModal(imdbID);
-  }
-}
-
-function closeModalOnDetailsPage(event) {
+function closeModalTest(event) {
   const closeModalButton = event.target.closest("[data-modal-btn-close-id]");
   
   if (closeModalButton) {

@@ -3,9 +3,7 @@ import { renderLoading } from "../shared/loading.js";
 import { renderMovies } from "./movies.js";
 import { clearLoading } from "../shared/clear-loading.js";
 
-
 async function initMovieListPage() {
-
     renderLoading();
     
     const $container = document.querySelector("#container");
