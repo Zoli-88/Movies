@@ -2,14 +2,22 @@
     display: none !important;
 }
 
-.section-padding-top {
+.padding-top {
     padding-top: 1.4rem;
 }
 
-.section-padding-bottom {
+.padding-bottom {
     padding-bottom: 1.4rem;
 }
 
-.section-padding-top-bottom {
+.padding-block {
     padding-block: 1.4rem;
+}
+
+.padding-inline {
+  padding-inline: 1.4rem;
+}
+
+.main-padding-top {
+  padding-top: calc(var(--nav-component-height) + 1.4rem);
 }

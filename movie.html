@@ -19,7 +19,7 @@
 <body>
   <main>
     <nav class="navigation-component">
-      <div class="container desktop">
+      <div class="container padding-inline desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
@@ -39,7 +39,7 @@
           </li>
         </ul>
       </div>
-      <div class="container mobile hide">
+      <div class="container padding-inline mobile hide">
         <div class="dropdown-menu-component"></div>
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
@@ -73,20 +73,22 @@
       </div>
     </nav>
     <div data-nav-menu-scroll-trigger></div>
-    <section class="section-padding-top">
-      <div id="prev-page" class="container"></div>
+    <section class="padding-top padding-inline main-padding-top">
+      <div class="container">
+        <button id="prev-page-btn" class="primary-btn">Back</button>
+      </div>
     </section>
-    <section class="section-padding-top-bottom">
+    <section class="padding-block padding-inline">
       <div id="movie-page" class="container"></div>
     </section>
-    <section class="section-padding-top-bottom">
+    <section class="padding-block padding-inline">
       <div id="description" class="container"></div>
     </section>
-    <section class="section-padding-top-bottom">
+    <section class="padding-block padding-inline">
       <div id="related-movies-title" class="container">
       </div>
     </section>
-    <section class="section-padding-bottom">
+    <section class="padding-bottom">
       <div id="related-movies" class="container">
       </div>
     </section>
@@ -101,7 +103,6 @@
   <script type="module" src="/js/components/_error.js"></script>
   <script type="module" src="/js/components/_card.js"></script>
   <script type="module" src="/js/components/_modal.js"></script>
-  <script type="module" src="/js/components/_back-to-previous-page.js"></script>
   <script type="module" src="/js/components/_description.js"></script>
   <script type="module" src="/js/components/_ratings.js"></script>
   <script type="module" src="/js/components/_related-titles.js"></script>

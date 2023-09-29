@@ -2,12 +2,11 @@ import {renderError} from "../shared/error.js";
 import {listMovie} from "../../api/api.js";
 import {ratingsComponent} from "../../components/_ratings.js";
 import {descriptionComponent} from "../../components/_description.js";
-import {backToPreviousPageComponent} from "../../components/_back-to-previous-page.js";
 import { handleBackPage } from "../../utils/utils.js";
 
 async function renderMovie() {
     const $moviePage = document.querySelector("#movie-page");
-    const $backToPreviousPage = document.querySelector("#prev-page");
+    const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
     const $description = document.querySelector("#description");
 
     const paramsString = window.location.search;
@@ -17,8 +16,7 @@ async function renderMovie() {
 
     try {
         const movie = await listMovie(queryImdbID);
-        $backToPreviousPage.innerHTML = backToPreviousPageComponent();
-        $backToPreviousPage.addEventListener("click", handleBackPage);
+        $backToPreviousPageButton.addEventListener("click", handleBackPage);
         $moviePage.innerHTML = ratingsComponent(movie, querySearchPhrase);
         $description.innerHTML = descriptionComponent(movie, querySearchPhrase);
     } catch (error) {
