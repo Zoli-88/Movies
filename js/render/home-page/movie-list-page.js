@@ -1,7 +1,6 @@
 // On load
-import {renderLoading} from "../shared/loading.js";
+import {renderLoading, clearLoading} from "../shared/loading.js";
 import {renderMovies} from "./movies.js";
-import {clearLoading} from "../shared/clear-loading.js";
 import {renderCopyright} from "../shared/copyright.js";
 
 async function initMovieListPage() {

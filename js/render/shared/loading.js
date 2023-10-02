@@ -5,4 +5,9 @@ function renderLoading() {
     $body.insertAdjacentHTML("beforeend", loadingComponent());
   }
 
-export {renderLoading};
+function clearLoading() {
+  const $loading = document.querySelector("#loading");
+  $loading.remove();
+}
+
+export {renderLoading, clearLoading};

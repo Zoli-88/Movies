@@ -5,4 +5,9 @@ function renderError(error) {
     $body.insertAdjacentHTML("beforeend", errorComponent(error));
   }
 
+function clearError() {
+  const $error = document.querySelector("#error");
+  $error.remove();
+}
+
 export {renderError};
