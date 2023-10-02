@@ -1,5 +1,5 @@
 import {errorComponent} from "../../components/_error.js";
-import {renderErrorMessage} from "../error-page/error-message.js";
+import {redirectUserToTheHomePage} from "../../utils/utils.js";
 
 function renderError(error) {
     const $body = document.body;
@@ -8,22 +8,19 @@ function renderError(error) {
       personalisedErrorMessage = "Please try searching for a different title";
       $body.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
       const $errorButton = document.querySelector("#error-btn");
-      if ($errorButton) $errorButton.addEventListener("click", redirectUserToTheHomePage);
+      if ($errorButton) $errorButton.addEventListener("click", () => {
+        redirectUserToTheHomePage();
+        clearError();
+      });
     } else {
       redirectUserToTheErrorPage(error);
-      personalisedErrorMessage = "The error message was sent to our team to investigate";
   }
-}
-
-function redirectUserToTheHomePage() {
-    const redirectUrl = `/index.html`;
-    window.location.href = redirectUrl;
 }
   
 function redirectUserToTheErrorPage(error) {
-    const redirectUrl = `/error.html`;
+    const redirectUrl = `/error.html?errorMessage=${encodeURIComponent(error)}`;
     window.location.href = redirectUrl;
-    renderErrorMessage(error);
+    clearError();
 }
   
 function clearError() {
@@ -31,4 +28,4 @@ function clearError() {
     $error.remove();
 }
 
-export {renderError, redirectUserToTheErrorPage};
+export {renderError};

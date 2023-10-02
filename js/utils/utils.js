@@ -4,6 +4,11 @@ function handleBackPage() {
   window.history.back();
 }
 
+function redirectUserToTheHomePage() {
+  const redirectUrl = "/index.html";
+  window.location.href = redirectUrl;
+}
+
 function isValidUrl(url) {
   try {
     new URL(url);
@@ -36,4 +41,4 @@ function currentYear() {
 }
 currentYear();
 
-export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear};
+export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage};

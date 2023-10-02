@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/ce9ffc1494.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <title>Movies</title>
+</head>
+<body>
+  <header>
+    <nav class="navigation-component">
+      <div class="container padding-inline desktop">
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+          </a>
+          <form action="" id="search-form" class="search-form-component">
+            <label for="search"></label>
+            <input type="text" placeholder="Search" id="search" name="search">
+            <button class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <ul class="nav-links-desktop">
+            <li>
+              <a href="#">Watchlist</a>
+            </li>
+            <li>
+              <a href="#">Sign In</a>
+            </li>
+          </ul>
+      </div>
+      <div class="container padding-inline mobile hide">
+        <div class="dropdown-menu-component"></div>
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" id="search-form" class="search-form-component">
+          <label for="search"></label>
+          <input type="text" placeholder="Search" id="search" name="search">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="nav-links-mobile hide">
+          <li>
+            <a href="#">Watchlist</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+          <li>
+            <a href="#">Sign In</a>
+          </li>
+        </ul>
+        <button class="nav-menu-toggle-btn">
+          <span class="bar1"></span>
+          <span class="bar2"></span>
+          <span class="bar3"></span>
+        </button>
+      </div>
+    </nav>
+      <div data-nav-menu-scroll-trigger></div>
+  </header>
+  <main>    
+    <section class="padding-block padding-inline main-padding-top">
+      <div id="error" class="container"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="container padding-block padding-inline">
+      <p id="copyright"></p>
+    </div>
+  </footer>
+  <script type="module" src="/js/components/_menu-nav.js"></script>
+  <script type="module" src="/js/components/_form.js"></script>
+  <script type="module" src="/js/components/_copyright.js"></script>
+  <script type="module" src="/js/components/_error-message.js"></script>
+  <script type="module" src="/js/render/shared/copyright.js"></script>
+  <script type="module" src="/js/render/error-page/error-message.js"></script>
+  <script type="module" src="/js/render/error-page/error-page.js"></script>
+  <script type="module" src="/js/init/error.js"></script>
+
+</body> 
+</html>

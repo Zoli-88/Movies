@@ -1,0 +1,29 @@
+.error-message-component {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  .img-wrapper {
+    max-width: 40rem;
+    align-self: center;
+    margin-bottom: 1.4rem;
+  }
+
+  .error-description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  button {
+    align-self: center;
+    padding: .4rem 1.4rem;
+  }
+
+}
