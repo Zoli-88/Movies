@@ -622,7 +622,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 .error-message-component {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .error-message-component .img-wrapper {
   max-width: 40rem;
