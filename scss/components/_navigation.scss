@@ -53,6 +53,10 @@
 
   .nav-links-mobile {
     background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
   }
 
   & + [data-nav-menu-scroll-trigger] {

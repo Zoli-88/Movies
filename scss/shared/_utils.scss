@@ -21,3 +21,7 @@
 .main-padding-top {
   padding-top: calc(var(--nav-component-height) + 1.4rem);
 }
+
+.no-scroll {
+  overflow-y: hidden;
+}

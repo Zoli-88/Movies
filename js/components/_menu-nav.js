@@ -1,6 +1,7 @@
 import {checkIfMobileOrDesktop} from "../utils/utils.js";
 
 function menuNavComponent() {
+  const $body = document.body;
   const $navMenuComponent = document.querySelector(".navigation-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
@@ -25,6 +26,7 @@ function menuNavComponent() {
   function toggleDropdownMenu() {
     $navMenuToggleButton.classList.toggle("toggle");
     $dropDownMenuComponent.classList.toggle("slide");
+    $body.classList.toggle("no-scroll");
     $navMenuMobileLinks.classList.toggle("hide");
   }
 
