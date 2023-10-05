@@ -41,4 +41,14 @@ function currentYear() {
 }
 currentYear();
 
-export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage};
+function toggleClasses(element, openClass, closeClass, isOpen) {
+  if (isOpen) {
+    element.classList.add(openClass);
+    element.classList.remove(closeClass);
+  } else {
+    element.classList.add(closeClass);
+    element.classList.remove(openClass);
+  }
+}
+
+export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, toggleClasses};
