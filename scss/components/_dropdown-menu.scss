@@ -7,7 +7,7 @@
     background: var(--body-bg-clr);
     transition: var(--dropdown-ms);
 
-    &.slide {
+    &.open {
         height: var(--dropdown-menu-height);
         bottom: 0;
     }

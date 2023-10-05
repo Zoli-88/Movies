@@ -1,12 +1,10 @@
 import {checkIfMobileOrDesktop} from "../utils/utils.js";
 
 function menuNavComponent() {
-  const $body = document.body;
   const $navMenuComponent = document.querySelector(".navigation-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
   const $navMenuMobileList = document.querySelector(".navigation-component .nav-links-mobile");
-  const $navMenuMobileLinks = document.querySelectorAll(".navigation-component .nav-links-mobile li");
   const $navMenuToggleButton = document.querySelector(".nav-menu-toggle-btn");
   const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
   const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
@@ -17,7 +15,6 @@ function menuNavComponent() {
     if (isDesktop) {
       $navMenuComponentDesktop.classList.remove("hide");
       $navMenuComponentMobile.classList.add("hide");
-      $body.classList.remove("no-scroll");
     } else {
       $navMenuComponentDesktop.classList.add("hide");
       $navMenuComponentMobile.classList.remove("hide");
@@ -27,14 +24,8 @@ function menuNavComponent() {
 
   function toggleDropdownMenu() {
     $navMenuToggleButton.classList.toggle("toggle");
-    $dropDownMenuComponent.classList.toggle("slide");
-    $body.classList.toggle("no-scroll");
+    $dropDownMenuComponent.classList.toggle("open");
     $navMenuMobileList.classList.toggle("hide");
-    $navMenuMobileLinks.forEach((item, index) => {
-      setTimeout(() => {
-        item.classList.toggle("hide");
-      }, index * 40);
-    });
   }
 
   function changeNavMenuComponentAppearanceOnScroll(scrollTrigger, navMenuComponent, classname, scrollTriggerMarginTop) {

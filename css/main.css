@@ -241,7 +241,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   color: var(--secondary-text-clr-hover);
 }
 .navigation-component .nav-links-mobile {
-  background: red;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -263,7 +263,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   background: var(--body-bg-clr);
   transition: var(--dropdown-ms);
 }
-.dropdown-menu-component.slide {
+.dropdown-menu-component.open {
   height: var(--dropdown-menu-height);
   bottom: 0;
 }
