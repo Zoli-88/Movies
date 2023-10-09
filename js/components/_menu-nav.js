@@ -29,16 +29,11 @@ function menuNavComponent() {
     $dropDownMenuComponent.classList.toggle("open");
   
     const isOpen = $dropDownMenuComponent.classList.contains("open");
-    const dropdownOpenClass = "visible";
-    const dropdownCloseClass = "hidden";
     const mobileListOpenClass = "visible";
     const mobileListCloseClass = "hidden";
     const linkOpenClass = "fade-in";
     const linkCloseClass = "fade-out";
-  
-    // Toggle classes for dropdown component
-    toggleClasses($dropDownMenuComponent, dropdownOpenClass, dropdownCloseClass, isOpen);
-  
+
     // Toggle classes for mobile list
     toggleClasses($navMenuMobileList, mobileListOpenClass, mobileListCloseClass, isOpen);
   

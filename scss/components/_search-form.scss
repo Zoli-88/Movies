@@ -19,12 +19,11 @@
 
     .search-btn {
       position: absolute;
-      right: 0;
-      padding-right: 1.2rem;
-
-      .fa-magnifying-glass {
-        font-size: 1.6rem;
-      }
+      right: 1.2rem;
+    }
+    
+    .fa-magnifying-glass {
+      font-size: 1.6rem;
     }
 
     .mobile & {

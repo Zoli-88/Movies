@@ -4,17 +4,22 @@ button {
   cursor: pointer;
 
   &.primary-btn {
-    color: var(--primary-text-clr);
+    color: var(--primary-btn-clr);
     font-size: 1.8rem;
     padding: .8rem 1rem;
     border-radius: .4rem;
     border: none;
     cursor: pointer;
-    background: var(--secondary-bg-clr);
+    background: var(--primary-btn-bg);
     transition: var(--fade-ms);
     
     &:hover {
-      background: var(--secondary-bg-clr-hover);
+      background: var(--primary-btn-bg-hover);
+    }
+
+    &:focus,
+    &:active {
+      outline: var(--primary-btn-outline)
     }
   }
 
