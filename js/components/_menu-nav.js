@@ -62,7 +62,7 @@ function menuNavComponent() {
   }
 
   // Event Listeners
-  $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
+  if ($navMenuToggleButton) $navMenuToggleButton.addEventListener("click", toggleDropdownMenu);
 
   // Intersection Observer - Scroll styling
   changeNavMenuComponentAppearanceOnScroll($scrollEffectTrigger, $navMenuComponent, "scroll", $scrollEffectTriggerMarginTop);

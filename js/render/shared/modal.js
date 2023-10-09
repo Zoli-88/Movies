@@ -5,17 +5,20 @@ import {renderLoadingModal, renderClearLoadingModal} from "./loading-modal.js";
 
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
+const intentionalDelay = 400;
 
 async function renderModalContent(imdbID) {
   renderLoadingModal(imdbID);
   try {
     const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
     const movie = await listMovie(imdbID);
-    $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
+    setTimeout(() => {
+      renderClearLoadingModal(imdbID);
+      $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
+    }, intentionalDelay)
   } catch (error) {
       renderError(error);
   }
-  renderClearLoadingModal(imdbID);
 }
 
 if ($container) $container.addEventListener("click", openModal);

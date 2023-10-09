@@ -16,9 +16,9 @@ function ratingsComponent(movie) {
 
 function ratingComponent(rating) {
   return `
-    <div>
+    <div class="source">
       <span>${rating.Source}</span>
-      <div>
+      <div class="value">
         <span>${rating.Value}</span>
         <i class="${ICONS_MAP.get(rating.Source)}"></i>
       </div>
