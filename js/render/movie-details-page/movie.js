@@ -2,7 +2,7 @@ import {renderError} from "../shared/error.js";
 import {listMovie} from "../../api/api.js";
 import {ratingsComponent} from "../../components/_ratings.js";
 import {descriptionComponent} from "../../components/_description.js";
-import { handleBackPage } from "../../utils/utils.js";
+import {handleBackPage} from "../../utils/utils.js";
 
 async function renderMovie() {
     const $moviePage = document.querySelector("#movie-page");
