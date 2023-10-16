@@ -14,6 +14,16 @@ html {
   color: transparent;
 }
 
+.capitalize-first-letter {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 ul {
   list-style-type: none;
 }

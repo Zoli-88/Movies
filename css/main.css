@@ -68,6 +68,14 @@ html {
   color: transparent;
 }
 
+.capitalize-first-letter::first-letter {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 ul {
   list-style-type: none;
 }
@@ -214,6 +222,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 
 .no-scroll {
   overflow-y: hidden;
+}
+
+.center-block {
+  margin-inline: auto;
 }
 
 .navigation-component {
@@ -675,11 +687,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 }
 .search-form-component input {
   display: inline-block;
-  outline: none;
   border: 0.2rem solid var(--accent-clr);
   border-radius: 0.6rem;
   width: 100%;
-  height: 3rem;
+  min-height: 3rem;
   padding-left: 0.6rem;
   padding-right: 3.6rem;
 }
@@ -693,8 +704,33 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 .mobile .search-form-component {
   margin-right: calc(var(--dropdown-toggle-button-width) + 0.8rem);
 }
-.mobile .search-form-component.sign-up-page {
+.mobile .search-form-component.sign-in-page, .mobile .search-form-component.sign-up-page {
   margin-right: unset;
+}
+
+.registration-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.8rem;
+  background: var(--primary-bg-clr);
+  min-height: 60rem;
+  max-width: 45rem;
+}
+.registration-login-form .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.registration-login-form .fa-facebook,
+.registration-login-form .fa-google,
+.registration-login-form .fa-x-twitter {
+  font-size: 2rem;
+}
+.registration-login-form input {
+  border: 0.2rem solid var(--accent-clr);
+  border-radius: 0.6rem;
+  min-height: 3rem;
 }
 
 .error-message-component {

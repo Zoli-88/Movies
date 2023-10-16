@@ -1,11 +1,11 @@
 import {menuNavComponent} from "../../components/_menu-nav.js";
 import {renderCopyright} from "../shared/copyright.js";
-import {renderSignUpForm} from "./sign-up-form.js";
+import {renderSignInForm} from "./sign-in-form.js";
 
-function initSignUpPage() {
+function initSignInPage() {
   menuNavComponent();
-  renderSignUpForm();
+  renderSignInForm();
   renderCopyright();
 }
 
-export {initSignUpPage}
+export {initSignInPage}
