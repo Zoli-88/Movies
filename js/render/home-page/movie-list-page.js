@@ -3,6 +3,7 @@ import {renderLoading, clearLoading} from "../shared/loading.js";
 import {renderMovies} from "./movies.js";
 import {renderCopyright} from "../shared/copyright.js";
 import { menuNavComponent } from "../../components/_menu-nav.js";
+import { intentionalDelay } from "../../utils/utils.js";
 
 async function initMovieListPage() {
     renderLoading();
@@ -17,7 +18,7 @@ async function initMovieListPage() {
     } else {
       await renderMovies();
     }
-    clearLoading();
+    intentionalDelay(clearLoading);
   }
 
   export {initMovieListPage};

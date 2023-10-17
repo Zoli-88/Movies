@@ -51,4 +51,11 @@ function toggleClasses(element, openClass, closeClass, isOpen) {
   }
 }
 
-export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, toggleClasses};
+function intentionalDelay(callback) {
+  const intentionalDelayInMs = 500;
+  setTimeout(() => {
+    callback();
+  }, intentionalDelayInMs)
+}
+
+export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, toggleClasses, intentionalDelay};

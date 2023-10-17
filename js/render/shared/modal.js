@@ -1,21 +1,19 @@
 import {listMovie} from "../../api/api.js";
 import {modalComponent} from "../../components/_modal.js";
 import {renderError} from "../../render/shared/error.js";
+import { intentionalDelay } from "../../utils/utils.js";
 import {renderLoadingModal, renderClearLoadingModal} from "./loading-modal.js";
 
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
-const intentionalDelay = 400;
 
 async function renderModalContent(imdbID) {
   renderLoadingModal(imdbID);
   try {
     const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
     const movie = await listMovie(imdbID);
-    setTimeout(() => {
-      renderClearLoadingModal(imdbID);
-      $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
-    }, intentionalDelay)
+    intentionalDelay(() => renderClearLoadingModal(imdbID));
+    $cardComponent.insertAdjacentHTML("beforeend", modalComponent(movie));
   } catch (error) {
       renderError(error);
   }

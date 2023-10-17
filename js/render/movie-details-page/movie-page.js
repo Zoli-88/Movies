@@ -3,6 +3,7 @@ import {renderCopyright} from "../shared/copyright.js";
 import {renderMovie} from "./movie.js";
 import {renderRelatedMovies} from "./related-movies.js";
 import { menuNavComponent } from "../../components/_menu-nav.js";
+import { intentionalDelay } from "../../utils/utils.js";
 
 async function initMoviePage() {
     renderLoading();
@@ -10,7 +11,7 @@ async function initMoviePage() {
     renderCopyright();
     await renderMovie();
     await renderRelatedMovies();
-    clearLoading();
+    intentionalDelay(clearLoading);
 }
 
 export {initMoviePage};
