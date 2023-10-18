@@ -704,7 +704,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
 .mobile .search-form-component {
   margin-right: calc(var(--dropdown-toggle-button-width) + 0.8rem);
 }
-.mobile .search-form-component.sign-in-page, .mobile .search-form-component.sign-up-page {
+.mobile .search-form-component.sign-in-page {
   margin-right: unset;
 }
 

@@ -12,8 +12,6 @@ function signInFormComponent() {
         <a href="https://www.google.com"><i class="fa-brands fa-google"></i></a>
         <a href="https://www.twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
       </div>
-      <span class="center-text">Don't have an account?</span>
-      <span class="center-text">Sign up <a href="/sign-up.html" class="highlight">here</a></span>
     </form>
   `
 }

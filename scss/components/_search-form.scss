@@ -28,8 +28,7 @@
     .mobile & {
       margin-right: calc(var(--dropdown-toggle-button-width) + .8rem);
       
-      &.sign-in-page,
-      &.sign-up-page {
+      &.sign-in-page {
         margin-right: unset;
       }
     }
