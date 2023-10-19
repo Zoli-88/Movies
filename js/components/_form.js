@@ -4,10 +4,10 @@ const breakpointValue = 768;
 
 function updateFormIdBasedOnScreenSize(isDesktop) {
   if (isDesktop) {
-    $formComponent = document.querySelector(".navigation-component .desktop #search-form");
+    $formComponent = document.querySelector("#search-form-desktop");
     $formComponent.addEventListener("submit", searchForm);
   } else {
-    $formComponent = document.querySelector(".navigation-component .mobile #search-form");
+    $formComponent = document.querySelector("#search-form-mobile");
     $formComponent.addEventListener("submit", searchForm);
   }
 }
