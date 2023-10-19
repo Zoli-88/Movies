@@ -1,5 +1,5 @@
-export const MASTER_EMAIL = "master@test.com";
-export const MASTER_PASSWORD = "pleaseletmeinitsme:)";
+export const MASTER_EMAIL = "test@test.com";
+export const MASTER_PASSWORD = "123";
 
 export const BASE_URL = "https://www.omdbapi.com/?apikey=4c8a6d5d";
 

@@ -52,7 +52,7 @@ function toggleClasses(element, openClass, closeClass, isOpen) {
 }
 
 function intentionalDelay(callback) {
-  const intentionalDelayInMs = 500;
+  const intentionalDelayInMs = 1000;
   setTimeout(() => {
     callback();
   }, intentionalDelayInMs)

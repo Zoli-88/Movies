@@ -28,4 +28,4 @@ function clearError() {
     $error.remove();
 }
 
-export {renderError};
+export {renderError, clearError};

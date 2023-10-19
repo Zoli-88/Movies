@@ -10,6 +10,7 @@
   --secondary-bg-clr-hover: #595959;
   --primary-overlay-bg-clr: rgba(0, 0, 0, 0.6);
   --secondary-overlay-bg-clr: rgba(255, 255, 255, 0.05);
+  --error-modal-bg-clr: #2a2a2a;
   /* --- Text --- */
   --primary-text-clr: #f5f5f5;
   --secondary-text-clr: #c6c6c6;
@@ -358,7 +359,7 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  background: var(--secondary-overlay-bg-clr);
+  background: var(--error-modal-bg-clr);
   min-height: 20rem;
   border: 0.2rem solid var(--accent-clr);
   border-radius: 0.8rem;
