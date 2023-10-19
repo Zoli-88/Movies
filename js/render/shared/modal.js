@@ -1,7 +1,7 @@
 import {listMovie} from "../../api/api.js";
 import {modalComponent} from "../../components/_modal.js";
 import {renderError} from "../../render/shared/error.js";
-import { intentionalDelay } from "../../utils/utils.js";
+import {intentionalDelay} from "../../utils/utils.js";
 import {renderLoadingModal, renderClearLoadingModal} from "./loading-modal.js";
 
 const $container = document.querySelector("#container");
