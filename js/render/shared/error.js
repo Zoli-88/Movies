@@ -2,11 +2,11 @@ import {errorComponent} from "../../components/_error.js";
 import {redirectUserToTheHomePage} from "../../utils/utils.js";
 
 function renderError(error) {
-    const $body = document.body;
+    const $main = document.querySelector("main");
     let personalisedErrorMessage = "";
     if (error === "Movie not found!") {
       personalisedErrorMessage = "Please try searching for a different title";
-      $body.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
+      $main.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
       const $errorButton = document.querySelector("#error-btn");
       if ($errorButton) $errorButton.addEventListener("click", () => {
         redirectUserToTheHomePage();

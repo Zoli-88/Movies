@@ -22,12 +22,14 @@ function handleLogin(e) {
   const error = "Incorrect email or password!";
   const errorMessage = "Please try again";
 
+  const $main = document.querySelector("main");
+
   if (user.email === MASTER_EMAIL && user.password === MASTER_PASSWORD) {
     console.log("true");
     renderLoading(successMessage);
   } else {
     console.log("false");
-    document.body.insertAdjacentHTML("beforeend", errorComponent(error, errorMessage));
+    $main.insertAdjacentHTML("beforeend", errorComponent(error, errorMessage));
   }
 }
 
