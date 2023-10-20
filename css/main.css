@@ -160,7 +160,7 @@ button.primary-btn:hover {
 button.primary-btn:focus, button.primary-btn:active {
   outline: var(--primary-btn-outline);
 }
-button.add-to-watchlist {
+button.add-to-favorites {
   margin-left: auto;
 }
 button.nav-menu-toggle-btn {

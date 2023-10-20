@@ -20,6 +20,7 @@ async function renderModalContent(imdbID) {
 }
 
 if ($container) $container.addEventListener("click", openModal);
+if ($container) $container.addEventListener("click", openFavoritesModal);
 if ($container) $container.addEventListener("click", closeModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModal);
@@ -50,4 +51,9 @@ function closeModal(event) {
     const imdbID = closeModalButton.dataset.modalBtnCloseId;
     clearModalContent(imdbID);
   }
+}
+
+function openFavoritesModal(event) {
+  const openFavoritesModalButton = event.target.closest("[data-add-to-favorites]");
+  console.log(openFavoritesModalButton);
 }
