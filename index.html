@@ -20,22 +20,22 @@
       <div class="container padding-inline desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
-          </a>
-          <form action="" id="search-form-desktop" class="search-form-component">
-            <label for="search"></label>
-            <input type="text" placeholder="Search" id="search" name="search">
-            <button class="search-btn">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-          <ul class="nav-links-desktop">
-            <li>
-              <a href="/sign-in.html">Watchlist</a>
-            </li>
-            <li>
-              <a href="/sign-in.html">Sign In</a>
-            </li>
-          </ul>
+        </a>
+        <form action="" id="search-form-desktop" class="search-form-component">
+          <label for="search-desktop"></label>
+          <input type="text" placeholder="Search" id="search-desktop" name="search-desktop">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="nav-links-desktop">
+          <li>
+            <a href="/sign-in.html">Watchlist</a>
+          </li>
+          <li>
+            <a href="/sign-in.html">Sign In</a>
+          </li>
+        </ul>
       </div>
       <div class="container padding-inline mobile hide">
         <div class="dropdown-menu-component">
@@ -52,8 +52,8 @@
           <img src="Images/logo.png" alt="" class="logo">
         </a>
         <form action="" id="search-form-mobile" class="search-form-component">
-          <label for="search"></label>
-          <input type="text" placeholder="Search" id="search" name="search">
+          <label for="search-mobile"></label>
+          <input type="text" placeholder="Search" id="search-mobile" name="search-mobile">
           <button class="search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -79,6 +79,7 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script type="module" src="/js/components/_form.js"></script>
   <script type="module" src="/js/render/shared/modal.js"></script>
   <script type="module" src="/js/init/index.js"></script>
 </body> 

@@ -1,4 +1,4 @@
-.registration-login-form {
+.login-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,5 +23,6 @@
     border: .2rem solid var(--accent-clr);
     border-radius: .6rem;
     min-height: 3rem;
+    padding-inline: .6rem;
   }
 }
