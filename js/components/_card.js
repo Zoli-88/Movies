@@ -1,5 +1,7 @@
 import {isValidUrl} from "../utils/utils.js";
 import {IMDB_URL, IMDB_PLACEHOLDER} from "../constants/constants.js";
+import {getLoggedInStatus} from "../auth/auth.js";
+const isLoggedIn = getLoggedInStatus();
 
 function cardComponent(movie, searchResult = "thor") {
   const {
@@ -9,7 +11,6 @@ function cardComponent(movie, searchResult = "thor") {
     Year,
   } = movie;
   const posterUrl = (Poster !== "N/A" && isValidUrl(Poster)) ? Poster : "https://fakeimg.pl/300x429/ff0000,128/000,255/?text=Cool Poster";
-  
   return `
     <li class="card-component" data-card-component-id=${imdbID}>
       <div class="poster-wrapper">
@@ -30,6 +31,11 @@ function cardComponent(movie, searchResult = "thor") {
           <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
             <i class="fa-brands fa-imdb logo-icon"></i>
           </a>
+          ${isLoggedIn ? 
+            `<button class="primary-btn add-to-watchlist" data-add-to-watchlist=${imdbID}>
+              <i class="fa-solid fa-heart"></i>
+            </button>`
+            : ``}
           <button data-modal-btn-open-id="${imdbID}" class="primary-btn">
             <i class="fa-solid fa-circle-info"></i>
           </button>

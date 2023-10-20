@@ -99,6 +99,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: .4rem;
+
+      .fa-heart {
+        color: var(--icon-red);
+      }
 
       .logo-icon {
         font-size: 3.6rem;

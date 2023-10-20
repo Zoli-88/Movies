@@ -160,6 +160,9 @@ button.primary-btn:hover {
 button.primary-btn:focus, button.primary-btn:active {
   outline: var(--primary-btn-outline);
 }
+button.add-to-watchlist {
+  margin-left: auto;
+}
 button.nav-menu-toggle-btn {
   position: absolute;
   top: 50%;
@@ -501,6 +504,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.4rem;
+}
+.card-component .information .details .fa-heart {
+  color: var(--icon-red);
 }
 .card-component .information .details .logo-icon {
   font-size: 3.6rem;
