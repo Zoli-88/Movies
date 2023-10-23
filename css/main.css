@@ -367,6 +367,17 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   border: 0.2rem solid var(--accent-clr);
   border-radius: 0.8rem;
 }
+.status-component .dialog-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--error-modal-bg-clr);
+  min-height: 20rem;
+  border: 0.2rem solid var(--accent-clr);
+  border-radius: 0.8rem;
+}
 .status-component.loading-modal {
   position: absolute;
   min-height: 12rem;

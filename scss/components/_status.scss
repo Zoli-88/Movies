@@ -36,6 +36,18 @@
     border-radius: .8rem;
   }
 
+  .dialog-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    background: var(--error-modal-bg-clr);
+    min-height: 20rem;
+    border: .2rem solid var(--accent-clr);
+    border-radius: .8rem;
+  }
+
   &.loading-modal {
     position: absolute;
     min-height: 12rem;
