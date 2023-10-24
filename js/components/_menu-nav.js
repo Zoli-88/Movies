@@ -1,8 +1,7 @@
-import {checkIfMobileOrDesktop, toggleClasses} from "../utils/utils.js";
+import {checkIfMobileOrDesktop, intentionalDelay, toggleClasses} from "../utils/utils.js";
 import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
 import {renderDialogModal, clearDialogModal} from "../render/shared/dialog-modal.js";
-
-const isLoggedIn = getLoggedInStatus();
+import {clearLoading, renderLoading} from "../render/shared/loading.js";
 
 function menuNavComponent() {
   const $main = document.querySelector("main");
@@ -19,54 +18,57 @@ function menuNavComponent() {
   const scrollEffectTriggerMarginTop = 2;
   const breakpointValue = 768;
 
-  function changeNavMenuLinksIfUserIsLoggedIn() {
-    if (!isLoggedIn) return;
-    $navMenuSignInSignOutLinks.forEach((link) => {
+  function updateNavMenuLinksBasedOnGuestOrUser() {
+    const isLoggedIn = getLoggedInStatus();
+    if (isLoggedIn === "true") {
+      updateNavMenuLinksForLoggedInUser();
+    }
+    if (isLoggedIn === "false") {
+      updateNavMenuLinksForLoggedOutUser();
+    }
+  }
+  updateNavMenuLinksBasedOnGuestOrUser();
+  
+  function updateNavMenuLinksForLoggedInUser() {
+    $navMenuSignInSignOutLinks.forEach(link => {
       link.setAttribute("href", "#");
-      link.innerHTML = "Sign Out";
+      link.innerText = "Sign Out";
       link.addEventListener("click", showDialogModal);
     });
-    $navMenuWatchlistLinks.forEach((link) => link.setAttribute("href", "/watchlist.html"));
+    $navMenuWatchlistLinks.forEach(link => {
+      link.setAttribute("href", "/watchlist.html");
+    });
   }
-  changeNavMenuLinksIfUserIsLoggedIn();
+  
+  function updateNavMenuLinksForLoggedOutUser() {
+    $navMenuSignInSignOutLinks.forEach(link => {
+      link.setAttribute("href", "/sign-in.html");
+      link.innerText = "Sign In";
+    });
+    $navMenuWatchlistLinks.forEach(link => {
+      link.setAttribute("href", "/sign-in.html");
+    });
+  }
 
   function showDialogModal() {
     renderDialogModal($main);
     const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-dialog-modal-btn="confirm"]`);
     const $dialogModalCancelButton = document.querySelector(`[data-dialog-modal-btn="cancel"]`);
-
-    $dialogModalConfirmButton.addEventListener("click", () => {
-      handleDialogModal($dialogModalConfirmButton, $dialogModalComponent);
-    });
-    $dialogModalCancelButton.addEventListener("click", () => {
-      handleDialogModal($dialogModalCancelButton, $dialogModalComponent);
-    });
-  }
-
-  function handleDialogModal(element, dialogModal) {
-    const userResponse = element.getAttribute("data-dialog-modal-btn");
-
-    if (userResponse === "confirm") {
-      
-      changeNavMenuLinksIfUserIsLoggedOut();
-      clearDialogModal(dialogModal);
-    }
-
-    if (userResponse === "cancel") {
-      clearDialogModal(dialogModal);
+    $dialogModalConfirmButton.addEventListener("click", handleLogoutUser);
+    $dialogModalCancelButton.addEventListener("click", () => clearDialogModal($dialogModalComponent));
+    
+    function handleLogoutUser(e) {
+      const loadingMessage = "Signing you out, please wait...";
+      e.preventDefault();
+      renderLoading(loadingMessage);
+      clearDialogModal($dialogModalComponent);
+      setLoggedInStatus(false);
+      updateNavMenuLinksBasedOnGuestOrUser();
+      intentionalDelay(clearLoading);
     }
   }
 
-  function changeNavMenuLinksIfUserIsLoggedOut() {
-    $navMenuSignInSignOutLinks.forEach((link) => {
-      link.removeEventListener("click", showDialogModal);
-      link.setAttribute("href", "/sign-in.html");
-      link.innerHTML = "Sign In";
-    })
-    $navMenuWatchlistLinks.forEach((link) => link.setAttribute("href", "/sign-in.html"));
-  }
-  
   function handleMenuNavLayout(isDesktop) {
     if (isDesktop) {
       $navMenuComponentDesktop.classList.remove("hide");

@@ -26,7 +26,7 @@ function renderSignInForm() {
     if (user.email === MASTER_EMAIL && user.password === MASTER_PASSWORD) {
       setLoggedInStatus(true);
       renderLoading(successMessage);
-      intentionalDelay(redirectUserToTheHomePage);
+      intentionalDelay(handleBackPage);
     } else {
       setLoggedInStatus(false);
       $main.insertAdjacentHTML("beforeend", errorComponent(error, errorMessage));
