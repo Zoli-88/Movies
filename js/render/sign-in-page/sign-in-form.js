@@ -1,14 +1,14 @@
 import {signInFormComponent} from "../../components/_sign-in-form.js";
-import {handleBackPage, intentionalDelay, redirectUserToTheHomePage} from "../../utils/utils.js";
+import {goBackToPreviousPage, intentionalDelay, redirectUserToTheHomePage} from "../../utils/utils.js";
 import {MASTER_EMAIL, MASTER_PASSWORD} from "../../constants/constants.js";
 import {renderLoading} from "../shared/loading.js";
 import {errorComponent} from "../../components/_error.js";
 import {clearError} from "../shared/error.js";
-import {setLoggedInStatus, getLoggedInStatus} from "../../auth/auth.js";
+import {setLoggedInStatus} from "../../auth/auth.js";
 
 function renderSignInForm() {
   const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
-  $backToPreviousPageButton.addEventListener("click", handleBackPage);
+  $backToPreviousPageButton.addEventListener("click", goBackToPreviousPage);
   const $formContainer = document.querySelector("#sign-in-form-container");
   $formContainer.insertAdjacentHTML("afterbegin", signInFormComponent());
   const $form = document.querySelector("#sign-in-form");
@@ -26,7 +26,7 @@ function renderSignInForm() {
     if (user.email === MASTER_EMAIL && user.password === MASTER_PASSWORD) {
       setLoggedInStatus(true);
       renderLoading(successMessage);
-      intentionalDelay(handleBackPage);
+      intentionalDelay(goBackToPreviousPage);
     } else {
       setLoggedInStatus(false);
       $main.insertAdjacentHTML("beforeend", errorComponent(error, errorMessage));

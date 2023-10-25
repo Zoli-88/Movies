@@ -1,4 +1,4 @@
-import {checkIfMobileOrDesktop, intentionalDelay, toggleClasses} from "../utils/utils.js";
+import {checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses} from "../utils/utils.js";
 import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
 import {renderDialogModal, clearDialogModal} from "../render/shared/dialog-modal.js";
 import {clearLoading, renderLoading} from "../render/shared/loading.js";
@@ -20,18 +20,13 @@ function menuNavComponent() {
 
   function updateNavMenuLinksBasedOnGuestOrUser() {
     const isLoggedIn = getLoggedInStatus();
-    if (isLoggedIn === "true") {
-      updateNavMenuLinksForLoggedInUser();
-    }
-    if (isLoggedIn === "false") {
-      updateNavMenuLinksForLoggedOutUser();
-    }
+    isLoggedIn ? updateNavMenuLinksForLoggedInUser() : updateNavMenuLinksForLoggedOutUser();
   }
   updateNavMenuLinksBasedOnGuestOrUser();
   
   function updateNavMenuLinksForLoggedInUser() {
     $navMenuSignInSignOutLinks.forEach(link => {
-      link.setAttribute("href", "#");
+      link.setAttribute("href", "javascript: void(0)");
       link.innerText = "Sign Out";
       link.addEventListener("click", showDialogModal);
     });
@@ -65,7 +60,7 @@ function menuNavComponent() {
       clearDialogModal($dialogModalComponent);
       setLoggedInStatus(false);
       updateNavMenuLinksBasedOnGuestOrUser();
-      intentionalDelay(clearLoading);
+      intentionalDelay(reloadCurrentPage);
     }
   }
 

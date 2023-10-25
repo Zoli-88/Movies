@@ -1,9 +1,9 @@
 import {isValidUrl} from "../utils/utils.js";
 import {IMDB_URL, IMDB_PLACEHOLDER} from "../constants/constants.js";
 import {getLoggedInStatus} from "../auth/auth.js";
-const isLoggedIn = getLoggedInStatus();
 
 function cardComponent(movie, searchResult = "thor") {
+  const isLoggedIn = getLoggedInStatus();
   const {
     imdbID,
     Poster,

@@ -1,4 +1,4 @@
-function handleBackPage() {
+function goBackToPreviousPage() {
   // history.back() will go back to the previously visited page
   // this way we don't have to manually add an exact page URL, for example index.html
   window.history.back();
@@ -7,6 +7,10 @@ function handleBackPage() {
 function redirectUserToTheHomePage() {
   const redirectUrl = "/index.html";
   window.location.href = redirectUrl;
+}
+
+function reloadCurrentPage() {
+  location.reload();
 }
 
 function isValidUrl(url) {
@@ -58,4 +62,4 @@ function intentionalDelay(callback) {
   }, intentionalDelayInMs)
 }
 
-export {handleBackPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, toggleClasses, intentionalDelay};
+export {goBackToPreviousPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, reloadCurrentPage, toggleClasses, intentionalDelay};
