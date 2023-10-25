@@ -1,7 +1,7 @@
 import {dialogModalComponent} from "../../components/_dialog-modal.js";
 
-function renderDialogModal(el) {
-  el.insertAdjacentHTML("beforeend", dialogModalComponent())
+function renderDialogModal(el, question) {
+  el.insertAdjacentHTML("beforeend", dialogModalComponent(question))
 }
 
 function clearDialogModal(el) {

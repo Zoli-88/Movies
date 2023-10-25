@@ -1,7 +1,7 @@
 import {checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses} from "../utils/utils.js";
 import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
 import {renderDialogModal, clearDialogModal} from "../render/shared/dialog-modal.js";
-import {clearLoading, renderLoading} from "../render/shared/loading.js";
+import {renderLoading} from "../render/shared/loading.js";
 
 function menuNavComponent() {
   const $main = document.querySelector("main");
@@ -46,7 +46,8 @@ function menuNavComponent() {
   }
 
   function showDialogModal() {
-    renderDialogModal($main);
+    const question = "Are you sure you want to sign out?";
+    renderDialogModal($main, question);
     const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-dialog-modal-btn="confirm"]`);
     const $dialogModalCancelButton = document.querySelector(`[data-dialog-modal-btn="cancel"]`);
