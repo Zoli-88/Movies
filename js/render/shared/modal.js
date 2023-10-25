@@ -26,6 +26,7 @@ if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", o
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModal);
 
 function openModal(event) {
+  console.log(event.target)
   const openModalButton = event.target.closest("[data-modal-btn-open-id]");
   
   if (openModalButton) {
@@ -55,5 +56,4 @@ function closeModal(event) {
 
 function openFavoritesModal(event) {
   const openFavoritesModalButton = event.target.closest("[data-add-to-favorites]");
-  console.log(openFavoritesModalButton);
 }
