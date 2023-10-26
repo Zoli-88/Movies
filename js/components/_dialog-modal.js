@@ -1,12 +1,18 @@
-function dialogModalComponent(question, modalButtonType) {
+function dialogModalComponent(questionOrConfirmationMessage, modalType) {
   let dataAttr = "";
+  let hideCancelButton = false;
   
-  if (modalButtonType === "generic-modal") {
+  if (modalType === "generic-modal") {
     dataAttr = "data-generic-dialog-modal-btn";
   }
 
-  if (modalButtonType === "favorites-modal") {
+  if (modalType === "favorites-modal") {
    dataAttr = "data-favorites-dialog-modal-btn";
+  }
+
+  if (modalType === "confirmation-modal") {
+    dataAttr = "data-favorites-dialog-confirmation-message-modal-btn";
+    hideCancelButton = true;
   }
 
   return `
@@ -14,11 +20,11 @@ function dialogModalComponent(question, modalButtonType) {
     <div class="dialog-message padding-inline">
       <div>
         <i class="fa-solid fa-circle-question"></i>
-        <span class="status-text">${question}</span>
+        <span class="status-text">${questionOrConfirmationMessage}</span>
       </div>
       <div>
         <button class="primary-btn" ${dataAttr}="confirm">Ok</button>
-        <button class="primary-btn" ${dataAttr}="cancel">Cancel</button>
+        ${hideCancelButton ? `` : `<button class="primary-btn" ${dataAttr}="cancel">Cancel</button>`}
       </div>
     </div>
   </div>

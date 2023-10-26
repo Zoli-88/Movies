@@ -8,6 +8,10 @@ import {renderDialogModal, clearDialogModal} from "./dialog-modal.js";
 const $main = document.querySelector("main");
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
+let $dialogModalComponent;
+let modalType = "favorites-modal";
+const question = "Add this title to favorites?";
+const confirmationMessage = "Title has been added to favorites";
 
 async function renderModalContent(imdbID) {
   renderLoadingModal(imdbID);
@@ -59,17 +63,20 @@ function closeModal(event) {
 function showFavoritesDialogModal(event) {
   const openFavoritesModalButton = event.target.closest("[data-add-to-favorites]");
   if (openFavoritesModalButton) {
-    const question = "Add this title to favorites?";
-    const modalButtonType = "favorites-modal";
-    renderDialogModal($main, question, modalButtonType);
-    const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
+    renderDialogModal($main, question, modalType);
+    $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-favorites-dialog-modal-btn="confirm"]`);
     const $dialogModalCancelButton = document.querySelector(`[data-favorites-dialog-modal-btn="cancel"]`);
-    $dialogModalConfirmButton.addEventListener("click", addTitleToFavoritesList);
+    $dialogModalConfirmButton.addEventListener("click", () => addTitleToFavoritesList());
     $dialogModalCancelButton.addEventListener("click", () => clearDialogModal($dialogModalComponent));
   }
 }
 
 function addTitleToFavoritesList() {
-  console.log(":DDDDDDDDDDDDDD");
+  clearDialogModal($dialogModalComponent);
+  modalType = "confirmation-modal";
+  renderDialogModal($main, confirmationMessage, modalType);
+  $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
+  const $dialogModalConfirmButton = document.querySelector(`[data-favorites-dialog-confirmation-message-modal-btn="confirm"]`);
+  $dialogModalConfirmButton.addEventListener("click", () => clearDialogModal($dialogModalComponent));
 }

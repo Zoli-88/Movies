@@ -47,8 +47,8 @@ function menuNavComponent() {
 
   function showDialogModal() {
     const question = "Are you sure you want to sign out?";
-    const modalButtonType = "generic-modal";
-    renderDialogModal($main, question, modalButtonType);
+    const modalType = "generic-modal";
+    renderDialogModal($main, question, modalType);
     const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-generic-dialog-modal-btn="confirm"]`);
     const $dialogModalCancelButton = document.querySelector(`[data-generic-dialog-modal-btn="cancel"]`);
