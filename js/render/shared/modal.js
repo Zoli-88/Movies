@@ -3,7 +3,9 @@ import {modalComponent} from "../../components/_modal.js";
 import {renderError} from "../../render/shared/error.js";
 import {intentionalDelay} from "../../utils/utils.js";
 import {renderLoadingModal, renderClearLoadingModal} from "./loading-modal.js";
+import {renderDialogModal, clearDialogModal} from "./dialog-modal.js";
 
+const $main = document.querySelector("main");
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
 
@@ -20,7 +22,7 @@ async function renderModalContent(imdbID) {
 }
 
 if ($container) $container.addEventListener("click", openModal);
-if ($container) $container.addEventListener("click", openFavoritesModal);
+if ($container) $container.addEventListener("click", showFavoritesDialogModal);
 if ($container) $container.addEventListener("click", closeModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModal);
@@ -54,6 +56,20 @@ function closeModal(event) {
   }
 }
 
-function openFavoritesModal(event) {
+function showFavoritesDialogModal(event) {
   const openFavoritesModalButton = event.target.closest("[data-add-to-favorites]");
+  if (openFavoritesModalButton) {
+    const question = "Add this title to favorites?";
+    const modalButtonType = "favorites-modal";
+    renderDialogModal($main, question, modalButtonType);
+    const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
+    const $dialogModalConfirmButton = document.querySelector(`[data-favorites-dialog-modal-btn="confirm"]`);
+    const $dialogModalCancelButton = document.querySelector(`[data-favorites-dialog-modal-btn="cancel"]`);
+    $dialogModalConfirmButton.addEventListener("click", addTitleToFavoritesList);
+    $dialogModalCancelButton.addEventListener("click", () => clearDialogModal($dialogModalComponent));
+  }
+}
+
+function addTitleToFavoritesList() {
+  console.log(":DDDDDDDDDDDDDD");
 }
