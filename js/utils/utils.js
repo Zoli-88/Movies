@@ -62,4 +62,19 @@ function intentionalDelay(callback) {
   }, intentionalDelayInMs)
 }
 
-export {goBackToPreviousPage, isValidUrl, searchFormValidation, checkIfMobileOrDesktop, currentYear, redirectUserToTheHomePage, reloadCurrentPage, toggleClasses, intentionalDelay};
+function addEventListeners(el, eventType, callback) {
+  el.addEventListener(eventType, callback)
+}
+
+export {
+  goBackToPreviousPage, 
+  isValidUrl, 
+  searchFormValidation, 
+  checkIfMobileOrDesktop, 
+  currentYear, 
+  redirectUserToTheHomePage, 
+  reloadCurrentPage, 
+  toggleClasses, 
+  intentionalDelay,
+  addEventListeners
+};
