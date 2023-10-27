@@ -1,29 +1,29 @@
 function dialogModalComponent(questionOrConfirmationMessage, modalType) {
   let dataAttr = "";
   let hideCancelButton = false;
-  let icon = "";
+  let iconType = "";
   
   if (modalType === "generic-modal") {
     dataAttr = "data-generic-dialog-modal-btn";
-    icon = "question";
+    iconType = "question";
   }
 
   if (modalType === "favorites-modal") {
    dataAttr = "data-favorites-dialog-modal-btn";
-   icon = "question";
+   iconType = "question";
   }
 
   if (modalType === "confirmation-modal") {
     dataAttr = "data-favorites-dialog-confirmation-message-modal-btn";
     hideCancelButton = true;
-    icon = "info";
+    iconType = "info";
   }
 
   return `
   <div class="status-component padding-inline" data-dialog-modal>
     <div class="dialog-message padding-inline">
       <div>
-        <i class="fa-solid fa-circle-${icon}"></i>
+        <i class="fa-solid fa-circle-${iconType}"></i>
         <span class="status-text">${questionOrConfirmationMessage}</span>
       </div>
       <div>

@@ -1,4 +1,4 @@
-function modalComponent(movie) {
+function movieInfoModalComponent(movie) {
 
   const {
     Title,
@@ -29,4 +29,4 @@ function modalComponent(movie) {
   `
 }
 
-export {modalComponent};
+export {movieInfoModalComponent};
