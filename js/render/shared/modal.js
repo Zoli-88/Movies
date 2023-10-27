@@ -32,7 +32,6 @@ if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", o
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeModal);
 
 function openModal(event) {
-  console.log(event.target)
   const openModalButton = event.target.closest("[data-modal-btn-open-id]");
   
   if (openModalButton) {
@@ -63,6 +62,7 @@ function closeModal(event) {
 function showFavoritesDialogModal(event) {
   const openFavoritesModalButton = event.target.closest("[data-add-to-favorites]");
   if (openFavoritesModalButton) {
+    modalType = "favorites-modal";
     renderDialogModal($main, question, modalType);
     $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-favorites-dialog-modal-btn="confirm"]`);
