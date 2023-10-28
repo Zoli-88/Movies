@@ -3,8 +3,8 @@ function dialogModalComponent(questionOrConfirmationMessage, modalType) {
   let hideCancelButton = false;
   let iconType = "";
   
-  if (modalType === "generic-modal") {
-    dataAttr = "data-generic-dialog-modal-btn";
+  if (modalType === "sign-out-modal") {
+    dataAttr = "data-sign-out-dialog-modal-btn";
     iconType = "question";
   }
 

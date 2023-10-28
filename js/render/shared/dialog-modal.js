@@ -1,11 +1,20 @@
 import {dialogModalComponent} from "../../components/_dialog-modal.js";
 
-function renderDialogModal(el, questionOrConfirmationMessage, modalType) {
-  el.insertAdjacentHTML("beforeend", dialogModalComponent(questionOrConfirmationMessage, modalType))
+function renderDialogModal(questionOrConfirmationMessage, modalType) {
+  const $main = document.querySelector("main");
+  $main.insertAdjacentHTML("beforeend", dialogModalComponent(questionOrConfirmationMessage, modalType))
 }
 
 function clearDialogModal(el) {
   el.remove();
 }
 
-export {renderDialogModal, clearDialogModal}
+function setDialogModalType(type) {
+  return type;
+}
+
+function setDialogModalMessage(message) {
+  return message;
+}
+
+export {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage}

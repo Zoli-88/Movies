@@ -62,10 +62,6 @@ function intentionalDelay(callback) {
   }, intentionalDelayInMs)
 }
 
-function addEventListeners(el, eventType, callback) {
-  el.addEventListener(eventType, callback)
-}
-
 export {
   goBackToPreviousPage, 
   isValidUrl, 
@@ -76,5 +72,4 @@ export {
   reloadCurrentPage, 
   toggleClasses, 
   intentionalDelay,
-  addEventListeners
 };

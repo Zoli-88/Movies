@@ -1,10 +1,9 @@
 import {checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses} from "../utils/utils.js";
 import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
-import {renderDialogModal, clearDialogModal} from "../render/shared/dialog-modal.js";
+import {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage} from "../render/shared/dialog-modal.js";
 import {renderLoading} from "../render/shared/loading.js";
 
 function menuNavComponent() {
-  const $main = document.querySelector("main");
   const $navMenuComponent = document.querySelector(".navigation-component");
   const $navMenuComponentDesktop = document.querySelector(".navigation-component .desktop");
   const $navMenuComponentMobile = document.querySelector(".navigation-component .mobile");
@@ -28,7 +27,7 @@ function menuNavComponent() {
     $navMenuSignInSignOutLinks.forEach(link => {
       link.setAttribute("href", "javascript: void(0)");
       link.innerText = "Sign Out";
-      link.addEventListener("click", showDialogModal);
+      link.addEventListener("click", initSignOutDialogModal);
     });
     $navMenuWatchlistLinks.forEach(link => {
       link.setAttribute("href", "/watchlist.html");
@@ -45,25 +44,30 @@ function menuNavComponent() {
     });
   }
 
-  function showDialogModal() {
-    const question = "Are you sure you want to sign out?";
-    const modalType = "generic-modal";
-    renderDialogModal($main, question, modalType);
-    const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
-    const $dialogModalConfirmButton = document.querySelector(`[data-generic-dialog-modal-btn="confirm"]`);
-    const $dialogModalCancelButton = document.querySelector(`[data-generic-dialog-modal-btn="cancel"]`);
-    $dialogModalConfirmButton.addEventListener("click", handleLogoutUser);
-    $dialogModalCancelButton.addEventListener("click", () => clearDialogModal($dialogModalComponent));
-    
-    function handleLogoutUser(e) {
-      const loadingMessage = "Signing you out, please wait...";
-      e.preventDefault();
-      renderLoading(loadingMessage);
-      clearDialogModal($dialogModalComponent);
-      setLoggedInStatus(false);
-      updateNavMenuLinksBasedOnGuestOrUser();
-      intentionalDelay(reloadCurrentPage);
-    }
+  function initSignOutDialogModal() {
+    const question = setDialogModalMessage("Are you sure you want to sign out?");
+    const modalType = setDialogModalType("sign-out-modal");
+    renderDialogModal(question, modalType);
+    const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
+    const $dialogModalButtons = document.querySelectorAll("[data-sign-out-dialog-modal-btn]")
+  
+    $dialogModalButtons.forEach(button => {
+      const action = button.dataset.signOutDialogModalBtn;
+
+      if (action === "confirm") button.addEventListener("click", handleLogoutUser);
+      if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
+    });
+  }
+
+  function handleLogoutUser(e) {
+    const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
+    const loadingMessage = "Signing you out, please wait...";
+    e.preventDefault();
+    renderLoading(loadingMessage);
+    clearDialogModal($dialogModalComponent);
+    setLoggedInStatus(false);
+    updateNavMenuLinksBasedOnGuestOrUser();
+    intentionalDelay(reloadCurrentPage);
   }
 
   function handleMenuNavLayout(isDesktop) {
