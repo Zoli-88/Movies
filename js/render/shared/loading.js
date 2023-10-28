@@ -10,4 +10,8 @@ function clearLoading() {
   $loading.remove();
 }
 
-export {renderLoading, clearLoading};
+function setLoadingMessage(message) {
+  return message;
+}
+
+export {renderLoading, clearLoading, setLoadingMessage};
