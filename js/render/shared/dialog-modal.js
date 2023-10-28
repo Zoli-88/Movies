@@ -23,7 +23,7 @@ function initFavoritesDialogModal(e) {
 
       if (action === "confirm") button.addEventListener("click", () => {
         renderLoading(loadingMessage);
-        intentionalDelay(() => handleConfirmationDialogModal()); 
+        intentionalDelay(handleConfirmationDialogModal); 
       });
       if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
     });
