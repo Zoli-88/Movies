@@ -172,7 +172,7 @@ button.primary-btn:focus, button.primary-btn:active {
   outline: var(--primary-btn-outline);
 }
 
-button.add-to-favorites {
+button.add-to-watchlist {
   margin-left: auto;
 }
 

@@ -8,13 +8,13 @@ function dialogModalComponent(questionOrConfirmationMessage, modalType) {
     iconType = "question";
   }
 
-  if (modalType === "favorites-modal") {
-   dataAttr = "data-favorites-dialog-modal-btn";
+  if (modalType === "watchlist-modal") {
+   dataAttr = "data-watchlist-dialog-modal-btn";
    iconType = "question";
   }
 
   if (modalType === "confirmation-modal") {
-    dataAttr = "data-favorites-dialog-confirmation-message-modal-btn";
+    dataAttr = "data-watchlist-dialog-confirmation-message-modal-btn";
     hideCancelButton = true;
     iconType = "info";
   }

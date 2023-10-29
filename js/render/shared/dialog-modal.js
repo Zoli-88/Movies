@@ -7,25 +7,25 @@ import {renderError} from "./error.js";
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
 
-if ($container) $container.addEventListener("click", initFavoritesDialogModal);
-if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", initFavoritesDialogModal);
+if ($container) $container.addEventListener("click", initWatchListDialogModal);
+if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", initWatchListDialogModal);
 
-async function initFavoritesDialogModal(e) {
-  const openFavoritesModalButton = e.target.closest("[data-add-to-favorites]");
-  if (openFavoritesModalButton) {
+async function initWatchListDialogModal(e) {
+  const openWatchListModalButton = e.target.closest("[data-add-to-watchlist]");
+  if (openWatchListModalButton) {
     try {
-      const imdbID = openFavoritesModalButton.dataset.addToFavorites;
+      const imdbID = openWatchListModalButton.dataset.addToWatchlist;
       const movie = await listMovie(imdbID);
       const movieTitle = movie.Title;
       const loadingMessage = setLoadingMessage("Please wait...");
-      const question = setDialogModalMessage(`Add ${movieTitle} to your favorites?`);
-      const modalType = setDialogModalType("favorites-modal");
+      const question = setDialogModalMessage(`Add ${movieTitle} to your watchlist?`);
+      const modalType = setDialogModalType("watchlist-modal");
       renderDialogModal(question, modalType);
       const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
-      const $dialogModalButtons = document.querySelectorAll("[data-favorites-dialog-modal-btn]")
+      const $dialogModalButtons = document.querySelectorAll("[data-watchlist-dialog-modal-btn]")
     
       $dialogModalButtons.forEach(button => {
-        const action = button.dataset.favoritesDialogModalBtn;
+        const action = button.dataset.watchlistDialogModalBtn;
   
         if (action === "confirm") button.addEventListener("click", () => {
           renderLoading(loadingMessage);
@@ -43,11 +43,11 @@ function handleConfirmationDialogModal(movieTitle) {
   clearLoading();
   let $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
   clearDialogModal($dialogModalComponent);
-  const confirmationMessage = setDialogModalMessage(`${movieTitle} has been added to favorites`);
+  const confirmationMessage = setDialogModalMessage(`${movieTitle} has been added to your <a href="/watchlist.html">watchlist</a>`);
   const modalType = setDialogModalType("confirmation-modal");
   renderDialogModal(confirmationMessage, modalType);
   $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
-  const $dialogModalConfirmButton = document.querySelector(`[data-favorites-dialog-confirmation-message-modal-btn="confirm"]`);
+  const $dialogModalConfirmButton = document.querySelector(`[data-watchlist-dialog-confirmation-message-modal-btn="confirm"]`);
   $dialogModalConfirmButton.addEventListener("click", () => {
     clearDialogModal($dialogModalComponent);
   });
