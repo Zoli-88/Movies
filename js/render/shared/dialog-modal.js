@@ -1,6 +1,8 @@
 import {dialogModalComponent} from "../../components/_dialog-modal.js";
 import {renderLoading, clearLoading, setLoadingMessage} from "./loading.js";
 import {intentionalDelay} from "../../utils/utils.js";
+import {listMovie} from "../../api/api.js";
+import {renderError} from "./error.js";
 
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");
@@ -8,33 +10,40 @@ const $relatedMoviesContainer = document.querySelector("#related-movies");
 if ($container) $container.addEventListener("click", initFavoritesDialogModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", initFavoritesDialogModal);
 
-function initFavoritesDialogModal(e) {
+async function initFavoritesDialogModal(e) {
   const openFavoritesModalButton = e.target.closest("[data-add-to-favorites]");
   if (openFavoritesModalButton) {
-    const loadingMessage = setLoadingMessage("Please wait...");
-    const question = setDialogModalMessage("Add this title to favorites?");
-    const modalType = setDialogModalType("favorites-modal");
-    renderDialogModal(question, modalType);
-    const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
-    const $dialogModalButtons = document.querySelectorAll("[data-favorites-dialog-modal-btn]")
+    try {
+      const imdbID = openFavoritesModalButton.dataset.addToFavorites;
+      const movie = await listMovie(imdbID);
+      const movieTitle = movie.Title;
+      const loadingMessage = setLoadingMessage("Please wait...");
+      const question = setDialogModalMessage(`Add ${movieTitle} to your favorites?`);
+      const modalType = setDialogModalType("favorites-modal");
+      renderDialogModal(question, modalType);
+      const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
+      const $dialogModalButtons = document.querySelectorAll("[data-favorites-dialog-modal-btn]")
+    
+      $dialogModalButtons.forEach(button => {
+        const action = button.dataset.favoritesDialogModalBtn;
   
-    $dialogModalButtons.forEach(button => {
-      const action = button.dataset.favoritesDialogModalBtn;
-
-      if (action === "confirm") button.addEventListener("click", () => {
-        renderLoading(loadingMessage);
-        intentionalDelay(handleConfirmationDialogModal); 
+        if (action === "confirm") button.addEventListener("click", () => {
+          renderLoading(loadingMessage);
+          intentionalDelay(() => handleConfirmationDialogModal(movieTitle)); 
+        });
+        if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
       });
-      if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
-    });
+    } catch (error) {
+        renderError(error);
+    }
   }
 }
 
-function handleConfirmationDialogModal() {
+function handleConfirmationDialogModal(movieTitle) {
   clearLoading();
   let $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
   clearDialogModal($dialogModalComponent);
-  const confirmationMessage = setDialogModalMessage("Title has been added to favorites");
+  const confirmationMessage = setDialogModalMessage(`${movieTitle} has been added to favorites`);
   const modalType = setDialogModalType("confirmation-modal");
   renderDialogModal(confirmationMessage, modalType);
   $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
