@@ -36,7 +36,7 @@
     border-radius: .8rem;
   }
 
-  .dialog-message {
+  .dialog-message-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,6 +46,12 @@
     min-height: 20rem;
     border: .2rem solid var(--accent-clr);
     border-radius: .8rem;
+
+    .dialog-message {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
   }
 
   &.loading-modal {

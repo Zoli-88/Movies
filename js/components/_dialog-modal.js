@@ -21,10 +21,10 @@ function dialogModalComponent(questionOrConfirmationMessage, modalType) {
 
     return `
         <div class="status-component padding-inline" data-dialog-modal>
-            <div class="dialog-message padding-inline">
-                <div>
+            <div class="dialog-message-wrapper padding-inline">
+                <div class=dialog-message>
                     <i class="fa-solid fa-circle-${iconType}"></i>
-                    <span class="status-text">${questionOrConfirmationMessage}</span>
+                    <p>${questionOrConfirmationMessage}</p>
                 </div>
                 <div>
                     <button class="primary-btn" ${dataAttr}="confirm">Ok</button>

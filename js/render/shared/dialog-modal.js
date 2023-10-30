@@ -19,37 +19,40 @@ async function initWatchListDialogModal(e) {
             const movie = await listMovie(imdbID);
             const movieTitle = movie.Title;
             const loadingMessage = setLoadingMessage("Please wait...");
-            const question = setDialogModalMessage(`Add ${movieTitle} to your watchlist?`);
+            const question = setDialogModalMessage(`Add <span class="highlight">${movieTitle}</span> to your watchlist?`);
             const modalType = setDialogModalType("watchlist-modal");
             renderDialogModal(question, modalType);
             const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
             const $dialogModalButtons = document.querySelectorAll("[data-watchlist-dialog-modal-btn]");
         
-        $dialogModalButtons.forEach(button => {
-            const action = button.dataset.watchlistDialogModalBtn;
-    
-            if (action === "confirm") button.addEventListener("click", () => {
-                renderLoading(loadingMessage);
-                intentionalDelay(() => handleConfirmationDialogModal(movieTitle)); 
+            $dialogModalButtons.forEach(button => {
+                const action = button.dataset.watchlistDialogModalBtn;
+        
+                if (action === "confirm") button.addEventListener("click", () => {
+                    renderLoading(loadingMessage);
+                    intentionalDelay(() => handleConfirmationDialogModal(movie)); 
+                });
+
+                if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
             });
-            if (action === "cancel") button.addEventListener("click", () => clearDialogModal($dialogModalComponent));
-        });
         } catch (error) {
             renderError(error);
         }
     }
 }
 
-function handleConfirmationDialogModal(movieTitle) {
+function handleConfirmationDialogModal(movie) {
     clearLoading();
     let $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     clearDialogModal($dialogModalComponent);
-    const confirmationMessage = setDialogModalMessage(`${movieTitle} has been added to your <a href="/watchlist.html">watchlist</a>`);
+    const movieTitle = movie.Title;
+    const confirmationMessage = setDialogModalMessage(`<span class="highlight">${movieTitle}</span> has been added to your <a href="/watchlist.html">watchlist</a>`);
     const modalType = setDialogModalType("confirmation-modal");
     renderDialogModal(confirmationMessage, modalType);
     $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
     const $dialogModalConfirmButton = document.querySelector(`[data-dialog-confirmation-message-modal-btn="confirm"]`);
     $dialogModalConfirmButton.addEventListener("click", () => {
+        addToWatchList(movie);
         clearDialogModal($dialogModalComponent);
     });
 }
