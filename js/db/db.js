@@ -1,12 +1,13 @@
-const watchlist = [];
 
 function addToWatchList(movie) {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
     watchlist.push(movie);
-    console.log(watchlist);
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
 }
 
 function getWatchList() {
-    return watchlist;
+    const watchlistData = localStorage.getItem("watchlist");
+    return watchlistData ? JSON.parse(watchlistData) : [];
 }
 
 export { addToWatchList, getWatchList }
