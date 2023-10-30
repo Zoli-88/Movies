@@ -3,9 +3,9 @@ import {renderCopyright} from "../shared/copyright.js";
 import {renderSignInForm} from "./sign-in-form.js";
 
 function initSignInPage() {
-  menuNavComponent();
-  renderSignInForm();
-  renderCopyright();
+    menuNavComponent();
+    renderSignInForm();
+    renderCopyright();
 }
 
 export {initSignInPage}

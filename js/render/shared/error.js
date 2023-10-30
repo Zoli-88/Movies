@@ -5,16 +5,16 @@ function renderError(error) {
     const $main = document.querySelector("main");
     let personalisedErrorMessage = "";
     if (error === "Movie not found!") {
-      personalisedErrorMessage = "Please try searching for a different title";
-      $main.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
-      const $errorButton = document.querySelector("#error-btn");
-      if ($errorButton) $errorButton.addEventListener("click", () => {
-        redirectUserToTheHomePage();
-        clearError();
-      });
+        personalisedErrorMessage = "Please try searching for a different title";
+        $main.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
+        const $errorButton = document.querySelector("#error-btn");
+            if ($errorButton) $errorButton.addEventListener("click", () => {
+                redirectUserToTheHomePage();
+                clearError();
+            });
     } else {
-      redirectUserToTheErrorPage(error);
-  }
+        redirectUserToTheErrorPage(error);
+    }
 }
   
 function redirectUserToTheErrorPage(error) {

@@ -6,12 +6,12 @@ function renderLoading(message) {
   }
 
 function clearLoading() {
-  const $loading = document.querySelector("#loading");
-  $loading.remove();
+    const $loading = document.querySelector("#loading");
+    $loading.remove();
 }
 
 function setLoadingMessage(message) {
-  return message;
+    return message;
 }
 
 export {renderLoading, clearLoading, setLoadingMessage};

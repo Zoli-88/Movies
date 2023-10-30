@@ -10,20 +10,20 @@ if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", o
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeMovieInfoModal);
 
 function openMovieInfoModal(e) {
-  const openModalButton = e.target.closest("[data-modal-btn-open-id]");
-  
-  if (openModalButton) {
-    const imdbID = openModalButton.dataset.modalBtnOpenId;
-    renderMovieInfoModalContent(imdbID);
-  }
+    const openModalButton = e.target.closest("[data-modal-btn-open-id]");
+
+    if (openModalButton) {
+        const imdbID = openModalButton.dataset.modalBtnOpenId;
+        renderMovieInfoModalContent(imdbID);
+    }
 }
 
 function closeMovieInfoModal(e) {
-  const closeModalButton = e.target.closest("[data-modal-btn-close-id]");
-  
-  if (closeModalButton) {
-    const imdbID = closeModalButton.dataset.modalBtnCloseId;
-    clearMovieInfoModalContent(imdbID);
-  }
+    const closeModalButton = e.target.closest("[data-modal-btn-close-id]");
+
+    if (closeModalButton) {
+        const imdbID = closeModalButton.dataset.modalBtnCloseId;
+        clearMovieInfoModalContent(imdbID);
+    }
 }
 
