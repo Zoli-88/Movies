@@ -1,0 +1,5 @@
+function renderWatchlistMovies() {
+  
+}
+
+export { renderWatchlistMovies }
