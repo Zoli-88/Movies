@@ -1,2 +1,2 @@
-import {initMoviePage} from "../render/movie-details-page/movie-page.js";
+import { initMoviePage } from "../render/movie-details-page/movie-page.js";
 initMoviePage();

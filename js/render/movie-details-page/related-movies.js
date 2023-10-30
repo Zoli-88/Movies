@@ -1,9 +1,9 @@
-import {listMovies} from "../../api/api.js";
-import {activateSwiper} from "../shared/swiper.js";
-import {relatedTitlesComponent} from "../../components/_related-titles.js";
-import {noRelatedTitlesComponent} from "../../components/_no-related-titles.js";
-import {relatedMoviesComponent} from "../../components/_related-movies.js";
-import {renderError} from "../shared/error.js";
+import { listMovies } from "../../api/api.js";
+import { activateSwiper } from "../shared/swiper.js";
+import { relatedTitlesComponent } from "../../components/_related-titles.js";
+import { noRelatedTitlesComponent } from "../../components/_no-related-titles.js";
+import { relatedMoviesComponent } from "../../components/_related-movies.js";
+import { renderError } from "../shared/error.js";
 
 async function renderRelatedMovies() {
     const $relatedMovies = document.querySelector("#related-movies");
@@ -34,4 +34,4 @@ async function renderRelatedMovies() {
     }
   }
 
-  export {renderRelatedMovies};
+  export { renderRelatedMovies };

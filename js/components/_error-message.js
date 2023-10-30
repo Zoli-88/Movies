@@ -17,4 +17,4 @@ function errorMessageComponent() {
     `
 }
 
-export {errorMessageComponent}
+export { errorMessageComponent }

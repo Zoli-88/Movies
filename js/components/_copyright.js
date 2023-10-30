@@ -4,4 +4,4 @@ function copyRightComponent(year) {
     `
 }
 
-export {copyRightComponent}
+export { copyRightComponent }

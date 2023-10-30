@@ -35,4 +35,4 @@ function dialogModalComponent(questionOrConfirmationMessage, modalType) {
     `
 }
 
-export {dialogModalComponent}
+export { dialogModalComponent }

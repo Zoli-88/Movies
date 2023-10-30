@@ -1,6 +1,6 @@
-import {isValidUrl} from "../utils/utils.js";
-import {IMDB_URL, IMDB_PLACEHOLDER} from "../constants/constants.js";
-import {getLoggedInStatus} from "../auth/auth.js";
+import { isValidUrl } from "../utils/utils.js";
+import { IMDB_URL, IMDB_PLACEHOLDER } from "../constants/constants.js";
+import { getLoggedInStatus } from "../auth/auth.js";
 
 function cardComponent(movie, searchResult = "thor") {
     const isLoggedIn = getLoggedInStatus();
@@ -46,4 +46,4 @@ function cardComponent(movie, searchResult = "thor") {
     `
 }
 
-export {cardComponent};
+export { cardComponent };

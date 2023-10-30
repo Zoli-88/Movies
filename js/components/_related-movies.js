@@ -1,4 +1,4 @@
-import {cardComponent} from "../components/_card.js";
+import { cardComponent } from "../components/_card.js";
 
 function relatedMoviesComponent(movies) {
     // In the related movies component (swiper) we want to render all the movies present in the default search
@@ -32,4 +32,4 @@ function relatedMoviesComponent(movies) {
     `
 }
 
-export {relatedMoviesComponent};
+export { relatedMoviesComponent };

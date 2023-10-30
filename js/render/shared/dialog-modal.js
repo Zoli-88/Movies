@@ -1,8 +1,9 @@
-import {dialogModalComponent} from "../../components/_dialog-modal.js";
-import {renderLoading, clearLoading, setLoadingMessage} from "./loading.js";
-import {intentionalDelay} from "../../utils/utils.js";
-import {listMovie} from "../../api/api.js";
-import {renderError} from "./error.js";
+import { dialogModalComponent } from "../../components/_dialog-modal.js";
+import { renderLoading, clearLoading, setLoadingMessage } from "./loading.js";
+import { intentionalDelay } from "../../utils/utils.js";
+import { listMovie } from "../../api/api.js";
+import { renderError } from "./error.js";
+import { addToWatchList } from "../../db/db.js";
 
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");

@@ -1,20 +1,28 @@
 // On load
-import {renderLoading, clearLoading} from "../shared/loading.js";
-import {renderMovies} from "./movies.js";
-import {renderCopyright} from "../shared/copyright.js";
-import {menuNavComponent} from "../../components/_menu-nav.js";
-import {intentionalDelay} from "../../utils/utils.js";
-import {renderDialogModal, clearDialogModal, setDialogModalMessage, setDialogModalType, getConfirmationDialogModalStatusFromLocalStorage, setConfirmationDialogModalStatusInLocalStorage} from "../shared/dialog-modal.js";
+import { renderLoading, clearLoading } from "../shared/loading.js";
+import { renderMovies } from "./movies.js";
+import { renderCopyright } from "../shared/copyright.js";
+import { menuNavComponent } from "../../components/_menu-nav.js";
+import { intentionalDelay } from "../../utils/utils.js";
+import { 
+    renderDialogModal, 
+    clearDialogModal, 
+    setDialogModalMessage, 
+    setDialogModalType, 
+    getConfirmationDialogModalStatusFromLocalStorage, 
+    setConfirmationDialogModalStatusInLocalStorage
+} from "../shared/dialog-modal.js";
 
 async function initMovieListPage() {
-    const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
-    renderLoading();
-    menuNavComponent();
-    renderCopyright();
     const $container = document.querySelector("#container");
     const urlSearchParams = new URLSearchParams(window.location.search);
     const searchResult = urlSearchParams.get("search");
+    const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
 
+    renderLoading();
+    menuNavComponent();
+    renderCopyright();
+    
     if (searchResult) {
         await renderMovies(searchResult, $container);
     } else {
@@ -39,4 +47,4 @@ async function initMovieListPage() {
     }
 }
 
-  export {initMovieListPage};
+  export { initMovieListPage };

@@ -4,4 +4,4 @@ function relatedTitlesComponent(querySearchPhrase) {
     `
 }
 
-export {relatedTitlesComponent};
+export { relatedTitlesComponent };

@@ -1,9 +1,8 @@
-import {renderError} from "../shared/error.js";
-import {listMovie} from "../../api/api.js";
-import {ratingsComponent} from "../../components/_ratings.js";
-import {descriptionComponent} from "../../components/_description.js";
-import {goBackToPreviousPage, intentionalDelay} from "../../utils/utils.js";
-import {renderDialogModal, clearDialogModal, setDialogModalMessage, setDialogModalType, getConfirmationDialogModalStatusFromLocalStorage, setConfirmationDialogModalStatusInLocalStorage} from "../shared/dialog-modal.js";
+import { renderError } from "../shared/error.js";
+import { listMovie } from "../../api/api.js";
+import { ratingsComponent } from "../../components/_ratings.js";
+import { descriptionComponent } from "../../components/_description.js";
+import { goBackToPreviousPage } from "../../utils/utils.js";
 
 async function renderMovie() {
     const $moviePage = document.querySelector("#movie-page");
@@ -14,7 +13,6 @@ async function renderMovie() {
     const searchParams = new URLSearchParams(paramsString);
     const queryImdbID = searchParams.get("imdbID");
     const querySearchPhrase = searchParams.get("searchPhrase");
-    const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
 
     try {
         const movie = await listMovie(queryImdbID);
@@ -24,20 +22,6 @@ async function renderMovie() {
     } catch (error) {
         renderError(error);
     }
-
-    if (shouldShowConfirmationDialog) {
-        const confirmationMessage = setDialogModalMessage("You have been successfully signed out");
-        const modalType = setDialogModalType("confirmation-modal");
-        setConfirmationDialogModalStatusInLocalStorage(false);
-        intentionalDelay(() => {
-            renderDialogModal(confirmationMessage, modalType);
-            const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
-            const $dialogModalConfirmButton = document.querySelector(`[data-dialog-confirmation-message-modal-btn="confirm"]`);
-            $dialogModalConfirmButton.addEventListener("click", () => {
-                clearDialogModal($dialogModalComponent);
-            });
-        });
-    }
 }
 
-export {renderMovie};
+export { renderMovie };

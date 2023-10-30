@@ -1,7 +1,7 @@
-import {checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses} from "../utils/utils.js";
-import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
-import {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage, setConfirmationDialogModalStatusInLocalStorage} from "../render/shared/dialog-modal.js";
-import {renderLoading} from "../render/shared/loading.js";
+import { checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses } from "../utils/utils.js";
+import { getLoggedInStatus, setLoggedInStatus } from "../auth/auth.js";
+import { renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage, setConfirmationDialogModalStatusInLocalStorage } from "../render/shared/dialog-modal.js";
+import { renderLoading } from "../render/shared/loading.js";
 
 function menuNavComponent() {
     const $navMenuComponent = document.querySelector(".navigation-component");
@@ -127,4 +127,4 @@ function menuNavComponent() {
     changeNavMenuComponentAppearanceOnScroll($scrollEffectTrigger, $navMenuComponent, "scroll", scrollEffectTriggerMarginTop);
 };
 
-export {menuNavComponent};
+export { menuNavComponent };

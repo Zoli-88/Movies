@@ -1,4 +1,4 @@
-import {renderMovieInfoModalContent, clearMovieInfoModalContent} from "./movie-info.modal.js";
+import { renderMovieInfoModalContent, clearMovieInfoModalContent } from "./movie-info.modal.js";
 
 const $container = document.querySelector("#container");
 const $relatedMoviesContainer = document.querySelector("#related-movies");

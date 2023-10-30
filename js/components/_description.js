@@ -54,4 +54,4 @@ function descriptionComponent(movie) {
     `
 }
 
-export {descriptionComponent};
+export { descriptionComponent };

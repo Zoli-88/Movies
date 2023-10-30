@@ -1,4 +1,4 @@
-import {searchFormValidation, checkIfMobileOrDesktop} from "../utils/utils.js";
+import { searchFormValidation, checkIfMobileOrDesktop } from "../utils/utils.js";
 let $formComponent;
 const breakpointValue = 768;
 

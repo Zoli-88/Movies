@@ -1,8 +1,8 @@
-import {listMovie} from "../../api/api.js";
-import {movieInfoModalComponent} from "../../components/_movie-info-modal.js";
-import {renderError} from "./error.js";
-import {renderLoadingModal, renderClearLoadingModal} from "./loading-modal.js";
-import {intentionalDelay} from "../../utils/utils.js";
+import { listMovie } from "../../api/api.js";
+import { movieInfoModalComponent } from "../../components/_movie-info-modal.js";
+import { renderError } from "./error.js";
+import { renderLoadingModal, renderClearLoadingModal } from "./loading-modal.js";
+import { intentionalDelay } from "../../utils/utils.js";
 
 async function renderMovieInfoModalContent(imdbID) {
     renderLoadingModal(imdbID);
@@ -26,4 +26,4 @@ function clearMovieInfoModalContent(imdbID) {
     }, fadeOutMs);
 }
 
-export {renderMovieInfoModalContent, clearMovieInfoModalContent};
+export { renderMovieInfoModalContent, clearMovieInfoModalContent };

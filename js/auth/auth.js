@@ -10,4 +10,4 @@ function getLoggedInStatus() {
     return isLoggedIn === "true";
 }
 
-export {setLoggedInStatus, getLoggedInStatus}
+export { setLoggedInStatus, getLoggedInStatus }

@@ -1,5 +1,5 @@
-import {copyRightComponent} from "../../components/_copyright.js";
-import {currentYear} from "../../utils/utils.js";
+import { copyRightComponent } from "../../components/_copyright.js";
+import { currentYear } from "../../utils/utils.js";
 
 function renderCopyright() {
     const $copyRight = document.querySelector("#copyright");
@@ -7,4 +7,4 @@ function renderCopyright() {
     $copyRight.innerHTML = copyRightComponent(year);
 }
 
-export {renderCopyright}
+export { renderCopyright }

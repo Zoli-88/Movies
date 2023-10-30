@@ -1,4 +1,4 @@
-import {loadingModalComponent} from "../../components/_loading-modal.js";
+import { loadingModalComponent } from "../../components/_loading-modal.js";
 
 function renderLoadingModal(imdbID) {
     const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
@@ -10,4 +10,4 @@ function renderClearLoadingModal(imdbID) {
     $loadingModal.remove();
 }
 
-export {renderLoadingModal, renderClearLoadingModal};
+export { renderLoadingModal, renderClearLoadingModal };

@@ -1,4 +1,4 @@
-import {BASE_URL} from "../constants/constants.js";
+import { BASE_URL } from "../constants/constants.js";
 
 async function listMovies(queryMovieTitle = "thor") {
     const response = await fetch(`${BASE_URL}&s=${queryMovieTitle}`);
@@ -20,4 +20,4 @@ async function listMovie(imdbID) {
     return data;
 }
 
-export {listMovies, listMovie};
+export { listMovies, listMovie };

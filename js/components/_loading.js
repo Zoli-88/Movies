@@ -10,4 +10,4 @@ function loadingComponent(message = "Loading, please wait...") {
     `
 }
 
-export {loadingComponent};
+export { loadingComponent };

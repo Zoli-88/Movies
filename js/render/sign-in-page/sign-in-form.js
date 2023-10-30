@@ -1,10 +1,10 @@
-import {signInFormComponent} from "../../components/_sign-in-form.js";
-import {goBackToPreviousPage, intentionalDelay, redirectUserToTheHomePage} from "../../utils/utils.js";
-import {MASTER_EMAIL, MASTER_PASSWORD} from "../../constants/constants.js";
-import {renderLoading} from "../shared/loading.js";
-import {errorComponent} from "../../components/_error.js";
-import {clearError} from "../shared/error.js";
-import {setLoggedInStatus} from "../../auth/auth.js";
+import { signInFormComponent } from "../../components/_sign-in-form.js";
+import { goBackToPreviousPage, intentionalDelay } from "../../utils/utils.js";
+import { MASTER_EMAIL, MASTER_PASSWORD } from "../../constants/constants.js";
+import { renderLoading } from "../shared/loading.js";
+import { errorComponent } from "../../components/_error.js";
+import { clearError } from "../shared/error.js";
+import { setLoggedInStatus } from "../../auth/auth.js";
 
 function renderSignInForm() {
     const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
@@ -37,4 +37,4 @@ function renderSignInForm() {
     }
 }
 
-export {renderSignInForm}
+export { renderSignInForm }

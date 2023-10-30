@@ -27,4 +27,4 @@ function activateSwiper() {
     });
 }
 
-export {activateSwiper};
+export { activateSwiper };

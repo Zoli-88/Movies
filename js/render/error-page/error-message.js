@@ -1,5 +1,5 @@
-import {errorMessageComponent} from "../../components/_error-message.js";
-import {redirectUserToTheHomePage} from "../../utils/utils.js";
+import { errorMessageComponent } from "../../components/_error-message.js";
+import { redirectUserToTheHomePage } from "../../utils/utils.js";
 
 function renderErrorMessage() {
     const $error = document.querySelector("#error");
@@ -8,4 +8,4 @@ function renderErrorMessage() {
     $errorButton.addEventListener("click", redirectUserToTheHomePage);
 }
 
-export {renderErrorMessage}
+export { renderErrorMessage }

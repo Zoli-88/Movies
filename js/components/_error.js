@@ -12,4 +12,4 @@ function errorComponent(error, personalisedErrorMessage) {
     `
 }
 
-export {errorComponent};
+export { errorComponent };

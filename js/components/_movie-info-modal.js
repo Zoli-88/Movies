@@ -29,4 +29,4 @@ function movieInfoModalComponent(movie) {
     `
 }
 
-export {movieInfoModalComponent};
+export { movieInfoModalComponent };

@@ -10,4 +10,4 @@ function loadingModalComponent() {
     `
 }
 
-export {loadingModalComponent}
+export { loadingModalComponent }

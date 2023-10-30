@@ -4,4 +4,4 @@ function noRelatedTitlesComponent(querySearchPhrase) {
     `
 }
 
-export {noRelatedTitlesComponent};
+export { noRelatedTitlesComponent };

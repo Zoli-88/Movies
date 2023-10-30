@@ -1,5 +1,5 @@
-import {errorComponent} from "../../components/_error.js";
-import {redirectUserToTheHomePage} from "../../utils/utils.js";
+import { errorComponent } from "../../components/_error.js";
+import { redirectUserToTheHomePage } from "../../utils/utils.js";
 
 function renderError(error) {
     const $main = document.querySelector("main");
@@ -28,4 +28,4 @@ function clearError() {
     $error.remove();
 }
 
-export {renderError, clearError};
+export { renderError, clearError };

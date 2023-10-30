@@ -1,4 +1,4 @@
-import {loadingComponent} from "../../components/_loading.js";
+import { loadingComponent } from "../../components/_loading.js";
 
 function renderLoading(message) {
     const $main = document.querySelector("main");
@@ -14,4 +14,4 @@ function setLoadingMessage(message) {
     return message;
 }
 
-export {renderLoading, clearLoading, setLoadingMessage};
+export { renderLoading, clearLoading, setLoadingMessage };

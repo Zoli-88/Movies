@@ -1,2 +1,2 @@
-import {initErrorPage} from "../render/error-page/error-page.js";
+import { initErrorPage } from "../render/error-page/error-page.js";
 initErrorPage();

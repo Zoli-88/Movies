@@ -26,4 +26,4 @@ function ratingComponent(rating) {
     `
 }
 
-export {ratingComponent, ratingsComponent};
+export { ratingComponent, ratingsComponent };
