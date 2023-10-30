@@ -1,6 +1,6 @@
 import {checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses} from "../utils/utils.js";
 import {getLoggedInStatus, setLoggedInStatus} from "../auth/auth.js";
-import {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage} from "../render/shared/dialog-modal.js";
+import {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage, setConfirmationDialogModalStatusInLocalStorage} from "../render/shared/dialog-modal.js";
 import {renderLoading} from "../render/shared/loading.js";
 
 function menuNavComponent() {
@@ -60,13 +60,14 @@ function menuNavComponent() {
   }
 
   function handleLogoutUser(e) {
-    const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
+    let $dialogModalComponent = document.querySelector("[data-dialog-modal]");
     const loadingMessage = "Signing you out, please wait...";
     e.preventDefault();
     renderLoading(loadingMessage);
     clearDialogModal($dialogModalComponent);
     setLoggedInStatus(false);
     updateNavMenuLinksBasedOnGuestOrUser();
+    setConfirmationDialogModalStatusInLocalStorage(true);
     intentionalDelay(reloadCurrentPage);
   }
 

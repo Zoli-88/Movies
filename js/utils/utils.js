@@ -43,7 +43,6 @@ function currentYear() {
   const year = new Date().getFullYear();
   return year;
 }
-currentYear();
 
 function toggleClasses(element, openClass, closeClass, isOpen) {
   if (isOpen) {

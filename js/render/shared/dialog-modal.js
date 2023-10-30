@@ -47,7 +47,7 @@ function handleConfirmationDialogModal(movieTitle) {
   const modalType = setDialogModalType("confirmation-modal");
   renderDialogModal(confirmationMessage, modalType);
   $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
-  const $dialogModalConfirmButton = document.querySelector(`[data-watchlist-dialog-confirmation-message-modal-btn="confirm"]`);
+  const $dialogModalConfirmButton = document.querySelector(`[data-dialog-confirmation-message-modal-btn="confirm"]`);
   $dialogModalConfirmButton.addEventListener("click", () => {
     clearDialogModal($dialogModalComponent);
   });
@@ -70,4 +70,20 @@ function setDialogModalMessage(message) {
   return message;
 }
 
-export {renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage}
+function setConfirmationDialogModalStatusInLocalStorage(status) {
+  localStorage.setItem("showConfirmationDialogModal", status);
+}
+
+function getConfirmationDialogModalStatusFromLocalStorage() {
+  const shouldShowConfirmationModal =  localStorage.getItem("showConfirmationDialogModal");
+  return shouldShowConfirmationModal === "true";
+}
+
+export {
+  renderDialogModal, 
+  clearDialogModal, 
+  setDialogModalType, 
+  setDialogModalMessage, 
+  setConfirmationDialogModalStatusInLocalStorage, 
+  getConfirmationDialogModalStatusFromLocalStorage,
+}

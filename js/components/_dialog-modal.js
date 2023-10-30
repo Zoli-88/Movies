@@ -14,7 +14,7 @@ function dialogModalComponent(questionOrConfirmationMessage, modalType) {
   }
 
   if (modalType === "confirmation-modal") {
-    dataAttr = "data-watchlist-dialog-confirmation-message-modal-btn";
+    dataAttr = "data-dialog-confirmation-message-modal-btn";
     hideCancelButton = true;
     iconType = "info";
   }
