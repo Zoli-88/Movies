@@ -6,6 +6,12 @@ html {
   text-align: center;
 }
 
+.center-text-mobile {
+  @media (max-width: $mobile) {
+    text-align: center;   
+  }
+}
+
 .highlight {
   text-transform: capitalize;
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));

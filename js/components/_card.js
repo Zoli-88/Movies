@@ -33,7 +33,7 @@ function cardComponent(movie, searchResult = "thor") {
                         <i class="fa-brands fa-imdb logo-icon"></i>
                     </a>
                     ${isLoggedIn ? 
-                    `<button class="primary-btn add-to-watchlist" data-add-to-watchlist=${imdbID}>
+                    `<button class="primary-btn watchlist-btn" data-add-to-watchlist=${imdbID}>
                         <i class="fa-solid fa-heart"></i>
                     </button>`
                     : ``}

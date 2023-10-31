@@ -2,18 +2,32 @@
   max-width: $max-width;
   width: 100%;
   margin: 0 auto;
-}
 
-.grid-list {
-  max-width: $max-width;
-  margin: 0 auto;
-  --w: 25rem;
-  --n: 7;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
-  gap: 1rem;
+  &.grid-list {
+    max-width: $max-width;
+    margin: 0 auto;
+    --w: 25rem;
+    --n: 4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(max(var(--w), 100% / (var(--n) + 1) + 0.1%)), 1fr));
+    gap: 1rem;
 
-  @media only screen and (max-width: $mobile) {
-    place-items: center;
+    @media only screen and (max-width: $mobile) {
+      place-items: center;
+    }
+  }
+
+  &.watch-list-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .card-component {
+      max-width: 34rem;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      justify-content: center;
+    }
   }
 }

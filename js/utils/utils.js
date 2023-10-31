@@ -61,6 +61,11 @@ function intentionalDelay(callback) {
     }, intentionalDelayInMs)
 }
 
+function checkNumberOfChildren(parentEl) {
+    const numberOfChildren = parentEl.childElementCount;
+    return numberOfChildren;
+}
+
 export {
     goBackToPreviousPage, 
     isValidUrl, 
@@ -71,4 +76,5 @@ export {
     reloadCurrentPage, 
     toggleClasses, 
     intentionalDelay,
+    checkNumberOfChildren
 };
