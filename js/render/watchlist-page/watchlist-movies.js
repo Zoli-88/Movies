@@ -1,5 +1,6 @@
 import { getWatchList } from "../../db/db.js";
 import { cardComponent } from "../../components/_card.js";
+import { noWatchlistTitlesComponent } from "../../components/_no-watchlist-titles.js";
 import { renderLoading, clearLoading, setLoadingMessage } from "../shared/loading.js"; 
 import { intentionalDelay, checkNumberOfChildren } from "../../utils/utils.js";
 
@@ -16,6 +17,7 @@ function renderWatchlistMovies() {
         $container.innerHTML += cardComponent(movie);
     });
     numberOfWatchlistMovies = checkNumberOfChildren($container);
+    if (!numberOfWatchlistMovies) $container.innerHTML += noWatchlistTitlesComponent();
     handleWatchlistMoviesLayout(numberOfWatchlistMovies);
     intentionalDelay(clearLoading);
 }
