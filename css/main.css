@@ -512,10 +512,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   flex-direction: column;
   flex-grow: 1;
 }
-.card-component .content {
+.card-component .information .content {
   margin: 1rem 0 1.6rem;
 }
-.card-component .content .card-title {
+.card-component .information .content .card-title {
   font-size: 2rem;
   display: inline-block;
   margin-bottom: 0.6rem;
@@ -526,24 +526,24 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   text-overflow: ellipsis;
   max-width: 90%;
 }
-.card-component .content .card-title:hover {
+.card-component .information .content .card-title:hover {
   color: var(--secondary-text-clr-hover);
 }
-.card-component .content .calendar-icon,
-.card-component .content .year {
+.card-component .information .content .calendar-icon,
+.card-component .information .content .year {
   font-size: 1.4rem;
 }
-.card-component .details {
+.card-component .information .details {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.4rem;
 }
-.card-component .fa-heart {
+.card-component .information .details .fa-heart {
   color: var(--icon-red);
 }
-.card-component .logo-icon {
+.card-component .information .details .logo-icon {
   font-size: 3.6rem;
   color: var(--accent-clr);
 }

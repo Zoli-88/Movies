@@ -1,7 +1,7 @@
 import { getWatchList } from "../../db/db.js";
 import { cardComponent } from "../../components/_card.js";
 import { renderLoading, clearLoading, setLoadingMessage } from "../shared/loading.js"; 
-import { intentionalDelay, checkNumberOfChildren, checkIfMobileOrDesktop } from "../../utils/utils.js";
+import { intentionalDelay, checkNumberOfChildren } from "../../utils/utils.js";
 
 const $container = document.querySelector("#container");
 const loadingMessage = setLoadingMessage("Loading your watchlist, please wait...");
