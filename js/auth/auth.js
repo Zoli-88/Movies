@@ -10,13 +10,13 @@ function getLoggedInStatus() {
     return isLoggedIn === "true";
 }
 
-function setStatusForWatchlistButton(status) {
-    localStorage.setItem("isAdded", status);
-}
+// function setStatusForWatchlistButton(status) {
+//     localStorage.setItem("isAdded", status);
+// }
 
-function getStatusForWatchlistButton() {
-    const isAdded = localStorage.getItem("isAdded");
-    return isAdded === "true";
-}
+// function getStatusForWatchlistButton() {
+//     const isAdded = localStorage.getItem("isAdded");
+//     return isAdded === "true";
+// }
 
-export { setLoggedInStatus, getLoggedInStatus, setStatusForWatchlistButton, getStatusForWatchlistButton }
+export { setLoggedInStatus, getLoggedInStatus }

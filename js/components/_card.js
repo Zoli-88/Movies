@@ -1,18 +1,20 @@
+import { isTitleInWatchlist } from "../db/db.js";
 import { isValidUrl } from "../utils/utils.js";
 import { IMDB_URL, IMDB_PLACEHOLDER } from "../constants/constants.js";
-import { getLoggedInStatus, getStatusForWatchlistButton } from "../auth/auth.js";
+import { getLoggedInStatus } from "../auth/auth.js";
 
 function cardComponent(movie, searchResult = "thor") {
-    const isAdded = getStatusForWatchlistButton();
+    const {
+        imdbID,
+        Poster,
+        Title,
+        Year,
+    } = movie;
+
+    const isAdded = isTitleInWatchlist(imdbID);
     const dataTitleAdded = isAdded ? 'data-title-added' : "";
     const addedClass = isAdded ? 'added' : "";
     const isLoggedIn = getLoggedInStatus();
-    const {
-    imdbID,
-    Poster,
-    Title,
-    Year,
-    } = movie;
 
     const posterUrl = (Poster !== "N/A" && isValidUrl(Poster)) ? Poster : "https://fakeimg.pl/300x429/ff0000,128/000,255/?text=Cool Poster";
     return `
