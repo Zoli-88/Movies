@@ -1,8 +1,11 @@
 import { isValidUrl } from "../utils/utils.js";
 import { IMDB_URL, IMDB_PLACEHOLDER } from "../constants/constants.js";
-import { getLoggedInStatus } from "../auth/auth.js";
+import { getLoggedInStatus, getStatusForWatchlistButton } from "../auth/auth.js";
 
 function cardComponent(movie, searchResult = "thor") {
+    const isAdded = getStatusForWatchlistButton();
+    const dataTitleAdded = isAdded ? 'data-title-added' : "";
+    const addedClass = isAdded ? 'added' : "";
     const isLoggedIn = getLoggedInStatus();
     const {
     imdbID,
@@ -32,8 +35,8 @@ function cardComponent(movie, searchResult = "thor") {
                     <a href=${IMDB_URL.replace(IMDB_PLACEHOLDER, imdbID)} target="_blank">
                         <i class="fa-brands fa-imdb logo-icon"></i>
                     </a>
-                    ${isLoggedIn ? 
-                    `<button class="primary-btn watchlist-btn" data-add-to-watchlist=${imdbID}>
+                    ${isLoggedIn ?
+                    `<button class="primary-btn watchlist-btn ${addedClass}" data-watchlist-modal-btn-id=${imdbID} ${dataTitleAdded}>
                         <i class="fa-solid fa-heart"></i>
                     </button>`
                     : ``}

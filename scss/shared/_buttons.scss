@@ -25,7 +25,14 @@ button {
 
   &.watchlist-btn {
     margin-left: auto;
+
+    &.added {
+      .fa-heart {
+        color: var(--icon-added);
+      }
+    }
   }
+
 
   &.nav-menu-toggle-btn {
     position: absolute;

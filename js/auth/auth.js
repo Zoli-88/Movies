@@ -10,4 +10,13 @@ function getLoggedInStatus() {
     return isLoggedIn === "true";
 }
 
-export { setLoggedInStatus, getLoggedInStatus }
+function setStatusForWatchlistButton(status) {
+    localStorage.setItem("isAdded", status);
+}
+
+function getStatusForWatchlistButton() {
+    const isAdded = localStorage.getItem("isAdded");
+    return isAdded === "true";
+}
+
+export { setLoggedInStatus, getLoggedInStatus, setStatusForWatchlistButton, getStatusForWatchlistButton }

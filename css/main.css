@@ -27,6 +27,7 @@
   --icon-yellow: #ffff00;
   --icon-orange: #ffd700;
   --icon-red: #ff0000;
+  --icon-added: #6c1717;
   --icon-brown: #8b4513;
   --icon-teal: #60c5e7;
   --icon-turqoise: #20b2aa;
@@ -180,6 +181,9 @@ button.primary-btn:focus, button.primary-btn:active {
 }
 button.watchlist-btn {
   margin-left: auto;
+}
+button.watchlist-btn.added .fa-heart {
+  color: var(--icon-added);
 }
 button.nav-menu-toggle-btn {
   position: absolute;
@@ -512,10 +516,10 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   flex-direction: column;
   flex-grow: 1;
 }
-.card-component .information .content {
+.card-component .content {
   margin: 1rem 0 1.6rem;
 }
-.card-component .information .content .card-title {
+.card-component .content .card-title {
   font-size: 2rem;
   display: inline-block;
   margin-bottom: 0.6rem;
@@ -526,24 +530,24 @@ button.nav-menu-toggle-btn.toggle .bar3 {
   text-overflow: ellipsis;
   max-width: 90%;
 }
-.card-component .information .content .card-title:hover {
+.card-component .content .card-title:hover {
   color: var(--secondary-text-clr-hover);
 }
-.card-component .information .content .calendar-icon,
-.card-component .information .content .year {
+.card-component .content .calendar-icon,
+.card-component .content .year {
   font-size: 1.4rem;
 }
-.card-component .information .details {
+.card-component .details {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.4rem;
 }
-.card-component .information .details .fa-heart {
+.card-component .details .fa-heart {
   color: var(--icon-red);
 }
-.card-component .information .details .logo-icon {
+.card-component .details .logo-icon {
   font-size: 3.6rem;
   color: var(--accent-clr);
 }

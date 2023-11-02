@@ -1,3 +1,4 @@
+import { setStatusForWatchlistButton, getStatusForWatchlistButton } from "../../auth/auth.js";
 import { dialogModalComponent } from "../../components/_dialog-modal.js";
 import { renderLoading, clearLoading, setLoadingMessage } from "./loading.js";
 import { intentionalDelay } from "../../utils/utils.js";
@@ -12,10 +13,11 @@ if ($container) $container.addEventListener("click", initWatchListDialogModal);
 if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", initWatchListDialogModal);
 
 async function initWatchListDialogModal(e) {
-    const openWatchListModalButton = e.target.closest("[data-add-to-watchlist]");
+    const openWatchListModalButton = e.target.closest("[data-watchlist-modal-btn-id]");
+    let buttonState = getStatusForWatchlistButton();
     if (openWatchListModalButton) {
         try {
-            const imdbID = openWatchListModalButton.dataset.addToWatchlist;
+            const imdbID = openWatchListModalButton.dataset.watchlistModalBtnId;
             const movie = await listMovie(imdbID);
             const movieTitle = movie.Title;
             const loadingMessage = setLoadingMessage("Please wait...");
@@ -29,6 +31,10 @@ async function initWatchListDialogModal(e) {
                 const action = button.dataset.watchlistDialogModalBtn;
         
                 if (action === "confirm") button.addEventListener("click", () => {
+                    openWatchListModalButton.toggleAttribute("data-title-added");
+                    openWatchListModalButton.classList.toggle("added");
+                    openWatchListModalButton.hasAttribute("data-title-added") ? setStatusForWatchlistButton(true) : setStatusForWatchlistButton(false);
+                    buttonState = getStatusForWatchlistButton();
                     renderLoading(loadingMessage);
                     intentionalDelay(() => handleConfirmationDialogModal(movie)); 
                 });
