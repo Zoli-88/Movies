@@ -9,9 +9,9 @@ import { setLoggedInStatus } from "../../auth/auth.js";
 function renderSignInForm() {
     const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
     $backToPreviousPageButton.addEventListener("click", goBackToPreviousPage);
-    const $formContainer = document.querySelector("#sign-in-form-container");
+    const $formContainer = document.querySelector(`[data-el=sign-in-form-container]`);
     $formContainer.insertAdjacentHTML("afterbegin", signInFormComponent());
-    const $form = document.querySelector("#sign-in-form");
+    const $form = document.querySelector(`[data-el=sign-in-form]`);
     $form.addEventListener("submit", handleLogin);
 
     function handleLogin(e) {

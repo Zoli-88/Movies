@@ -1,6 +1,6 @@
 function signInFormComponent() {
     return `
-    <form id="sign-in-form" class="login-form center-block padding-block padding-inline">
+    <form class="login-form center-block padding-block padding-inline" data-el="sign-in-form">
         <label for="email" class="capitalize">e-mail</label>
         <input type="email" id="email" name="email" required>
         <label for="password" class="capitalize">password</label>
