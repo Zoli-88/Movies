@@ -3,14 +3,13 @@ import { errorComponent } from "../../components/_error.js";
 function renderError(error) {
     const $main = document.querySelector("main");
     let personalisedErrorMessage = "";
-    console.log(error)
 
     switch (error) {
         case "Movie not found!":
             personalisedErrorMessage = `Please try searching for a different title`;
             break;
         case "Too many results.":
-            personalisedErrorMessage = `Please try searching for a more specific title to narrow your search`;
+            personalisedErrorMessage = `Please try searching for a more specific title to narrow down your search`;
             break;
         case "Incorrect IMDb ID.":
             personalisedErrorMessage = `Please try searching for a title instead, for example "Thor"`;
