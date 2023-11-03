@@ -1,5 +1,4 @@
 import { errorComponent } from "../../components/_error.js";
-import { redirectUserToTheHomePage } from "../../utils/utils.js";
 
 function renderError(error) {
     const $main = document.querySelector("main");
@@ -9,7 +8,7 @@ function renderError(error) {
         $main.insertAdjacentHTML("beforeend", errorComponent(error, personalisedErrorMessage));
         const $errorButton = document.querySelector("#error-btn");
             if ($errorButton) $errorButton.addEventListener("click", () => {
-                redirectUserToTheHomePage();
+                // redirectUserToTheHomePage();
                 clearError();
             });
     } else {

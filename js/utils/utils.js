@@ -22,12 +22,6 @@ function isValidUrl(url) {
     }
 }
 
-function searchFormValidation(searchResult) {
-    const redirectUrl = `/index.html?search=${encodeURIComponent(searchResult)}`;
-    window.location.href = redirectUrl;
-    // to do basic validation and display some message
-}
-
 function checkIfMobileOrDesktop(callback, breakpointValue) {
     const breakpoint = window.matchMedia(`(min-width: ${breakpointValue}px)`);
 
@@ -69,7 +63,6 @@ function checkNumberOfChildren(parentEl) {
 export {
     goBackToPreviousPage, 
     isValidUrl, 
-    searchFormValidation, 
     checkIfMobileOrDesktop, 
     currentYear, 
     redirectUserToTheHomePage, 

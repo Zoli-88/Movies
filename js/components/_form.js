@@ -1,4 +1,6 @@
-import { searchFormValidation, checkIfMobileOrDesktop } from "../utils/utils.js";
+import { checkIfMobileOrDesktop } from "../utils/utils.js";
+import { listMovies } from "../api/api.js";
+import { renderError } from "../render/shared/error.js";
 let $formComponent;
 const breakpointValue = 768;
 
@@ -23,6 +25,17 @@ function updateFormIdBasedOnScreenSize(isDesktop) {
         }
         searchFormValidation(searchResult);
     }
+}
+
+async function searchFormValidation(searchResult) {
+    try {
+        await listMovies(searchResult);
+        const redirectUrl = `/index.html?search=${encodeURIComponent(searchResult)}`;
+        window.location.href = redirectUrl;
+    } catch (error) {
+        renderError(error);
+    }
+    // to do basic validation and display some message
 }
 
 checkIfMobileOrDesktop(updateFormIdBasedOnScreenSize, breakpointValue);
