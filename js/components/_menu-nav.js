@@ -7,12 +7,12 @@ function menuNavComponent() {
     const $navMenuComponent = document.querySelector(`[data-el="nav-component"]`);
     const $navMenuComponentDesktop = document.querySelector(`[data-el="nav-component-desktop"]`);
     const $navMenuComponentMobile = document.querySelector(`[data-el="nav-component-mobile"]`);
-    const $navMenuMobileList = document.querySelector(".navigation-component .nav-links-list-mobile");
-    const $navMenuMobileLinks = document.querySelectorAll(".navigation-component .nav-links-list-mobile li");
+    const $navMenuMobileList = document.querySelector(`[data-el="nav-links-list-mobile"]`);
+    const $navMenuMobileLinks = document.querySelectorAll(`[data-el="nav-links-list-items-mobile"]`);
     const $navMenuSignInSignOutLinks = document.querySelectorAll("[data-sign-in-out]");
     const $navMenuWatchlistLinks = document.querySelectorAll("[data-watchlist]");
     const $navMenuToggleButton = document.querySelector(`[data-el="nav-menu-toggle-btn"]`);
-    const $dropDownMenuComponent = document.querySelector(".dropdown-menu-component");
+    const $dropDownMenuComponent = document.querySelector(`[data-el="dropdown-menu-component"]`);
     const $scrollEffectTrigger = document.querySelector("[data-nav-menu-scroll-trigger]");
     const scrollEffectTriggerMarginTop = 2;
     const breakpointValue = 768;
