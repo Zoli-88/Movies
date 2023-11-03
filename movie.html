@@ -16,8 +16,8 @@
 </head>
 <body>
   <header>
-    <nav class="navigation-component">
-      <div class="container padding-inline desktop">
+    <nav class="navigation-component" data-el="nav-component">
+      <div class="container padding-inline desktop" data-el="nav-component-desktop">
         <a href="/index.html">
           <img src="Images/logo.png" alt="" class="logo">
         </a>
@@ -37,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <div class="container padding-inline mobile hide">
+      <div class="container padding-inline mobile hide" data-el="nav-component-mobile">
         <div class="dropdown-menu-component">
           <ul class="nav-links-list-mobile padding-top hidden">
             <li>
@@ -58,7 +58,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <button class="nav-menu-toggle-btn">
+        <button class="nav-menu-toggle-btn" data-el="nav-menu-toggle-btn">
           <span class="bar1"></span>
           <span class="bar2"></span>
           <span class="bar3"></span>
