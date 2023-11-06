@@ -157,6 +157,10 @@ body {
     justify-content: center;
   }
 }
+.container.watch-list-flex img {
+  width: 100%;
+  max-width: 100%;
+}
 
 button {
   background: none;
