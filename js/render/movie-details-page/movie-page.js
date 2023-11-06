@@ -12,6 +12,8 @@ import {
     getConfirmationDialogModalStatusFromLocalStorage, 
     setConfirmationDialogModalStatusInLocalStorage
 } from "../shared/dialog-modal.js";
+import { formComponent } from "../../components/_form.js";
+import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMoviePage() {
     const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
@@ -19,6 +21,8 @@ async function initMoviePage() {
     renderLoading();
     menuNavComponent();
     renderCopyright();
+    formComponent();
+    renderMovieInfoModal();
     await renderMovie();
     await renderRelatedMovies();
     

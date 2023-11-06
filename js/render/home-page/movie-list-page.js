@@ -12,6 +12,8 @@ import {
     getConfirmationDialogModalStatusFromLocalStorage, 
     setConfirmationDialogModalStatusInLocalStorage
 } from "../shared/dialog-modal.js";
+import { formComponent } from "../../components/_form.js";
+import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMovieListPage() {
     const $container = document.querySelector("#container");
@@ -21,6 +23,8 @@ async function initMovieListPage() {
 
     renderLoading();
     menuNavComponent();
+    formComponent();
+    renderMovieInfoModal();
     renderCopyright();
     
     if (searchResult) {
