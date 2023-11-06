@@ -30,4 +30,16 @@
       justify-content: center;
     }
   }
+
+  &.no-titles {
+    .img-wrapper {
+      max-width: 40rem;
+      margin: 0 auto .6rem;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }

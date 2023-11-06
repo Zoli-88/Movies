@@ -5,6 +5,7 @@ import { renderLoading, clearLoading, setLoadingMessage } from "../shared/loadin
 import { intentionalDelay, checkNumberOfChildren , goBackToPreviousPage} from "../../utils/utils.js";
 
 const $container = document.querySelector("#container");
+const $noTitlesInWatchlistContainer = document.querySelector("[data-no-titles-in-watchlist]");
 const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
 const loadingMessage = setLoadingMessage("Loading your watchlist, please wait...");
 let numberOfWatchlistMovies;
@@ -19,7 +20,12 @@ function renderWatchlistMovies() {
         $container.innerHTML += cardComponent(movie);
     });
     numberOfWatchlistMovies = checkNumberOfChildren($container);
-    if (!numberOfWatchlistMovies) $container.innerHTML += noWatchlistTitlesComponent();
+    if (!numberOfWatchlistMovies) {
+        $noTitlesInWatchlistContainer.innerHTML += noWatchlistTitlesComponent();
+        $container.remove();
+    } else {
+        $noTitlesInWatchlistContainer.remove();
+    }
     handleWatchlistMoviesLayout(numberOfWatchlistMovies);
     intentionalDelay(clearLoading);
 }

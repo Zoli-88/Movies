@@ -69,15 +69,10 @@ html {
 }
 
 .highlight {
-  text-transform: capitalize;
   background: linear-gradient(var(--text-gradient-accent-clr), var(--text-gradient-base-clr));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.capitalize-first-letter::first-letter {
-  text-transform: uppercase;
 }
 
 .capitalize {
@@ -157,7 +152,11 @@ body {
     justify-content: center;
   }
 }
-.container.watch-list-flex img {
+.container.no-titles .img-wrapper {
+  max-width: 40rem;
+  margin: 0 auto 0.6rem;
+}
+.container.no-titles img {
   width: 100%;
   max-width: 100%;
 }
