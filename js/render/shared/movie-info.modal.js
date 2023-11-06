@@ -4,8 +4,10 @@ import { renderError } from "./error.js";
 import { renderLoadingModal, renderClearLoadingModal } from "./loading-modal.js";
 import { intentionalDelay } from "../../utils/utils.js";
 
-function renderMovieInfoModal() {
-    const $container = document.querySelector("#container");
+function renderMovieInfoModal(watchList) {
+
+    let $container = document.querySelector("#container");
+    if (watchList) $container = document.querySelector(`[data-el="watchlist"]`);
     const $relatedMoviesContainer = document.querySelector("#related-movies");
     
     if ($container) $container.addEventListener("click", openMovieInfoModal);

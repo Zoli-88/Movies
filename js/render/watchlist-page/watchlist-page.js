@@ -4,12 +4,14 @@ import { renderCopyright } from "../shared/copyright.js";
 import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
 import { renderWatchlistMovies } from "./watchlist-movies.js";
 
+let watchlist = "watchlist";
+
 function initWatchlistPage() {
     renderMenuNav();
     renderCopyright();
     renderWatchlistMovies();
     renderSearchForm();
-    renderMovieInfoModal();
+    renderMovieInfoModal(watchlist);
 }
 
 export { initWatchlistPage }

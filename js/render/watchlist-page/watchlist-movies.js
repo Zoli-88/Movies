@@ -4,8 +4,8 @@ import { noWatchlistTitlesComponent } from "../../components/_no-watchlist-title
 import { renderLoading, clearLoading, setLoadingMessage } from "../shared/loading.js"; 
 import { intentionalDelay, checkNumberOfChildren , goBackToPreviousPage} from "../../utils/utils.js";
 
-const $container = document.querySelector("#container");
-const $noTitlesInWatchlistContainer = document.querySelector("[data-no-titles-in-watchlist]");
+const $watchlistContainer = document.querySelector(`[data-el="watchlist"]`);
+const $noTitlesInWatchlistContainer = document.querySelector(`[data-el="no-titles-in-watchlist"]`);
 const $backToPreviousPageButton = document.querySelector("#prev-page-btn");
 const loadingMessage = setLoadingMessage("Loading your watchlist, please wait...");
 let numberOfWatchlistMovies;
@@ -15,25 +15,25 @@ function renderWatchlistMovies() {
     renderLoading(loadingMessage);
     if ($backToPreviousPageButton) $backToPreviousPageButton.addEventListener("click", goBackToPreviousPage);
     const watchlist = getWatchList();
-    $container.innerHTML = "";
+    $watchlistContainer.innerHTML = "";
     watchlist.forEach(movie => {
-        $container.innerHTML += cardComponent(movie);
+        $watchlistContainer.innerHTML += cardComponent(movie);
     });
-    numberOfWatchlistMovies = checkNumberOfChildren($container);
+    numberOfWatchlistMovies = checkNumberOfChildren($watchlistContainer);
     if (!numberOfWatchlistMovies) {
         $noTitlesInWatchlistContainer.innerHTML += noWatchlistTitlesComponent();
-        $container.remove();
+        $watchlistContainer.remove();
     } else {
         $noTitlesInWatchlistContainer.remove();
     }
     handleWatchlistMoviesLayout(numberOfWatchlistMovies);
     intentionalDelay(clearLoading);
-}
 
-function handleWatchlistMoviesLayout(numberOfWatchlistMovies) {
-    if (numberOfWatchlistMovies >= idealNumberOfMoviesPerRow) return;
-    $container.classList.remove ("grid-list");
-    $container.classList.add("watch-list-flex");
+    function handleWatchlistMoviesLayout(numberOfWatchlistMovies) {
+        if (numberOfWatchlistMovies >= idealNumberOfMoviesPerRow) return;
+        $watchlistContainer.classList.remove ("grid-list");
+        $watchlistContainer.classList.add("watch-list-flex");
+    }
 }
 
 export { renderWatchlistMovies }
