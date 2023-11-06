@@ -4,14 +4,17 @@ import { renderError } from "./error.js";
 import { renderLoadingModal, renderClearLoadingModal } from "./loading-modal.js";
 import { intentionalDelay } from "../../utils/utils.js";
 
-function renderMovieInfoModal(watchList) {
+function renderMovieInfoModal() {
 
-    let $container = document.querySelector("#container");
-    if (watchList) $container = document.querySelector(`[data-el="watchlist"]`);
+    const $container = document.querySelector("#container");
+    const $watchlistContainer = document.querySelector(`[data-el="watchlist"]`);
     const $relatedMoviesContainer = document.querySelector("#related-movies");
     
     if ($container) $container.addEventListener("click", openMovieInfoModal);
     if ($container) $container.addEventListener("click", closeMovieInfoModal);
+    
+    if ($watchlistContainer) $watchlistContainer.addEventListener("click", closeMovieInfoModal);
+    if ($watchlistContainer) $watchlistContainer.addEventListener("click", openMovieInfoModal);
     
     if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openMovieInfoModal);
     if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeMovieInfoModal);

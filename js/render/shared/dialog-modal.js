@@ -6,7 +6,6 @@ import { renderError } from "./error.js";
 import { addToWatchList, removeFromWatchList } from "../../db/db.js";
 import { renderWatchlistMovies } from "../watchlist-page/watchlist-movies.js";
 
-
 function test(watchlist) {
     let $container = document.querySelector("#container");
     if (watchlist) $container = document.querySelector(`[data-el="watchlist"]`);

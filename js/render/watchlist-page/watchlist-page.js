@@ -12,7 +12,7 @@ function initWatchlistPage() {
     renderCopyright();
     renderWatchlistMovies();
     renderSearchForm();
-    renderMovieInfoModal(watchlist);
+    renderMovieInfoModal();
     test(watchlist);
 }
 
