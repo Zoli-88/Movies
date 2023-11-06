@@ -1,11 +1,11 @@
-import { checkIfMobileOrDesktop } from "../utils/utils.js";
-import { listMovies } from "../api/api.js";
-import { renderError } from "../render/shared/error.js";
+import { checkIfMobileOrDesktop } from "../../utils/utils.js";
+import { listMovies } from "../../api/api.js";
+import { renderError } from "./error.js";
 
-function formComponent() {
+function renderSearchForm() {
     let $formComponent;
     const breakpointValue = 768;
-    
+
     function updateFormIdBasedOnScreenSize(isDesktop) {
         if (isDesktop) {
             $formComponent = document.querySelector(`[data-el=search-form-desktop]`);
@@ -43,4 +43,4 @@ function formComponent() {
     checkIfMobileOrDesktop(updateFormIdBasedOnScreenSize, breakpointValue);
 }
 
-export { formComponent };
+export { renderSearchForm };

@@ -1,13 +1,13 @@
-import { menuNavComponent } from "../../components/_menu-nav.js";
+import { renderMenuNav } from "../shared/menu-nav.js";
 import { renderCopyright } from "../shared/copyright.js";
 import { renderErrorMessage } from "../error-page/error-message.js";
-import { formComponent } from "../../components/_form.js";
+import { renderSearchForm } from "../shared/form.js";
 
 function initErrorPage() {
-    menuNavComponent();
+    renderMenuNav();
     renderErrorMessage();
     renderCopyright();
-    formComponent();
+    renderSearchForm();
 }
 
 export { initErrorPage }

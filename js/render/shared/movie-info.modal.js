@@ -55,5 +55,4 @@ function renderMovieInfoModal() {
     }
 }
 
-
 export { renderMovieInfoModal };

@@ -2,7 +2,7 @@
 import { renderLoading, clearLoading } from "../shared/loading.js";
 import { renderMovies } from "./movies.js";
 import { renderCopyright } from "../shared/copyright.js";
-import { menuNavComponent } from "../../components/_menu-nav.js";
+import { renderMenuNav } from "../shared/menu-nav.js";
 import { intentionalDelay } from "../../utils/utils.js";
 import { 
     renderDialogModal, 
@@ -12,7 +12,7 @@ import {
     getConfirmationDialogModalStatusFromLocalStorage, 
     setConfirmationDialogModalStatusInLocalStorage
 } from "../shared/dialog-modal.js";
-import { formComponent } from "../../components/_form.js";
+import { renderSearchForm } from "../shared/form.js";
 import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMovieListPage() {
@@ -22,8 +22,8 @@ async function initMovieListPage() {
     const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
 
     renderLoading();
-    menuNavComponent();
-    formComponent();
+    renderMenuNav();
+    renderSearchForm();
     renderMovieInfoModal();
     renderCopyright();
     
