@@ -14,7 +14,7 @@ import {
     initWatchlistDialogModals
 } from "../shared/dialog-modal.js";
 import { renderSearchForm } from "../shared/form.js";
-import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
+import { initMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMoviePage() {
     const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
@@ -23,7 +23,7 @@ async function initMoviePage() {
     renderMenuNav();
     renderCopyright();
     renderSearchForm();
-    renderMovieInfoModal();
+    initMovieInfoModal();
     initWatchlistDialogModals();
     await renderMovie();
     await renderRelatedMovies();

@@ -14,7 +14,7 @@ import {
     initWatchlistDialogModals
 } from "../shared/dialog-modal.js";
 import { renderSearchForm } from "../shared/form.js";
-import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
+import { initMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMovieListPage() {
     const $container = document.querySelector("#container");
@@ -25,7 +25,7 @@ async function initMovieListPage() {
     renderLoading();
     renderMenuNav();
     renderSearchForm();
-    renderMovieInfoModal();
+    initMovieInfoModal();
     renderCopyright();
     initWatchlistDialogModals();
     

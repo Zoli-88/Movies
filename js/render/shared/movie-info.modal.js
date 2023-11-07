@@ -4,7 +4,7 @@ import { renderError } from "./error.js";
 import { renderLoadingModal, renderClearLoadingModal } from "./loading-modal.js";
 import { intentionalDelay } from "../../utils/utils.js";
 
-function renderMovieInfoModal() {
+function initMovieInfoModal() {
 
     const $container = document.querySelector("#container");
     const $watchlistContainer = document.querySelector(`[data-el="watchlist"]`);
@@ -19,25 +19,10 @@ function renderMovieInfoModal() {
     if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", openMovieInfoModal);
     if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", closeMovieInfoModal);
     
-    function openMovieInfoModal(e) {
+    async function openMovieInfoModal(e) {
         const openModalButton = e.target.closest("[data-modal-btn-open-id]");
-    
-        if (openModalButton) {
-            const imdbID = openModalButton.dataset.modalBtnOpenId;
-            renderMovieInfoModalContent(imdbID);
-        }
-    }
-    
-    function closeMovieInfoModal(e) {
-        const closeModalButton = e.target.closest("[data-modal-btn-close-id]");
-    
-        if (closeModalButton) {
-            const imdbID = closeModalButton.dataset.modalBtnCloseId;
-            clearMovieInfoModalContent(imdbID);
-        }
-    }
-    
-    async function renderMovieInfoModalContent(imdbID) {
+        if (!openModalButton) return;
+        const imdbID = openModalButton.dataset.modalBtnOpenId;
         renderLoadingModal(imdbID);
         try {
             const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
@@ -49,15 +34,18 @@ function renderMovieInfoModal() {
         }
     }
     
-    function clearMovieInfoModalContent(imdbID) {
+    function closeMovieInfoModal(e) {
+        const closeModalButton = e.target.closest("[data-modal-btn-close-id]");
+        if (!closeModalButton) return;
+        const imdbID = closeModalButton.dataset.modalBtnCloseId;
         const $modal = document.querySelector(`[data-modal-open-id=${imdbID}]`);
         const fadeOutMs = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fade-ms'));
         $modal.classList.add("hide-modal");
     
         setTimeout(() => {
             $modal.remove();
-        }, fadeOutMs);
+        }, fadeOutMs);    
     }
 }
 
-export { renderMovieInfoModal };
+export { initMovieInfoModal };
