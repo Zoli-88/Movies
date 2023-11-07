@@ -3,7 +3,7 @@ import { addToWatchList, removeFromWatchList } from "../../db/db.js";
 import { renderLoading, clearLoading, setLoadingMessage } from "./loading.js";
 import { renderError } from "./error.js";
 import { renderWatchlistMovies } from "../watchlist-page/watchlist-movies.js";
-import { setDialogModalMessage, setDialogModalType, renderDialogModal, clearDialogModal } from "./dialog-modal.js";
+import { setDialogModalMessage, setDialogModalType, showDialogModal, hideDialogModal } from "./dialog-modal.js";
 import { intentionalDelay } from "../../utils/utils.js";
 
 function initWatchlistDialogModals(watchlist) {
@@ -28,7 +28,7 @@ function initWatchlistDialogModals(watchlist) {
                     ? setDialogModalMessage(`The title <span class="highlight">${movieTitle}</span> is already in your watchlist. Would you like to remove it?`)
                     : setDialogModalMessage(`Add <span class="highlight">${movieTitle}</span> to your watchlist?`);
                 const modalType = setDialogModalType("watchlist-modal");
-                renderDialogModal(question, modalType);
+                showDialogModal(question, modalType);
                 const $dialogModalComponent = document.querySelector("[data-dialog-modal]");
                 const $dialogModalButtons = document.querySelectorAll("[data-watchlist-dialog-modal-btn]");
 
@@ -44,7 +44,7 @@ function initWatchlistDialogModals(watchlist) {
 
                     if (action === "cancel") {
                         button.addEventListener("click", () => {
-                            clearDialogModal($dialogModalComponent);
+                            hideDialogModal($dialogModalComponent);
                         })
                     }
                 });
@@ -57,18 +57,18 @@ function initWatchlistDialogModals(watchlist) {
     function handleWatchlistConfirm(movie, isTitleAdded, imdbID) {
         clearLoading();
         let $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
-        clearDialogModal($dialogModalComponent);
+        hideDialogModal($dialogModalComponent);
         const movieTitle = movie.Title;
         const confirmationMessage = isTitleAdded ? 
             setDialogModalMessage(`<span class="highlight">${movieTitle}</span> has been removed from your <a href="/watchlist.html">watchlist</a>`) :
             setDialogModalMessage(`<span class="highlight">${movieTitle}</span> has been added to your <a href="/watchlist.html">watchlist</a>`);
         const modalType = setDialogModalType("confirmation-modal");
-        renderDialogModal(confirmationMessage, modalType);
+        showDialogModal(confirmationMessage, modalType);
         $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
         const $dialogModalConfirmButton = document.querySelector(`[data-dialog-confirmation-message-modal-btn="confirm"]`);
         $dialogModalConfirmButton.addEventListener("click", () => {
             isTitleAdded ? removeFromWatchList(imdbID) : addToWatchList(movie);
-            clearDialogModal($dialogModalComponent);
+            hideDialogModal($dialogModalComponent);
             if (watchlist) renderWatchlistMovies();
         });
     }

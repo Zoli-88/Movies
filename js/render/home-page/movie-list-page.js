@@ -5,8 +5,8 @@ import { renderCopyright } from "../shared/copyright.js";
 import { renderMenuNav } from "../shared/menu-nav.js";
 import { intentionalDelay } from "../../utils/utils.js";
 import { 
-    renderDialogModal, 
-    clearDialogModal, 
+    showDialogModal, 
+    hideDialogModal, 
     setDialogModalMessage, 
     setDialogModalType, 
     getConfirmationModalStatus, 
@@ -41,11 +41,11 @@ async function initMovieListPage() {
         setConfirmationModalStatus(false);
         intentionalDelay(() => {
             clearLoading();
-            renderDialogModal(confirmationMessage, modalType);
+            showDialogModal(confirmationMessage, modalType);
             const $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
             const $dialogModalConfirmButton = document.querySelector(`[data-dialog-confirmation-message-modal-btn="confirm"]`);
             $dialogModalConfirmButton.addEventListener("click", () => {
-                clearDialogModal($dialogModalComponent);
+                hideDialogModal($dialogModalComponent);
             });
         });
     } else {
