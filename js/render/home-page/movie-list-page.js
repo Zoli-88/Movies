@@ -11,7 +11,7 @@ import {
     setDialogModalType, 
     getConfirmationDialogModalStatusFromLocalStorage, 
     setConfirmationDialogModalStatusInLocalStorage,
-    test
+    initWatchlistDialogModals
 } from "../shared/dialog-modal.js";
 import { renderSearchForm } from "../shared/form.js";
 import { renderMovieInfoModal } from "../shared/movie-info.modal.js";
@@ -27,7 +27,7 @@ async function initMovieListPage() {
     renderSearchForm();
     renderMovieInfoModal();
     renderCopyright();
-    test();
+    initWatchlistDialogModals();
     
     if (searchResult) {
         await renderMovies(searchResult, $container);

@@ -6,15 +6,15 @@ import { renderError } from "./error.js";
 import { addToWatchList, removeFromWatchList } from "../../db/db.js";
 import { renderWatchlistMovies } from "../watchlist-page/watchlist-movies.js";
 
-function test(watchlist) {
+function initWatchlistDialogModals(watchlist) {
     let $container = document.querySelector("#container");
     if (watchlist) $container = document.querySelector(`[data-el="watchlist"]`);
     const $relatedMoviesContainer = document.querySelector("#related-movies");
 
-    if ($container) $container.addEventListener("click", initWatchListDialogModal);
-    if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", initWatchListDialogModal);
+    if ($container) $container.addEventListener("click", handleWatchlistModalButtonClicks);
+    if ($relatedMoviesContainer) $relatedMoviesContainer.addEventListener("click", handleWatchlistModalButtonClicks);
 
-    async function initWatchListDialogModal(e) {
+    async function handleWatchlistModalButtonClicks(e) {
         const openWatchListModalButton = e.target.closest("[data-watchlist-modal-btn-id]");
         if (openWatchListModalButton) {
             try {
@@ -39,7 +39,7 @@ function test(watchlist) {
                         openWatchListModalButton.toggleAttribute("data-title-added");
                         openWatchListModalButton.classList.toggle(addedClass);
                         renderLoading(loadingMessage);
-                        intentionalDelay(() => handleConfirmationDialogModal(movie, isTitleAdded, imdbID));
+                        intentionalDelay(() => handleWatchlistConfirm(movie, isTitleAdded, imdbID));
                     });
 
                     if (action === "cancel") {
@@ -54,7 +54,7 @@ function test(watchlist) {
         }
     }
 
-    function handleConfirmationDialogModal(movie, isTitleAdded, imdbID) {
+    function handleWatchlistConfirm(movie, isTitleAdded, imdbID) {
         clearLoading();
         let $dialogModalComponent = document.querySelector(`[data-dialog-modal]`);
         clearDialogModal($dialogModalComponent);
@@ -73,7 +73,6 @@ function test(watchlist) {
         });
     }
 }
-
 
 function renderDialogModal(questionOrConfirmationMessage, modalType) {
     const $main = document.querySelector("main");
@@ -102,7 +101,7 @@ function getConfirmationDialogModalStatusFromLocalStorage() {
 }
 
 export {
-    test,
+    initWatchlistDialogModals,
     renderDialogModal, 
     clearDialogModal, 
     setDialogModalType, 
