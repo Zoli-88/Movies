@@ -3,7 +3,7 @@ import { renderMenuNav } from "../shared/menu-nav.js";
 import { renderCopyright } from "../shared/copyright.js";
 import { initMovieInfoModal } from "../shared/movie-info.modal.js";
 import { renderWatchlistMovies } from "./watchlist-movies.js";
-import { initWatchlistDialogModals } from "../shared/dialog-modal.js";
+import { initWatchlistDialogModals } from "../shared/watchlist-dialog-modal.js";
 
 let watchlist = "watchlist";
 

@@ -9,15 +9,15 @@ import {
     clearDialogModal, 
     setDialogModalMessage, 
     setDialogModalType, 
-    getConfirmationDialogModalStatusFromLocalStorage, 
-    setConfirmationDialogModalStatusInLocalStorage,
-    initWatchlistDialogModals
+    getConfirmationModalStatus, 
+    setConfirmationModalStatus
 } from "../shared/dialog-modal.js";
+import { initWatchlistDialogModals } from "../shared/watchlist-dialog-modal.js";
 import { renderSearchForm } from "../shared/form.js";
 import { initMovieInfoModal } from "../shared/movie-info.modal.js";
 
 async function initMoviePage() {
-    const shouldShowConfirmationDialog = getConfirmationDialogModalStatusFromLocalStorage();
+    const shouldShowConfirmationDialog = getConfirmationModalStatus();
 
     renderLoading();
     renderMenuNav();
@@ -31,7 +31,7 @@ async function initMoviePage() {
     if (shouldShowConfirmationDialog) {
         const confirmationMessage = setDialogModalMessage("You have been successfully signed out");
         const modalType = setDialogModalType("confirmation-modal");
-        setConfirmationDialogModalStatusInLocalStorage(false);
+        setConfirmationModalStatus(false);
         intentionalDelay(() => {
             clearLoading();
             renderDialogModal(confirmationMessage, modalType);

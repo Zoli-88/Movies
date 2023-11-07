@@ -1,11 +1,10 @@
 import { listMovie } from "../../api/api.js";
 import { movieInfoModalComponent } from "../../components/_movie-info-modal.js";
+import { loadingModalComponent } from "../../components/_loading-modal.js";
 import { renderError } from "./error.js";
-import { renderLoadingModal, renderClearLoadingModal } from "./loading-modal.js";
 import { intentionalDelay } from "../../utils/utils.js";
 
 function initMovieInfoModal() {
-
     const $container = document.querySelector("#container");
     const $watchlistContainer = document.querySelector(`[data-el="watchlist"]`);
     const $relatedMoviesContainer = document.querySelector("#related-movies");
@@ -23,11 +22,11 @@ function initMovieInfoModal() {
         const openModalButton = e.target.closest("[data-modal-btn-open-id]");
         if (!openModalButton) return;
         const imdbID = openModalButton.dataset.modalBtnOpenId;
-        renderLoadingModal(imdbID);
+        showLoadingModal(imdbID);
         try {
             const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
             const movie = await listMovie(imdbID);
-            intentionalDelay(() => renderClearLoadingModal(imdbID));
+            intentionalDelay(() => hideLoadingModal(imdbID));
             $cardComponent.insertAdjacentHTML("beforeend", movieInfoModalComponent(movie));
         } catch (error) {
             renderError(error);
@@ -45,6 +44,16 @@ function initMovieInfoModal() {
         setTimeout(() => {
             $modal.remove();
         }, fadeOutMs);    
+    }
+
+    function showLoadingModal(imdbID) {
+        const $cardComponent = document.querySelector(`[data-card-component-id=${imdbID}]`);
+        $cardComponent.insertAdjacentHTML("beforeend", loadingModalComponent());
+    }
+    
+    function hideLoadingModal(imdbID) {
+        const $loadingModal = document.querySelector(`[data-card-component-id=${imdbID}] .loading-modal`)
+        $loadingModal.remove();
     }
 }
 

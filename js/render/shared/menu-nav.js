@@ -1,6 +1,6 @@
 import { checkIfMobileOrDesktop, intentionalDelay, reloadCurrentPage, toggleClasses } from "../../utils/utils.js";
 import { getLoggedInStatus, setLoggedInStatus } from "../../auth/auth.js";
-import { renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage, setConfirmationDialogModalStatusInLocalStorage } from "./dialog-modal.js";
+import { renderDialogModal, clearDialogModal, setDialogModalType, setDialogModalMessage, setConfirmationModalStatus } from "./dialog-modal.js";
 import { renderLoading } from "./loading.js";
 
 function renderMenuNav() {
@@ -67,7 +67,7 @@ function renderMenuNav() {
         clearDialogModal($dialogModalComponent);
         setLoggedInStatus(false);
         updateNavMenuLinksBasedOnGuestOrUser();
-        setConfirmationDialogModalStatusInLocalStorage(true);
+        setConfirmationModalStatus(true);
         intentionalDelay(reloadCurrentPage);
     }
 
