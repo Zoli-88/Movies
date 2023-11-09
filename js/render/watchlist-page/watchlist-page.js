@@ -1,4 +1,4 @@
-import {renderSearchForm } from "../shared/form.js";
+import { renderSearchForm } from "../shared/form.js";
 import { renderMenuNav } from "../shared/menu-nav.js";
 import { renderCopyright } from "../shared/copyright.js";
 import { initMovieInfoModal } from "../shared/movie-info.modal.js";

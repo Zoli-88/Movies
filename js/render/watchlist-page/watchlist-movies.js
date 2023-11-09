@@ -2,7 +2,8 @@ import { getWatchList } from "../../db/db.js";
 import { cardComponent } from "../../components/_card.js";
 import { noWatchlistTitlesComponent } from "../../components/_no-watchlist-titles.js";
 import { renderLoading, clearLoading, setLoadingMessage } from "../shared/loading.js"; 
-import { intentionalDelay, checkNumberOfChildren , goBackToPreviousPage} from "../../utils/utils.js";
+import { intentionalDelay, checkNumberOfChildren , goBackToPreviousPage, redirectUserToTheHomePage} from "../../utils/utils.js";
+import { getLoggedInStatus } from "../../auth/auth.js";
 
 const $watchlistContainer = document.querySelector(`[data-el="watchlist"]`);
 const $noTitlesInWatchlistContainer = document.querySelector(`[data-el="no-titles-in-watchlist"]`);
@@ -12,6 +13,10 @@ let numberOfWatchlistMovies;
 const idealNumberOfMoviesPerRow = 4;
 
 function renderWatchlistMovies() {
+
+    const isLoggedIn = getLoggedInStatus();
+    if (!isLoggedIn) redirectUserToTheHomePage();
+
     renderLoading(loadingMessage);
     if ($backToPreviousPageButton) $backToPreviousPageButton.addEventListener("click", goBackToPreviousPage);
     const watchlist = getWatchList();
