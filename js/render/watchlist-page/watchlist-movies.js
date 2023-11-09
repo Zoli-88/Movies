@@ -15,7 +15,10 @@ const idealNumberOfMoviesPerRow = 4;
 function renderWatchlistMovies() {
 
     const isLoggedIn = getLoggedInStatus();
-    if (!isLoggedIn) redirectUserToTheHomePage();
+    if (!isLoggedIn) {
+        redirectUserToTheHomePage();
+        return;
+    }
 
     renderLoading(loadingMessage);
     if ($backToPreviousPageButton) $backToPreviousPageButton.addEventListener("click", goBackToPreviousPage);
