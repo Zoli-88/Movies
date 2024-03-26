@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/ce9ffc1494.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/main.css">
+  <title>Movies - Watchlist</title>
+</head>
+<body>
+  <header>
+    <nav class="navigation-component" data-el="nav-component">
+      <div class="container padding-inline desktop" data-el="nav-component-desktop">
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" data-el="search-form-desktop" class="search-form-component">
+          <label for="search-desktop"></label>
+          <input type="text" placeholder="Search" id="search-desktop" name="search-desktop">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="nav-links-desktop">
+          <li>
+            <a href="/sign-in.html" data-watchlist>Watchlist</a>
+          </li>
+          <li>
+            <a href="/sign-in.html" data-sign-in-out>Sign In</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container padding-inline mobile hide" data-el="nav-component-mobile">
+        <div class="dropdown-menu-component" data-el="dropdown-menu-component">
+          <ul class="nav-links-list-mobile padding-top hidden" data-el="nav-links-list-mobile">
+            <li>
+              <a href="/sign-in.html" data-watchlist data-el="nav-links-list-items-mobile">Watchlist</a>
+            </li>
+            <li>
+              <a href="/sign-in.html" data-sign-in-out data-el="nav-links-list-items-mobile">Sign In</a>
+            </li>
+          </ul>
+        </div>
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" data-el="search-form-mobile" class="search-form-component">
+          <label for="search-mobile"></label>
+          <input type="text" placeholder="Search" id="search-mobile" name="search-mobile">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+       
+        <button class="nav-menu-toggle-btn" data-el="nav-menu-toggle-btn">
+          <span class="bar1"></span>
+          <span class="bar2"></span>
+          <span class="bar3"></span>
+        </button>
+      </div>
+    </nav>
+      <div data-nav-menu-scroll-trigger></div>
+  </header>
+  <main>
+    <section class="padding-top padding-inline main-padding-top">
+      <div class="container">
+        <button id="prev-page-btn" class="primary-btn">Back</button>
+      </div>
+    </section>
+    <section class="padding-top padding-inline">
+      <div class="container">
+        <h1 class="highlight center-text-mobile">Watchlist</h1>
+      </div>
+    </section>
+    <section class="padding-block padding-inline">
+      <div class="container no-titles" data-el="no-titles-in-watchlist"></div>
+      <ul class="container grid-list" data-el="watchlist"></ul>
+    </section>
+  </main>
+  <footer>
+    <div class="container padding-block padding-inline">
+      <p id="copyright"></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script type="module" src="/js/init/watchlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/ce9ffc1494.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <title>Movies - Sign In</title>
+</head>
+<body>
+  <header>
+    <nav class="navigation-component" data-el="nav-component">
+      <div class="container padding-inline desktop" data-el="nav-component-desktop">
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" data-el="search-form-desktop" class="search-form-component">
+          <label for="search-desktop"></label>
+          <input type="text" placeholder="Search" id="search-desktop" name="search-desktop">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <div class="container padding-inline mobile hide" data-el="nav-component-mobile">
+        <a href="/index.html">
+          <img src="Images/logo.png" alt="" class="logo">
+        </a>
+        <form action="" data-el="search-form-mobile" class="search-form-component sign-in-page">
+          <label for="search-mobile"></label>
+          <input type="text" placeholder="Search" id="search-mobile" name="search-mobile">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+      <div data-nav-menu-scroll-trigger></div>
+  </header>
+  <main>    
+    <section class="padding-block padding-inline main-padding-top">
+      <div class="container">
+        <button id="prev-page-btn" class="primary-btn capitalize">back</button>
+      </div>
+    </section>
+    <section class="padding-block padding-inline">
+      <h1 class="center-text highlight capitalize">sign in</h1>
+      <div class="container padding-block padding-inline" data-el="sign-in-form-container"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="container padding-block padding-inline">
+      <p id="copyright"></p>
+    </div>
+  </footer>
+  <script type="module" src="/js/init/sign-in.js"></script>
+</body> 
+</html>

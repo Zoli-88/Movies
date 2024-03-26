@@ -51,8 +51,46 @@
     }
   }
 
-  .nav-links-mobile {
-    background: red;
+  .nav-links-list-mobile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+
+    li {
+      @keyframes fadeInMobileNavLinks {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOutMobileNavLinks {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      &.fade-in {
+        animation: fadeInMobileNavLinks;
+        animation-duration: .4s;
+        animation-fill-mode: forwards;
+      }
+
+      &.fade-out {
+        animation: fadeOutMobileNavLinks;
+        animation-duration: .4s;
+        animation-fill-mode: forwards;
+      }
+    }
   }
 
   & + [data-nav-menu-scroll-trigger] {

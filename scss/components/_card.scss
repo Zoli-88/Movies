@@ -14,7 +14,7 @@
 
   img {
     width: 100%;
-    min-height: 48rem;
+    min-height: 49rem;
     max-height: 49rem;
     display: block;
     object-fit: cover;
@@ -68,42 +68,47 @@
     justify-content: space-between;
     flex-direction: column;
     flex-grow: 1;
+  }
+  
+  .content {
+    margin: 1rem 0 1.6rem;
 
-    .content {
-      margin: 1rem 0 1.6rem;
+    .card-title {
+      font-size: 2rem;
+      display: inline-block;
+      margin-bottom: .6rem;
+      color: var(--secondary-text-clr);
+      transition: var(--fade-ms) ease-in-out;
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      max-width: 90%;
 
-      .card-title {
-        font-size: 2rem;
-        display: inline-block;
-        margin-bottom: .6rem;
-        color: var(--secondary-text-clr);
-        transition: var(--fade-ms) ease-in-out;
-        white-space: nowrap;
-        overflow-x: hidden;
-        text-overflow: ellipsis;
-        max-width: 90%;
-
-        &:hover {
-          color: var(--secondary-text-clr-hover);
-        }
-      }
-
-      .calendar-icon,
-      .year {
-        font-size: 1.4rem;
+      &:hover {
+        color: var(--secondary-text-clr-hover);
       }
     }
 
-    .details {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .calendar-icon,
+    .year {
+      font-size: 1.4rem;
+    }
+  }
 
-      .logo-icon {
-        font-size: 3.6rem;
-        color: var(--accent-clr);
-      }
+  .details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .4rem;
+
+    .fa-heart {
+      color: var(--icon-red);
+    }
+
+    .logo-icon {
+      font-size: 3.6rem;
+      color: var(--accent-clr);
     }
   }
 }

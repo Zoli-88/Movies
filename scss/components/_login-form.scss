@@ -1,0 +1,28 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.8rem;
+  background: var(--primary-bg-clr);
+  min-height: 60rem;
+  max-width: 45rem;
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: .8rem;
+  }
+ 
+  .fa-facebook,
+  .fa-google,
+  .fa-x-twitter {
+    font-size: 2rem;
+  }
+
+  input {
+    border: .2rem solid var(--accent-clr);
+    border-radius: .6rem;
+    min-height: 3rem;
+    padding-inline: .6rem;
+  }
+}

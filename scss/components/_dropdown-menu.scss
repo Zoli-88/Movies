@@ -6,9 +6,11 @@
     position: fixed;
     background: var(--body-bg-clr);
     transition: var(--dropdown-ms);
+    visibility: hidden;
 
-    &.slide {
+    &.open {
         height: var(--dropdown-menu-height);
         bottom: 0;
+        visibility: visible;
     }
 }

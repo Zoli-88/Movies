@@ -1,8 +1,17 @@
-import {loadingComponent} from "../../components/_loading.js";
+import { loadingComponent } from "../../components/_loading.js";
 
-function renderLoading() {
-    const $body = document.body;
-    $body.insertAdjacentHTML("beforeend", loadingComponent());
+function renderLoading(message) {
+    const $main = document.querySelector("main");
+    $main.insertAdjacentHTML("beforeend", loadingComponent(message));
   }
 
-export {renderLoading};
+function clearLoading() {
+    const $loading = document.querySelector("#loading");
+    $loading.remove();
+}
+
+function setLoadingMessage(message) {
+    return message;
+}
+
+export { renderLoading, clearLoading, setLoadingMessage };

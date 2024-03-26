@@ -1,17 +1,27 @@
 .hide {
-    display: none !important;
+  display: none !important;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .padding-top {
-    padding-top: 1.4rem;
+  padding-top: 1.4rem;
 }
 
 .padding-bottom {
-    padding-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
 }
 
 .padding-block {
-    padding-block: 1.4rem;
+  padding-block: 1.4rem;
 }
 
 .padding-inline {
@@ -20,4 +30,12 @@
 
 .main-padding-top {
   padding-top: calc(var(--nav-component-height) + 1.4rem);
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+.center-block {
+  margin-inline: auto;
 }
