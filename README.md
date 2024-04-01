@@ -2,6 +2,8 @@
 This project is a web application designed to help users keep track of their favorite movies and discover new ones. 
 Users can search for movies, add them to their watchlist, and view detailed information about each movie.
 
+![Movies Project screenshot](https://github.com/Zoli-88/Movies/assets/97125327/17943657-d912-42bb-a9af-36e52c5f7b2f)
+
 ## Features
 - Search for movies by title, actor, or genre.
 - View detailed information about each movie, including plot summaries, cast members, ratings, and more.
